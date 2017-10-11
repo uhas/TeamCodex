@@ -23,6 +23,10 @@ app.get('/events', function(request, response) {
   response.render('pages/events');
 });
 
+app.get('/parishioner', function(request, response) {
+  response.render('pages/parishioner');
+});
+
 app.get('/ministry', function(request, response) {
   response.render('pages/ministry');
 });
