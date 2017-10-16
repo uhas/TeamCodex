@@ -47,6 +47,14 @@ app.get('/tests', function(request, response) {
   response.render('pages/tests');
 });
 
+app.get('/ministrySurvey', function(request,response){
+	response.render('pages/ministrySurvey');
+});
+
+app.get('/skillSurvey', function(request,response){
+	response.render('pages/skillSurvey');
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
