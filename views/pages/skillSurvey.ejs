@@ -6,9 +6,9 @@
 <body>
  <% include ../partials/top.ejs %>
   <% include ../partials/nav.ejs %>
-  
+<div id="content">
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-12">
      <div class="panel panel-default">
        <div class="panel-heading">Skill Set 1</div>
          <div class="panel-body">
@@ -34,7 +34,7 @@
 	  </div>
 	</div>
 
-  <div class="col-sm-6">
+  <div class="col-sm-12">
      <div class="panel panel-default">
        <div class="panel-heading">Skill Set 2</div>
          <div class="panel-body">
@@ -60,9 +60,9 @@
 	  </div>
 	</div>
   </div>
-</div>
+
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-12">
      <div class="panel panel-default">
        <div class="panel-heading">Skill Set 3</div>
          <div class="panel-body">
@@ -88,7 +88,7 @@
 	  </div>
 	</div>
 
-  <div class="col-sm-6">
+  <div class="col-sm-12">
      <div class="panel panel-default">
        <div class="panel-heading">Skill Set 4</div>
          <div class="panel-body">
@@ -120,5 +120,12 @@
 <button type="submit" value="Submit">Submit</button>
 </div>
 </form>
+</div>  
+<style>
+		#content {
+				margin-left: 100px;
+				margin-right: 100px;
+		}
+</style>
 </body>
 </html>
