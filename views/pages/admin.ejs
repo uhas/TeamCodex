@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/header.ejs %>
+</head>
+
+<body>
+    <% include ../partials/top.ejs %>
+        <% include ../partials/nav.ejs %>
+
+            <!-- page code -->
+            <div class="container">
+                <div class="row">
+                    <div>
+                        <!-- <div class="jumbotron">
+                            <div class="row"> -->
+                                <!-- <div class="col-sm-2 col-sm-6">
+                                    <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+                                </div> -->
+                                <div class="col-sm-8">
+
+                                    <h2>Welcome Admin</h2>
+                                    <br>
+
+
+                                    <!-- <p>
+                                            <i class="glyphicon glyphicon-user"></i><b>Name:</b> Jolaine
+                                            <br />
+                                        <i class="glyphicon glyphicon-envelope"></i><b>Email:</b> email@example.com
+                                        <br />
+                                        <i class="glyphicon glyphicon-phone"></i><b>Contact:</b> +17777777007</p>
+                                    <!-- Split button -->
+                                    <!-- Note:<textarea name="message" rows="2" cols="100">Ill be free during Saturdays and Sundays between 10 am to 7pm.
+                                            </textarea> -->
+                                <!-- <footer><a><div align="right">edit</div></a></footer> -->
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-sm-2">
+
+                              <textarea rows="8" cols="50">
+                                Dashboard
+
+      * Parishioner 1 has deactivated his/her account
+      * New parishioner page has been created
+
+                                </textarea>
+                        </div>
+                        </div>
+
+                    </div>
+
+                <div class="row">
+                  <div class="col-sm-2">
+                  </div>
+                    <div class="col-sm-3">
+
+                      <p><a href=#>Create New User</a></p>
+
+                    </div>
+                    <div class="col-sm-3">
+                      <p> <a href=#> Create New Lead</a></p>
+
+                    </div>
+                  </div>
+                <!-- pannels for skill and ministries -->
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                      <p></p>
+</div>
+                      <!-- <div class="row"> -->
+                          <div class="col-sm-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">List of ministries</div>
+                            <div class="panel-body">
+
+                              <!-- <div class="checkbox"> -->
+
+<style>
+textarea{
+    margin-left: auto;
+    margin-right: auto;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 40px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+
+
+<div class="row">
+    <div class="col-sm-4">
+<p> Ministry1</p>
+</div>
+<div class="col-sm-2">
+<label class="switch">
+  <input type="checkbox">
+  <span class="slider"></span>
+</label>
+</div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+<p> Ministry2</p>
+</div>
+<div class="col-sm-2">
+<label class="switch">
+  <input type="checkbox">
+  <span class="slider"></span>
+</label>
+</div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+<p> Ministry3</p>
+</div>
+<div class="col-sm-2">
+<label class="switch">
+  <input type="checkbox">
+  <span class="slider"></span>
+</label>
+</div>
+</div><div class="row">
+    <div class="col-sm-4">
+<p> Ministry4</p>
+</div>
+<div class="col-sm-2">
+<label class="switch">
+  <input type="checkbox">
+  <span class="slider"></span>
+</label>
+</div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+<p> Ministry5</p>
+</div>
+<div class="col-sm-2">
+<label class="switch">
+  <input type="checkbox">
+  <span class="slider"></span>
+</label>
+</div>
+</div>
+                     </div>
+                            <div class="panel-fotter" ><a><div align="right">edit</div></a></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Skills/Gifts/Talents</div>
+                            <div class="panel-body">
+                                    <ul><a>Skill 1</a></ul>
+                                    <ul><a>Skill 2</a></ul>
+                                    <ul><a>Skill 3</a></ul>
+                                    <ul><a>Skill 4</a></ul>
+                                    <ul><a>Skill 5</a></ul>
+                            </div>
+                            <div class="panel-fotter"><a><div align="right">edit</div></a></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Reports</div>
+                            <div class="panel-body">
+                                    <ul><a>Report 1</a></ul>
+                                    <ul><a>Report 2</a></ul>
+                                    <ul><a>Report 3</a></ul>
+                                    <ul><a>Report 4</a></ul>
+                                    <ul><a>Report 5</a></ul>
+                            </div>
+                            <div class="panel-fotter"><a><div align="right">edit</div></a></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+            <!-- page code -->
+</body>
+
+</html>
