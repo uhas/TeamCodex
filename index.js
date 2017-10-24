@@ -57,6 +57,9 @@ app.get('/ministrySurvey', function(request,response){
 app.get('/skillSurvey', function(request,response){
 	response.render('pages/skillSurvey');
 });
+app.get('/Min_Lead', function(request,response){
+	response.render('pages/Min_Lead');
+});
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
