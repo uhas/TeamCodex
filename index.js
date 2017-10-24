@@ -18,6 +18,9 @@ app.get('/', function(request, response) {
 app.get('/ministries', function(request, response) {
   response.render('pages/ministries');
 });
+app.get('/admin', function(request, response) {
+  response.render('pages/admin');
+});
 
 app.get('/events', function(request, response) {
   response.render('pages/events');
@@ -72,4 +75,3 @@ app.listen(app.get('port'), function() {
 //     result += i + ' ';
 // response.send(result);
 // });
-
