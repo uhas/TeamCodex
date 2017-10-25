@@ -65,7 +65,9 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
-
+app.get('/ministry2', function(request,response){
+	response.render('pages/ministry2');
+});
 
 
 // app.get('/cool',function(request, response){
