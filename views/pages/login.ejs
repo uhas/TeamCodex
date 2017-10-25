@@ -88,6 +88,7 @@
         <label><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" >
     </br>      
+    <p id="my-error-message-container" style="display:none; border:1px solid red; color:red; background-color:yellow; font-weight:bold; padding:5px; width:188px;"></p>
         <button class="btn btn-info" type="submit">Login</a>
         
         <button class="btn btn-danger" role="button">Cancel</a>
@@ -110,9 +111,37 @@
             <script>
 function validateForm() {
     var x = document.forms["form"]["uname"].value;
-    if (x.length < 2) {
-        alert("enter a valid username");
+    var z = document.forms["form"]["psw"].value;
+    var y = /^[a-zA-Z0-9-_]{2,16}$/;
+    var p = /^[a-z0-9_-]{6,18}$/;
+    if (x== "") {
+        alert("please enter username");
         return false;
+    }
+    else if(x.length < 2)
+    {
+        alert("username should contain minimum 2 characters");
+        return false;
+    }
+    else if(y.test(x)== false)
+    {
+        alert("follow the pattern");
+        return false;   
+    }
+    if(z== "")
+    {
+        alert("please enter password");
+        return false;
+    }
+    else if(z.length <6)
+    {
+        alert("password should contain minimum 6 characters");
+        return false;
+    }
+    else if(p.test(z)== false)
+    {
+        alert("follow the pattern");
+        return false; 
     }
 
 }
@@ -123,8 +152,41 @@ function validateForm() {
 
     
 
-      <!-- test script -->
-       <!-- test script -->
+     
+ <!-- <script type="text/javascript">
+    function RemoveErrorMessageFromPage()
+    {
+       var IDofContainer = "my-error-message-container";
+       document.getElementById(IDofContainer).innerHTML = "";
+       document.getElementById(IDofContainer).style.display = "none";
+    }
+    
+    function InsertErrorMessageIntoPage(content)
+    {
+       var IDofContainer = "my-error-message-container";
+       document.getElementById(IDofContainer).style.display = "";
+       document.getElementById(IDofContainer).innerHTML = content;
+    }
+    
+    function ErrorCheck()
+    {
+       RemoveErrorMessageFromPage();
+       var uname = document.getElementByName("uname").value;
+       if(uname.length=="" )
+       {
+          InsertErrorMessageIntoPage("The user name is required.");
+          return false;
+       }
+       if( ! uname.match(/^[a-zA-Z0-9-_]{2,16}$/) )
+       {
+          InsertErrorMessageIntoPage("The user name appears to be invalid.");
+          return false;
+       }
+       return true;
+    }
+    </script>
+     -->
+    
 
 
 
