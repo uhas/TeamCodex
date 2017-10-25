@@ -67,6 +67,7 @@ app.listen(app.get('port'), function() {
 
 
 
+
 // app.get('/cool',function(request, response){
 //   response.send(cool());
 // })

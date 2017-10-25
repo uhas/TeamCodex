@@ -78,27 +78,59 @@
     
     <h2>Login Form</h2>
     
-    <form action="/action_page.php">
+    <form method="post" action="/" onSubmit="return validateForm(this)" name="form">
 
     
       <div class="container">
         <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
+        <input type="text" placeholder="Enter Username" name="uname" >
     </br>
         <label><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+        <input type="password" placeholder="Enter Password" name="psw" >
     </br>      
-        <a href="/parishioner" class="btn btn-info" role="button">Login</a>
-        <!-- <button type="button" class="cancelbtn">Cancel</button> -->
-        <a href="/" class="btn btn-danger" role="button">Cancel</a>
+        <button class="btn btn-info" type="submit">Login</a>
+        
+        <button class="btn btn-danger" role="button">Cancel</a>
         
       </div>
+
     
       <div class="container" style="background-color:#f1f1f1">
         <input type="checkbox" checked="checked"> Remember me
-        <span class="psw">Forgot <a href="#">password?</a></span>
+        <span class="psw"> <a href="#">Forgot password?</a></span>
       </div>
     </form>
+    <!-- test script -->
+     <!-- test script -->
+
+
+     
+
+           
+            <script>
+function validateForm() {
+    var x = document.forms["form"]["uname"].value;
+    if (x.length < 2) {
+        alert("enter a valid username");
+        return false;
+    }
+
+}
+</script>
+
+
+
+
+    
+
+      <!-- test script -->
+       <!-- test script -->
+
+
+
+
+
+
     
     </body>
     </html>
