@@ -69,6 +69,10 @@ app.get('/ministry2', function(request,response){
 	response.render('pages/ministry2');
 });
 
+app.get('/newuser', function(request,response){
+	response.render('pages/newuser');
+});
+
 
 // app.get('/cool',function(request, response){
 //   response.send(cool());
