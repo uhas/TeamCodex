@@ -74,6 +74,15 @@ app.get('/newuser', function(request,response){
 });
 
 
+app.get('/ministry3', function(request,response){
+	response.render('pages/ministry3');
+});
+
+app.get('/Passwordreset', function(request,response){
+	response.render('pages/Passwordreset');
+});
+
+
 // app.get('/cool',function(request, response){
 //   response.send(cool());
 // })
