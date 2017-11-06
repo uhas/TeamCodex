@@ -22,6 +22,10 @@ app.get('/admin', function(request, response) {
   response.render('pages/admin');
 });
 
+app.get('/newministry', function(request, response) {
+  response.render('pages/newministry');
+});
+
 app.get('/events', function(request, response) {
   response.render('pages/events');
 });
