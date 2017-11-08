@@ -87,10 +87,10 @@ current=username;
     });
   });
 
-var churchdata= new churchmodel({
-  username : "bhavishya",
-  password: "abcd"
-});
+// var churchdata= new churchmodel({
+//   username : "bhavishya",
+//   password: "abcd"
+// });
 //
 // churchdata.save(function(err,result){
 //   if(err){
