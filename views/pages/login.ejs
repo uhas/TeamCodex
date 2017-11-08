@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <% include ../partials/header.ejs %>
+  <% include ./partials/header.ejs %>
 </head>
 
 <body>
-  <% include ../partials/top.ejs %>
-  <% include ../partials/nav.ejs %>
-
+  <% include ./partials/top.ejs %>
+  <% include ./partials/nav.ejs %>
 
 
 <!-- page code -->
@@ -17,7 +16,7 @@
     form {
         border: 3px solid #f1f1f1;
     }
-    
+
     input[type=text], input[type=password] {
         width: 35%;
         padding: 12px 20px;
@@ -26,44 +25,43 @@
         border: 1px solid #ccc;
         box-sizing: border-box;
     }
-    
+
     button {
-        
+        background-color: #4CAF50;
         color: white;
         padding: 14px 20px;
         margin: 8px 0;
         border: none;
         cursor: pointer;
-        
-        
+        width: 12%;
     }
 
 
-    
+
     button:hover {
         opacity: 0.8;
     }
-    
-    
+
+
     .imgcontainer {
         text-align: center;
         margin: 24px 0 12px 0;
     }
-    
+
     img.avatar {
         width: 40%;
         border-radius: 50%;
     }
-    
+
     .container {
         padding: 16px;
     }
-    
+
     span.psw {
         float: none;
         padding-top: 16px;
     }
-    
+
     /* Change styles for span and cancel button on extra small screens */
     @media screen and (max-width: 300px) {
         span.psw {
@@ -76,130 +74,40 @@
     }
     </style>
     <body>
-    
-    <h2>Login Form</h2>
-    
-    <form method="post" action="/" onSubmit="return validateForm(this)" name="form">
 
-    
+    <h2>Login Form</h2>
+
+
+
+    <!-- <form action="/action_page.php"> -->
+<h5><b text-color="red"><%= errorMessage %></b></h5>
+    <form method="post" action="/login">
       <div class="container">
         <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" >
-    </br>
+        <input type="text" placeholder="Enter Username" id="uname" name="uname" required>
+          </br>
         <label><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" >
-    </br>      
-    <!-- <p id="my-error-message-container" style="display:none; border:1px solid red; color:red; background-color:yellow; font-weight:bold; padding:5px; width:188px;"></p> -->
-    <div class="btn-group-vertical">    
-    <button class="btn btn-info" style='margin-right:100px' type="submit">Login</button>
-    </br>   
-        <button class="btn btn-danger" style='margin-right:100px' role="button">Cancel</button>
-        </div>
-        
+        <input type="password" placeholder="Enter Password" name="psw" required>
+        </br>
+
+        <button type="submit" class="btn btn-info" role="button" >login</button>
+        <!-- <button type="button" class="cancelbtn">Cancel</button> -->
+        <p id="abc"></p>
+        <button type="submit" class="btn btn-danger" role="button">cancel</button>
+
       </div>
 
-    
       <div class="container" style="background-color:#f1f1f1">
         <input type="checkbox" checked="checked"> Remember me
-        <span class="psw"> <a href="Passwordreset">Forgot password?</a></span>
+        <span class="psw">Forgot <a href="#">password?</a></span>
       </div>
     </form>
-    <!-- test script -->
-     <!-- test script -->
-
-
-     
-
-           
-            <script>
-function validateForm() {
-    var x = document.forms["form"]["uname"].value;
-    var z = document.forms["form"]["psw"].value;
-    var y = /^[a-zA-Z0-9-_]{2,16}$/;
-    var p = /^[a-z0-9_-]{6,18}$/;
-    if (x== "") {
-        alert("please enter username");
-        return false;
-    }
-    else if(x.length < 2)
-    {
-        alert("username should contain minimum 2 characters");
-        return false;
-    }
-    else if(y.test(x)== false)
-    {
-        alert("follow the pattern");
-        return false;   
-    }
-    if(z== "")
-    {
-        alert("please enter password");
-        return false;
-    }
-    else if(z.length <6)
-    {
-        alert("password should contain minimum 6 characters");
-        return false;
-    }
-    else if(p.test(z)== false)
-    {
-        alert("follow the pattern");
-        return false; 
-    }
-
-}
-</script>
-
-
-
-
-    
-
-     
- <!-- <script type="text/javascript">
-    function RemoveErrorMessageFromPage()
-    {
-       var IDofContainer = "my-error-message-container";
-       document.getElementById(IDofContainer).innerHTML = "";
-       document.getElementById(IDofContainer).style.display = "none";
-    }
-    
-    function InsertErrorMessageIntoPage(content)
-    {
-       var IDofContainer = "my-error-message-container";
-       document.getElementById(IDofContainer).style.display = "";
-       document.getElementById(IDofContainer).innerHTML = content;
-    }
-    
-    function ErrorCheck()
-    {
-       RemoveErrorMessageFromPage();
-       var uname = document.getElementByName("uname").value;
-       if(uname.length=="" )
-       {
-          InsertErrorMessageIntoPage("The user name is required.");
-          return false;
-       }
-       if( ! uname.match(/^[a-zA-Z0-9-_]{2,16}$/) )
-       {
-          InsertErrorMessageIntoPage("The user name appears to be invalid.");
-          return false;
-       }
-       return true;
-    }
-    </script>
-     -->
-    
-
-
-
-
-
-
-    
-    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+  </body>
     </html>
 </center>
-
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 </body>
 </html>

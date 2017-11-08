@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <% include ../partials/header.ejs %>
+  <% include ./partials/header.ejs %>
 </head>
 
 <body>
-    <% include ../partials/loggedtop.ejs %>
-        <% include ../partials/nav.ejs %>
+  <% include ./partials/top.ejs %>
+  <% include ./partials/nav.ejs %>
 
             <!-- page code -->
             <div class="container">
@@ -20,15 +19,15 @@
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="align-top"><a><div align="right">edit</div></a></div>
-                                    <h2>Welcome to your profile Jolaine!</h2>
-                                    
+                                    <h2>Welcome <%= user %> ! </h2>
+
 
                                     <p>
-                                            <i class="glyphicon glyphicon-user"></i><b>Name:</b> Jolaine
+                                            <i class="glyphicon glyphicon-user"></i><b>Name:</b> <%= user %>
                                             <br />
-                                        <i class="glyphicon glyphicon-envelope"></i><b>Email:</b> email@example.com
+                                        <i class="glyphicon glyphicon-envelope"></i><b>Email:</b> <%= user %>@stgregory.com
                                         <br />
-                                        <i class="glyphicon glyphicon-phone"></i><b>Contact:</b> +17777777007</p>
+                                        <i class="glyphicon glyphicon-phone"></i><b>Contact:</b> +16605280000</p>
                                     <!-- Split button -->
                                     Note:<textarea name="message" rows="2" cols="100">Ill be free during Saturdays and Sundays between 10 am to 7pm.
                                             </textarea>
@@ -44,15 +43,15 @@
                         <div class="panel panel-default">
                                 <div class="panel-heading"><div class="col-sm-9">Your ministries</div><a href= "/ministrySurvey" ><div align="right">edit</div></a></div>
                             <div class="panel-body">
-                                
-                                   
+
+
                                 <ul><a href="/ministry">Adult Faith Formation Programs</a></ul>
                                 <ul><a href="/ministry">Altar Servers</a></ul>
                                 <ul><a href="/ministry">Annulment Advocate</a></ul>
                                 <ul><a href="/ministry">Art & Environment Committee</a></ul>
                                 <ul><a href="/ministry">Bereavement Ministry</a></ul>
                             </div>
-                            
+
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -65,7 +64,7 @@
                                     <ul><a>Bilingual</a></ul>
                                     <ul><a>Hardscape</a></ul>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>

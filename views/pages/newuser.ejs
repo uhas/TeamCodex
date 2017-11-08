@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <% include ../partials/header.ejs %>
+  <% include ./partials/header.ejs %>
 </head>
 
 <body>
-  <% include ../partials/top.ejs %>
-  <% include ../partials/nav.ejs %>
+  <% include ./partials/top.ejs %>
+  <% include ./partials/nav.ejs %>
 
 
 
@@ -17,7 +17,7 @@
     form {
         border: 3px solid #f1f1f1;
     }
-    
+
     input[type=text], input[type=password],input[type=email] {
         width: 35%;
         padding: 12px 20px;
@@ -26,7 +26,7 @@
         border: 1px solid #ccc;
         box-sizing: border-box;
     }
-    
+
     button {
         background-color: #4CAF50;
         color: white;
@@ -38,32 +38,32 @@
     }
 
 
-    
+
     button:hover {
         opacity: 0.8;
     }
-    
-    
+
+
     .imgcontainer {
         text-align: center;
         margin: 24px 0 12px 0;
     }
-    
+
     img.avatar {
         width: 40%;
         border-radius: 50%;
     }
-    
+
     .container {
         padding: 16px;
-        
+
     }
-    
+
     span.psw {
         float: none;
         padding-top: 16px;
     }
-    
+
     /* Change styles for span and cancel button on extra small screens */
     @media screen and (max-width: 300px) {
         span.psw {
@@ -76,12 +76,12 @@
     }
     </style>
     <body>
-    
+
     <h2>Create New User</h2>
-    
+
     <form method="post" action="/" onSubmit="return validateForm(this)" name="form">
 
-    
+
       <div class="container">
         <table>
             <tr>
@@ -100,10 +100,10 @@
     <td>  <label><b>Password</b></label></td>
 <td> <input type="password" style="width: 300px" placeholder="Enter Password" name="psw" ></td>
     </tr>
-<tr>  
+<tr>
     <td>  <label><b>Retype Password</b></label></td>
 <td>  <input type="password" style="width: 300px" placeholder="Enter Password again" name="psw" ></td>
-    </tr>    
+    </tr>
 
 </table>
     <p id="my-error-message-container" style="display:none; border:1px solid red; color:red; background-color:yellow; font-weight:bold; padding:5px; width:188px;"></p>
@@ -114,7 +114,7 @@
         </div>
 </div>
 
-    
+
       <!-- <div class="container" style="background-color:#f1f1f1">
         <input type="checkbox" checked="checked"> Remember me
         <span class="psw"> <a href="#">Forgot password?</a></span>
@@ -124,9 +124,9 @@
      <!-- test script -->
 
 
-     
 
-           
+
+
             <script>
 function validateForm() {
     var x = document.forms["form"]["uname"].value;
@@ -145,7 +145,7 @@ function validateForm() {
     else if(y.test(x)== false)
     {
         alert("follow the pattern");
-        return false;   
+        return false;
     }
     if(z== "")
     {
@@ -160,7 +160,7 @@ function validateForm() {
     else if(p.test(z)== false)
     {
         alert("follow the pattern");
-        return false; 
+        return false;
     }
 
 }
@@ -169,18 +169,18 @@ function validateForm() {
 
 
 
-    
-
-     
- 
-    
 
 
 
 
 
 
-    
+
+
+
+
+
+
     </body>
     </html>
 </center>
