@@ -2,6 +2,47 @@
 <html>
 <head>
   <% include ./partials/header.ejs %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script>
+  $(document).ready(function(){
+    $('a.edit').click(function () {
+    var text = $('.name').text();
+    var input = $('<input id="attributename" type="text" value="' + text + '" />')
+    $('.name').text('').append(input);
+    input.select();
+    var result = $('.name').val();
+    });
+    $('a.edit').click(function () {
+    var text = $('.mail').text();
+    var input = $('<input id="attributemail" type="text" value="' + text + '" />')
+    $('.mail').text('').append(input);
+    input.select();
+    })
+    $('a.edit').click(function () {
+    var text = $('.numb').text();
+    var input = $('<input id="attributenumb" type="text" value="' + text + '" />')
+    $('.numb').text('').append(input);
+    input.select();
+    $('.save').show();
+    })
+    $('a.save').click(function () {
+        $('.name').html ( $('#attributename').val() );
+
+
+    });
+    $('a.save').click(function () {
+        $('.mail').html ( $('#attributemail').val() );
+    });
+    $('a.save').click(function () {
+        $('.numb').html ( $('#attributenumb').val() );
+        $('.save').hide();
+    });
+    $('a.save').click(function () {
+        $('h2').text("Welcome "+$('.name').text()+"!");
+    });
+  });
+    </Script>
 </head>
 
 <body>
@@ -24,7 +65,7 @@
 
 
                                     <p>
-                                            <i class="glyphicon glyphicon-user"></i><b>Name:</b> Jolaine
+                                            <i class="glyphicon glyphicon-user"></i><b>Name:</b> <label class="name">Jolaine</label>
                                             <br />
                                         <i class="glyphicon glyphicon-envelope"></i><b>Email:</b> jolaine@example.com
                                         <br />
@@ -32,7 +73,7 @@
                                     <!-- Split button -->
                                     Note:<textarea name="message" rows="2" cols="100">Ill be free during Saturdays and Sundays between 10 am to 7pm.
                                             </textarea>
-                                <footer><a><div align="right">edit</div></a></footer>
+
                                 </div>
                             </div>
                         </div>
@@ -45,12 +86,13 @@
                             <div class="panel-heading"><div class="col-sm-9">Your ministries</div><a href= "/ministrySurvey" ><div align="right">edit</div></a></div>
                             <div class="panel-body">
 
-                                    <ul><a href="/ministry">Ministry 1<font color="red">(Lead)</font></a></ul>
-                                    <ul><a  href="/ministry">Ministry 2</a></ul>
-                                    <ul><a  href="/ministry">Ministry 3</a></ul>
-                                    <ul><a  href="/ministry">Ministry 4</a></ul>
-                                    <ul><a  href="/ministry">Ministry 5</a></ul>
-                            </div>
+
+                                    <ul><a href="/ministry">Adult Faith Formation Programs<font color="red">(Lead)</font></a></ul>
+                                    <ul><a href="/ministry">Altar Servers</a></ul>
+                                    <ul><a href="/ministry">Annulment Advocate</a></ul>
+                                    <ul><a href="/ministry">Art & Environment Committee</a></ul>
+                                    <ul><a href="/ministry">Bereavement Ministry</a></ul>
+                                </div>
 
                         </div>
                     </div>
