@@ -2,13 +2,52 @@
 <html>
 <head>
   <% include ./partials/header.ejs %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+  <script>
+  $(document).ready(function(){
+    $('a.edit').click(function () {
+    var text = $('.name').text();
+    var input = $('<input id="attributename" type="text" value="' + text + '" />')
+    $('.name').text('').append(input);
+    input.select();
+    var result = $('.name').val();
+    });
+    $('a.edit').click(function () {
+    var text = $('.mail').text();
+    var input = $('<input id="attributemail" type="text" value="' + text + '" />')
+    $('.mail').text('').append(input);
+    input.select();
+    })
+    $('a.edit').click(function () {
+    var text = $('.numb').text();
+    var input = $('<input id="attributenumb" type="text" value="' + text + '" />')
+    $('.numb').text('').append(input);
+    input.select();
+    $('.save').show();
+    })
+    $('a.save').click(function () { 
+        $('.name').html ( $('#attributename').val() );
+    });
+    $('a.save').click(function () { 
+        $('.mail').html ( $('#attributemail').val() );
+    });
+    $('a.save').click(function () { 
+        $('.numb').html ( $('#attributenumb').val() );
+        $('.save').hide();
+    });
+    $('a.save').click(function () { 
+        $('h2').text("Welcome "+$('.name').text()+"!");
+    });
+  });
+    </Script>
 </head>
 
 <body>
   <% include ./partials/top.ejs %>
   <% include ./partials/nav.ejs %>
 
-            <!-- page code -->
+            <!-- page code -->  
             <div class="container">
                 <div class="row">
                     <div>
@@ -18,17 +57,21 @@
                                     <img src="/jolaine.jpg" alt="" class="img-rounded img-responsive" />
                                 </div>
                                 <div class="col-sm-7">
-                                    <div class="align-top"><a><div align="right">edit</div></a></div>
+                                    <div class="align-top"><a class= "edit" href="#"><div align="right">edit</div></a></div>
                                     <h2>Welcome <%= user %> ! </h2>
 
 
-                                    <p>
-                                            <i class="glyphicon glyphicon-user"></i><b>Name:</b> <%= user %>
+                                    <p class="text-info">
+                                            <i class="glyphicon glyphicon-user"></i><b>Name:</b><label class="name"> <%= user %> </label>
                                             <br />
-                                        <i class="glyphicon glyphicon-envelope"></i><b>Email:</b> <%= user %>@stgregory.com
+                                        <i class="glyphicon glyphicon-envelope"></i><b>Email:</b><label class="mail"> <%= user %>@stgregory.com </label>
                                         <br />
-                                        <i class="glyphicon glyphicon-phone"></i><b>Contact:</b> +16605280000</p>
+                                        <i class="glyphicon glyphicon-phone"></i><b>Contact:</b><label class="numb"> +16605280000</label></p>
+                                        <div class="align-top"><a class= "save" href="#" hidden><div align="right">save</div></a></div>
                                     <!-- Split button -->
+
+                                    
+
                                     Note:<textarea name="message" rows="2" cols="100">Ill be free during Saturdays and Sundays between 10 am to 7pm.
                                             </textarea>
                                 <footer></footer>
@@ -75,6 +118,8 @@
 
 
             <!-- page code -->
+
+           
 </body>
 
 </html>
