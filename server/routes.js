@@ -22,6 +22,9 @@ var current;
   router.get('/ministrySurvey',function(req,res){
     res.render('ministrySurvey');
   });
+   router.get('/manageUser',function(req,res){
+    res.render('manageUser');
+  });
   router.get('/events',function(req,res){
     res.render('events');
   });
