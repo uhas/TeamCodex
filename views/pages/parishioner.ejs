@@ -2,8 +2,13 @@
 <html>
 <head>
   <% include ./partials/header.ejs %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   <script>
   $(document).ready(function(){
     $('a.edit').click(function () {
@@ -26,17 +31,17 @@
     input.select();
     $('.save').show();
     })
-    $('a.save').click(function () { 
+    $('a.save').click(function () {
         $('.name').html ( $('#attributename').val() );
     });
-    $('a.save').click(function () { 
+    $('a.save').click(function () {
         $('.mail').html ( $('#attributemail').val() );
     });
-    $('a.save').click(function () { 
+    $('a.save').click(function () {
         $('.numb').html ( $('#attributenumb').val() );
         $('.save').hide();
     });
-    $('a.save').click(function () { 
+    $('a.save').click(function () {
         $('h2').text("Welcome "+$('.name').text()+"!");
     });
   });
@@ -47,7 +52,7 @@
   <% include ./partials/top.ejs %>
   <% include ./partials/nav.ejs %>
 
-            <!-- page code -->  
+            <!-- page code -->
             <div class="container">
                 <div class="row">
                     <div>
@@ -56,13 +61,21 @@
                                 <div class="align-top"><a class= "edit" href="#"><div align="right">edit</div></a></div>
                             <div class="row">
                                 <div class="col-sm-2 col-sm-6">
-                                    <img src="/jolaine.jpg" alt="" class="img-rounded img-responsive" />
+                                    <img src="/jolaine.jpg" alt="image.png" class="img-rounded img-responsive" />
                                 </div>
                                 <div class="col-sm-7">
+<<<<<<< HEAD
+                                    <div class="align-top"><a class= "edit" href="#"><div align="right"><button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-pencil"></span> Edit
+        </button></div></a></div>
+                                    <h2>Welcome <%= user %> ! </h2>
+
+=======
                                         
                                     <!-- <div class="align-top"><a class= "edit" href="#"><div align="right">edit</div></a></div> -->
                                    
                                     <h3>Welcome <%= user %> ! </h3>
+>>>>>>> 94d795917f4fa161bd38d02fb824d41cf2c18a8d
 
                                     <p class="text-info">
 
@@ -78,7 +91,7 @@
                                         <div class="align-top"><a class= "save" href="#" hidden><div align="right">save</div></a></div>
                                     <!-- Split button -->
 
-                                    
+
 
                                     Note:<textarea name="message" rows="2" cols="100">Ill be free during Saturdays and Sundays between 10 am to 7pm.
                                             </textarea>
@@ -92,7 +105,9 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="panel panel-default">
-                                <div class="panel-heading"><div class="col-sm-9">Your ministries</div><a href= "/ministrySurvey" ><div align="right">edit</div></a></div>
+                                <div class="panel-heading"><div class="col-sm-9">Your ministries</div><a href= "/ministrySurvey" ><div align="right"><button type="button" class="btn btn-default btn-sm">
+      <span class="glyphicon glyphicon-pencil"></span> Edit
+    </button></div></a></div>
                             <div class="panel-body">
 
 
@@ -107,7 +122,9 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="panel panel-default">
-                                <div class="panel-heading"><div class="col-sm-9">Your skills</div><a href= "/skillSurvey" ><div align="right">edit</div></a></div>
+                                <div class="panel-heading"><div class="col-sm-9">Your skills</div><a href= "/skillSurvey" ><div align="right"><button type="button" class="btn btn-default btn-sm">
+      <span class="glyphicon glyphicon-pencil"></span> Edit
+    </button></div></a></div>
                             <div class="panel-body">
                                     <ul><a>Facilitating</a></ul>
                                     <ul><a>Planning</a></ul>
@@ -127,7 +144,7 @@
 
             <!-- page code -->
 
-           
+
 </body>
 
 </html>
