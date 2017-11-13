@@ -7,234 +7,23 @@
 
 <body>
     <% include ./partials/loggedtop.ejs %>
-<<<<<<< HEAD
-        <% include ./partials/nav.ejs %>
+        <!-- <% include ./partials/nav.ejs %> -->
 
-            <!-- page code -->
-            <div class="container">
-                <div class="row">
-                    <div>
-                        <!-- <div class="jumbotron">
-                            <div class="row"> -->
-                                <!-- <div class="col-sm-2 col-sm-6">
-                                    <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
-                                </div> -->
-                                <div class="col-sm-8">
-
-                                    <h2>Welcome Admin</h2>
-                                    <br>
-
-
-                                    <!-- <p>
-                                            <i class="glyphicon glyphicon-user"></i><b>Name:</b> Jolaine
-                                            <br />
-                                        <i class="glyphicon glyphicon-envelope"></i><b>Email:</b> email@example.com
-                                        <br />
-                                        <i class="glyphicon glyphicon-phone"></i><b>Contact:</b> +17777777007</p>
-                                    <!-- Split button -->
-                                    <!-- Note:<textarea name="message" rows="2" cols="100">Ill be free during Saturdays and Sundays between 10 am to 7pm.
-                                            </textarea> -->
-                                <!-- <footer><a><div align="right">edit</div></a></footer> -->
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-sm-2" style="right:200px; bottom:0px; position:absolute">
-
-                              <textarea readonly rows="17" cols="50">
-                                Notifications
-
-      * Jolaine has deactivated his/her account
-      * Greeters ministry has been deactivated
-
-
-                                </textarea>
-                        </div>
-                        </div>
-
-                    </div>
-
-                <div class="row">
-                  <div class="col-sm-2">
-                  </div>
-                    <div class="col-sm-2">
-
-                      <p><a href='/newuser'>Create New User</a></p>
-
-                    </div>
-                    <div class="col-sm-2">
-                      <p> <a href='/newministry'> Create New Ministry</a></p>
-
-                    </div>
-                    <div class="col-sm-2">
-                        <p> <img src="/report.png"  width="50" height="50"/>
-
-                            <a href=''> Reports</a></p>
-
-                      </div>
-                  </div>
-                <!-- pannels for skill and ministries -->
-                <br>
-                <div class="row" >
-
-                      <!-- <div class="row"> -->
-                          <div class="col-sm-4" style="left:50px">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">List of ministries</div>
-                            <div class="panel-body">
-
-                              <!-- <div class="checkbox"> -->
-
-<style>
-textarea{
-    margin-left: auto;
-    margin-right: auto;
-}
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 30px;
-  height: 20px;
-}
-
-.switch input {display:none;}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 10px;
-  width: 10px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #00ff00;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 40px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-</style>
-
-
-<div class="row">
-    <div class="col-sm-8">
-<p> Ministry1</p>
-</div>
-<div class="col-sm-2">
-<label class="switch">
-  <input type="checkbox">
-  <span class="slider"></span>
-</label>
-</div>
-</div>
-<div class="row">
-    <div class="col-sm-8">
-<p> Ministry2</p>
-</div>
-<div class="col-sm-2">
-<label class="switch">
-  <input type="checkbox">
-  <span class="slider"></span>
-</label>
-</div>
-</div>
-<div class="row">
-    <div class="col-sm-8">
-<p> Ministry3</p>
-</div>
-<div class="col-sm-2">
-<label class="switch">
-  <input type="checkbox">
-  <span class="slider"></span>
-</label>
-</div>
-</div><div class="row">
-    <div class="col-sm-8">
-<p> Ministry4</p>
-</div>
-<div class="col-sm-2">
-<label class="switch">
-  <input type="checkbox">
-  <span class="slider"></span>
-</label>
-</div>
-</div>
-<div class="row">
-    <div class="col-sm-8">
-<p> Ministry5</p>
-</div>
-<div class="col-sm-2">
-<label class="switch">
-  <input type="checkbox">
-  <span class="slider"></span>
-</label>
-</div>
-</div>
-                     </div>
-                            <div class="panel-fotter" ><a><div align="right">edit</div></a></div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3" style="left:50px">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Skills/Gifts/Talents</div>
-                            <div class="panel-body">
-                                    <ul><a>Skill 1</a></ul>
-                                    <ul><a>Skill 2</a></ul>
-                                    <ul><a>Skill 3</a></ul>
-                                    <ul><a>Skill 4</a></ul>
-                                    <ul><a>Skill 5</a></ul>
-                            </div>
-                            <div class="panel-fotter"><a><div align="right">edit</div></a></div>
-                        </div>
-                    </div>
-
-=======
     <% include ./partials/adminnav.ejs %>
-    
+
     <div class="container">
         <div class="row">
             <div>
                 <div class="jumbotron">
                     <div class="row">
-                        
+
                         <div class="col-sm-9">
-                            
-                            
+
+
                             <h2>Welcome Admin!</h2>
                             <div class="align-top"><div align="right"><a href="" class= "glyphicon glyphicon-bell">Notifications</div></a></div>
                             <div class="align-top"><a href="" class="btn btn-info" role="button"><div align="right">Manage Profile</div></a></div>
-                        
+
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -245,10 +34,10 @@ input:checked + .slider:before {
                                 <i class="glyphicon glyphicon-user"></i><b>Total no. of Ministries: </b>57
                                 <br />
                                 <i class="glyphicon glyphicon-user"></i><b>Total no. of parishioners: </b> 250</p>
-                                
-                           
-                       
->>>>>>> 90c353c7ed1346fc1d92e87c87aad03350c6d4d6
+
+
+
+
                         </div>
                     </div>
                 </div>
