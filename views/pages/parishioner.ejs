@@ -52,21 +52,27 @@
                 <div class="row">
                     <div>
                         <div class="jumbotron">
+                                <div align="right"><h5>Parish ID: 123456</h5></div>
                             <div class="row">
                                 <div class="col-sm-2 col-sm-6">
                                     <img src="/jolaine.jpg" alt="" class="img-rounded img-responsive" />
                                 </div>
                                 <div class="col-sm-7">
+                                        
                                     <div class="align-top"><a class= "edit" href="#"><div align="right">edit</div></a></div>
-                                    <h2>Welcome <%= user %> ! </h2>
-
+                                   
+                                    <h4>Welcome <%= user %> ! </h4>
 
                                     <p class="text-info">
                                             <i class="glyphicon glyphicon-user"></i><b>Name:</b><label class="name"> <%= user %> </label>
                                             <br />
-                                        <i class="glyphicon glyphicon-envelope"></i><b>Email:</b><label class="mail"> <%= user %>@stgregory.com </label>
+                                            <b>Address:</b><label class="name"> 1115 N collge dr, Apt 163,Maryville , Mo. </label>
+                                            <br/>
+                                            <i class="glyphicon glyphicon-phone"></i><b>Phone:</b><label class="numb"> +1 660-528-0011</label>
                                         <br />
-                                        <i class="glyphicon glyphicon-phone"></i><b>Contact:</b><label class="numb"> +1 660-528-0011</label></p>
+
+                                        <i class="glyphicon glyphicon-envelope"></i><b>Email:</b><label class="mail"> <%= user %>@stgregory.com </label>
+                                    </p>
                                         <div class="align-top"><a class= "save" href="#" hidden><div align="right">save</div></a></div>
                                     <!-- Split button -->
 
