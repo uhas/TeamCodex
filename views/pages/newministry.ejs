@@ -31,7 +31,7 @@
         background-color: #4CAF50;
         color: white;
         padding: 14px 20px;
-
+        margin: 8px 0;
         border: none;
         cursor: pointer;
         width: 100%;
@@ -88,23 +88,16 @@
         <td><label><b>Ministryname</b></label></td>
         <td><input type="text" style="width: 300px" placeholder="Enter Ministryname" name="Mname" ></td>
     </tr>
-<tr>
-    <td> <label><b>Leadname</b></label></td>
-<td><input type="text" style="width: 300px" placeholder="Enter Leadname" name="Lname" ></td>
-</tr>
-    <tr>
-        <td> <label><b>Textarea</b></label></td>
+
+        <td> <label><b>Description</b></label></td>
     <td>  <input type="textarea" style="width: 300px" placeholder="Enter Textarea" name="Tarea" ></td>
     </tr>
 <tr>
-    <td>  <label><b>Password</b></label></td>
-<td> <input type="password" style="width: 300px" placeholder="Enter Password" name="psw" ></td>
-    </tr>
-<tr>
-    <td>  <label><b>Retype Password</b></label></td>
-<td>  <input type="password" style="width: 300px" placeholder="Enter Password again" name="psw" ></td>
-    </tr>
 
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Assign Lead</button>
+
+    
+</tr>
 </table>
     <p id="my-error-message-container" style="display:none; border:1px solid red; color:red; background-color:yellow; font-weight:bold; padding:5px; width:188px;"></p>
         <button class="btn btn-info" type="submit">Create User</button>
@@ -121,7 +114,43 @@
     </form>
     <!-- test script -->
      <!-- test script -->
-
+     <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+            
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Parishioners</h4>
+                </div>
+                <div class="modal-body">
+                        <table style="width: 100%; height: 100%;">
+                                
+                                                                    <tr>
+                                                                        <th> <input type="radio" name="optradio"> Parishioner 1 </th>
+                                                                        <th> <input type="radio" name="optradio"> Parishioner 2 </th>
+                                                                        <th> <input type="radio" name="optradio"> Parishioner 3 </th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th> <input type="radio" name="optradio"> Parishioner 4 </th>
+                                                                        <th> <input type="radio" name="optradio"> Parishioner 5 </th>
+                                                                        <th> <input type="radio" name="optradio"> Parishioner 6 </th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th> <input type="radio" name="optradio"> Parishioner 7 </th>
+                                                                        <th> <input type="radio" name="optradio"> Parishioner 8 </th>
+                                                                        <th> <input type="radio" name="optradio"> Parishioner 9 </th>
+                                                                    </tr>
+                        </table>
+                </div>
+                <div class="modal-footer">
+                        <button type="button" class="btn btn-default">Submit</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+              
+            </div>
+          </div>
 
 
 

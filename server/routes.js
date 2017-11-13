@@ -13,6 +13,21 @@ var current;
   router.get('/admin',function(req,res){
     res.render('admin');
   });
+  router.get('/adminViewMinistry',function(req,res){
+    res.render('adminViewMinistry');
+  });
+  router.get('/adminDeleteMinistry',function(req,res){
+    res.render('adminDeleteMinistry');
+  });
+  router.get('/adminViewSkills',function(req,res){
+    res.render('adminViewSkills');
+  });
+  router.get('/adminDeleteSkills',function(req,res){
+    res.render('adminDeleteSkills');
+  });
+  router.get('/adminDeleteUser',function(req,res){
+    res.render('adminDeleteUser');
+  });
   router.get('/contact',function(req,res){
     res.render('contact');
   });
