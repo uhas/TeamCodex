@@ -43,6 +43,10 @@ var current;
 router.get('/newuser',function(req,res){
   res.render('newuser');
 });
+
+router.get('/newministry',function(req,res){
+  res.render('newministry');
+});
 router.get('/passwordreset',function(req,res){
   res.render('Passwordreset');
 });

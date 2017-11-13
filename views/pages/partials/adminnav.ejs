@@ -1,7 +1,28 @@
-<div class="topnav" id="myTopnav2">
-  <a href="/">Home</a>
-  <a href="/manageUser">Manage user</a>
-  <a href="/newministry">Manage Ministry</a>
+<div class="topnav" id="myTopnav2" >
+  <a href="/admin">Home</a>
+  <!-- <a href="/manageUser">Manage user</a> -->
+  <!-- <a href="/newministry">Manage Ministry</a> -->
+  <div class="dropdown">
+      <button class="dropbtn">Manage User 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="/newministry">Create newuser</a>
+        <a href="/ministries">Delete user</a>
+      </div>
+    </div> 
+
+  <div class="dropdown">
+    <button class="dropbtn">Manage Ministry 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/newministry">Create newministry</a>
+      <a href="/ministries">All Ministries</a>
+    </div>
+  </div> 
+
+
   <a href="">Reports</a>
 
-        </div>
+</div>
