@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ./partials/header.ejs %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $('.Create').show();
+        $('.DeleteForm').hide();
+        $('h2').text("Create New User");
+      $('a.DeleteMenu').click(function () {
+        $('.DeleteForm').show();
+        $('.Create').hide();
+        $('h2').text("Delete User");
+      });
+      $('a.CreateMenu').click(function () {
+        $('.Create').show();
+        $('.DeleteForm').hide();
+        
+        $('h2').text("Create New User");
+      });
+    });
+    </script>
+</head>
+
+<body>
+    <% include ./partials/top.ejs %>
+    <% include ./partials/adminnav.ejs %>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="sidebar-nav">
+              <div class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <span class="visible-xs navbar-brand">Sidebar menu</span>
+                </div>
+                <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="#" class="CreateMenu">Create New User</a></li>
+                    <li><a href="#" class="DeleteMenu">Delete User</a></li>
+                    
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-9">
+              <h2>Create New User</h2>
+              
+                  <form method="post" action="/" onSubmit="return validateForm(this)" class= "Create">
+              
+              
+                    <div class="container">
+                      <table>
+                          <tr>
+                      <td><label><b>ChurchID</b></label></td>
+                      <td><input type="text" style="width: 300px" placeholder="Enter ChurchID" name="ChurchId" ></td>
+                  </tr>
+              <tr>
+                  <td> <label><b>Username</b></label></td>
+              <td><input type="text" style="width: 300px" placeholder="Enter Username" name="uname" ></td>
+              </tr>
+                  <tr>
+                      <td> <label><b>Email</b></label></td>
+                  <td>  <input type="email" style="width: 300px" placeholder="Enter Email" name="Email" ></td>
+                  </tr>
+              <tr>
+                  <td>  <label><b>Password</b></label></td>
+              <td> <input type="password" style="width: 300px" placeholder="Enter Password" name="psw" ></td>
+                  </tr>
+              <tr>
+                  <td>  <label><b>Retype Password</b></label></td>
+              <td>  <input type="password" style="width: 300px" placeholder="Enter Password again" name="psw" ></td>
+                  </tr>
+              
+              </table>
+                  <p id="my-error-message-container" style="display:none; border:1px solid red; color:red; background-color:yellow; font-weight:bold; padding:5px; width:188px;"></p>
+                  <div class="btn-group-vertical">
+                      <button class="btn btn-info" style='margin-right:100px' type="submit">Create User</button>
+                  </br>
+                      <button class="btn btn-danger" style='margin-right:100px' role="button">Cancel</button>
+                      </div>
+                    </form>
+                    
+                    
+                      
+                      
+                      
+                  
+              </div>
+              
+              
+                    <!-- <div class="container" style="background-color:#f1f1f1">
+                      <input type="checkbox" checked="checked"> Remember me
+                      <span class="psw"> <a href="#">Forgot password?</a></span>
+                    </div> -->
+                 
+          </div>
+        </div>
+        <div class="col-sm-9">
+          
+          <form method="post" action="/" onSubmit="return validateForm(this)" class= "DeleteForm">
+            
+            
+                  <div class="container">
+                    <table>
+                        <tr>
+                    <td><label><b>ChurchID</b></label></td>
+                    <td><input type="text" style="width: 300px" placeholder="Enter ChurchID" name="ChurchId" ></td>
+                </tr>
+            <tr>
+                <td> <label><b>Username</b></label></td>
+            <td><input type="text" style="width: 300px" placeholder="Enter Username" name="uname" ></td>
+            </tr>
+                
+            
+            </table>
+                <p id="my-error-message-container" style="display:none; border:1px solid red; color:red; background-color:yellow; font-weight:bold; padding:5px; width:188px;"></p>
+                <div class="btn-group-vertical">
+                    <button class="btn btn-info" style='margin-right:100px' type="submit">Delete User</button>
+                </br>
+                    <button class="btn btn-danger" style='margin-right:100px' role="button">Cancel</button>
+                    </div>
+                  </form>
+        </div>
+        </div>
+        <style>
+        /* make sidebar nav vertical */ 
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+    form {
+        border: 3px solid #f1f1f1;
+    }
+
+    input[type=text], input[type=password],input[type=email] {
+        width: 35%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+
+
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+    }
+
+    img.avatar {
+        width: 40%;
+        border-radius: 50%;
+    }
+
+    .container {
+        padding: 16px;
+
+    }
+
+    span.psw {
+        float: none;
+        padding-top: 16px;
+    }
+
+    /* Change styles for span and cancel button on extra small screens */
+    @media screen and (max-width: 300px) {
+        span.psw {
+           display: block;
+           float: none;
+        }
+        .cancelbtn {
+           width: 100%;
+        }
+    }
+    
+        </style>
+
+</body>
