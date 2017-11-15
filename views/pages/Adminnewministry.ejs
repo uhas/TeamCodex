@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ./partials/header.ejs %>
+</head>
+
+<body>
+  <% include ./partials/top.ejs %>
+  <% include ./partials/adminnav.ejs %>
+
+
+
+<!-- page code -->
+<center>
+
+    <body>
+
+    <h2>Create New Ministry</h2>
+
+    <form method="post" action="/" onSubmit="return validateForm(this)" name="form">
+
+
+      <div class="container">
+        <table>
+            <tr>
+        <td><label><b>Ministryname</b></label></td>
+        <td><input type="text" style="width: 300px" placeholder="Enter Ministryname" name="Mname" ></td>
+    </tr>
+<tr> 
+
+<tr> 
+  <td> &nbsp; </td>  
+</tr>
+
+<td><label><b>Assign Ministrylead</b></label> </td>
+<td>  <div id="custom-search-input">
+        <div class="input-group col-md-12">
+            <input type="text" class="  search-query form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button class="btn btn-danger" type="button">
+                    <span class=" glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+        </div>
+    </div>          </td>
+</tr>
+
+<tr> 
+        <td> &nbsp; </td>  
+      </tr>
+      
+        <td> <label><b>Description</b></label></td>
+    <td>  <textarea col style="height: 150px;width:300px" placeholder="Enter Textarea" name="Tarea" ></textarea></td>
+    </tr>
+<tr>
+
+        
+
+    
+</tr>
+</table></br>
+    <p id="my-error-message-container" style="display:none; border:1px solid red; color:red; background-color:yellow; font-weight:bold; padding:5px; width:188px;"></p>
+    <table>  <tr> 
+   <td> <button class="btn btn-info" type="submit">Create User</button></td>
+   <td>  <button class="btn btn-danger" role="button">Cancel</button></td>
+    </tr>
+    </table> 
+</div>
+
+
+
+            <script>
+function validateForm() {
+    var x = document.forms["form"]["uname"].value;
+    var z = document.forms["form"]["psw"].value;
+    var y = /^[a-zA-Z0-9-_]{2,16}$/;
+    var p = /^[a-z0-9_-]{6,18}$/;
+    if (x== "") {
+        alert("please enter username");
+        return false;
+    }
+    else if(x.length < 2)
+    {
+        alert("username should contain minimum 2 characters");
+        return false;
+    }
+    else if(y.test(x)== false)
+    {
+        alert("follow the pattern");
+        return false;
+    }
+    if(z== "")
+    {
+        alert("please enter password");
+        return false;
+    }
+    else if(z.length <6)
+    {
+        alert("password should contain minimum 6 characters");
+        return false;
+    }
+    else if(p.test(z)== false)
+    {
+        alert("follow the pattern");
+        return false;
+    }
+
+}
+</script>
+
+    </body>
+    </html>
+</center>
+
+</body>
+</html>
