@@ -74,6 +74,9 @@ router.get('/Min_Lead',function(req,res){
 router.get('/Min_Lead',function(req,res){
   res.render('Min_Lead');
 });
+router.get('/newskill',function(req,res){
+  res.render('newskill');
+});
 
   router.get('/login', function(req,res){
     res.render('login',{
