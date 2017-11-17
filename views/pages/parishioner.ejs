@@ -2,8 +2,13 @@
 <html>
 <head>
   <% include ./partials/header.ejs %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   <script>
   $(document).ready(function(){
     $('a.edit').click(function () {
@@ -20,23 +25,32 @@
     input.select();
     })
     $('a.edit').click(function () {
+    var text = $('.pAddress').text();
+    var input = $('<input id="attributeadd" type="text" value="' + text + '" />')
+    $('.pAddress').text('').append(input);
+    input.select();
+    })
+    $('a.edit').click(function () {
     var text = $('.numb').text();
     var input = $('<input id="attributenumb" type="text" value="' + text + '" />')
     $('.numb').text('').append(input);
     input.select();
     $('.save').show();
     })
-    $('a.save').click(function () { 
+    $('a.save').click(function () {
         $('.name').html ( $('#attributename').val() );
     });
-    $('a.save').click(function () { 
+    $('a.save').click(function () {
         $('.mail').html ( $('#attributemail').val() );
     });
-    $('a.save').click(function () { 
+    $('a.save').click(function () {
+        $('.pAddress').html ( $('#attributadd').val() );
+    })
+    $('a.save').click(function () {
         $('.numb').html ( $('#attributenumb').val() );
         $('.save').hide();
     });
-    $('a.save').click(function () { 
+    $('a.save').click(function () {
         $('h2').text("Welcome "+$('.name').text()+"!");
     });
   });
@@ -47,36 +61,43 @@
   <% include ./partials/top.ejs %>
   <% include ./partials/nav.ejs %>
 
-            <!-- page code -->  
+            <!-- page code -->
             <div class="container">
                 <div class="row">
                     <div>
                         <div class="jumbotron">
-                                <div align="right"><h5>Parish ID: 123456</h5></div>
+                                <div align="right"><h5><i class="glyphicon glyphicon-bell"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parish ID: 123456</h5></div>
+                                <div class="align-top"><a class= "edit" href="#"><div align="right">edit</div></a></div>
                             <div class="row">
                                 <div class="col-sm-2 col-sm-6">
-                                    <img src="/jolaine.jpg" alt="" class="img-rounded img-responsive" />
+                                    <img src="/jolaine.jpg" alt="image.png" class="img-rounded img-responsive" />
                                 </div>
                                 <div class="col-sm-7">
-                                        
-                                    <div class="align-top"><a class= "edit" href="#"><div align="right">edit</div></a></div>
-                                   
-                                    <h4>Welcome <%= user %> ! </h4>
+                                    <div class="align-top"><a class= "edit" href="#"><div align="right"><button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-pencil"></span> Edit
+        </button></div></a></div>
+                                    <h2>Welcome <%= user %> ! </h2>
+
+
+                                    <!-- <div class="align-top"><a class= "edit" href="#"><div align="right">edit</div></a></div> -->
+
+                                    <!-- <h3>Welcome <%= user %> ! </h3> -->
 
                                     <p class="text-info">
-                                            <i class="glyphicon glyphicon-user"></i><b>Name:</b><label class="name"> <%= user %> </label>
+
+                                           <b>Name:</b><label class="name"> <%= user %> </label>
                                             <br />
-                                            <b>Address:</b><label class="name"> 1115 N collge dr, Apt 163,Maryville , Mo. </label>
+                                            <b>Address:</b><label class="pAddress"> 1115 N collge dr, Apt 163,Maryville , Mo. </label>
                                             <br/>
-                                            <i class="glyphicon glyphicon-phone"></i><b>Phone:</b><label class="numb"> +1 660-528-0011</label>
+                                            </i><b>Phone:</b><label class="numb"> +1 660-528-0011</label>
                                         <br />
 
-                                        <i class="glyphicon glyphicon-envelope"></i><b>Email:</b><label class="mail"> <%= user %>@stgregory.com </label>
+                                        <b>Email:</b><label class="mail"> <%= user %>@stgregory.com </label>
                                     </p>
                                         <div class="align-top"><a class= "save" href="#" hidden><div align="right">save</div></a></div>
                                     <!-- Split button -->
 
-                                    
+
 
                                     Note:<textarea name="message" rows="2" cols="100">Ill be free during Saturdays and Sundays between 10 am to 7pm.
                                             </textarea>
@@ -90,7 +111,9 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="panel panel-default">
-                                <div class="panel-heading"><div class="col-sm-9">Your ministries</div><a href= "/ministrySurvey" ><div align="right">edit</div></a></div>
+                                <div class="panel-heading"><div class="col-sm-9">Your ministries</div><a href= "/ministrySurvey" ><div align="right"><button type="button" class="btn btn-default btn-sm">
+      <span class="glyphicon glyphicon-pencil"></span> Edit
+    </button></div></a></div>
                             <div class="panel-body">
 
 
@@ -105,7 +128,9 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="panel panel-default">
-                                <div class="panel-heading"><div class="col-sm-9">Your skills</div><a href= "/skillSurvey" ><div align="right">edit</div></a></div>
+                                <div class="panel-heading"><div class="col-sm-9">Your skills</div><a href= "/skillSurvey" ><div align="right"><button type="button" class="btn btn-default btn-sm">
+      <span class="glyphicon glyphicon-pencil"></span> Edit
+    </button></div></a></div>
                             <div class="panel-body">
                                     <ul><a>Facilitating</a></ul>
                                     <ul><a>Planning</a></ul>
@@ -125,7 +150,7 @@
 
             <!-- page code -->
 
-           
+
 </body>
 
 </html>
