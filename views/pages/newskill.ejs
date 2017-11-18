@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ./partials/header.ejs %>
+</head>
+
+<body>
+  <% include ./partials/top.ejs %>
+  <% include ./partials/adminnav.ejs %>
+
+
+
+<!-- page code -->
+<center>
+
+    <style>
+    form {
+        border: 3px solid #f1f1f1;
+    }
+
+    input[type=text], input[type=password],input[type=email] {
+        width: 35%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 0px 0px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+
+
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+    }
+
+    img.avatar {
+        width: 40%;
+        border-radius: 50%;
+    }
+
+    .container {
+        padding: 16px;
+
+    }
+
+    span.psw {
+        float: none;
+        padding-top: 16px;
+    }
+
+    /* Change styles for span and cancel button on extra small screens */
+    @media screen and (max-width: 300px) {
+        span.psw {
+           display: block;
+           float: none;
+        }
+        .cancelbtn {
+           width: 100%;
+        }
+    }
+    </style>
+    <body>
+
+    <h2>Create New Skill</h2>
+
+    <form method="post" action="/" onSubmit="return validateForm(this)" name="form">
+
+
+      <div class="container">
+        <table>
+            <tr>
+        <td><label><b>Skill Name</b></label></td>
+        <td><input type="text" style="width: 300px" placeholder="Enter Skillname" name="sname" ></td>
+    </tr>
+
+        <td> <label><b>Skill Type</b></label></td>
+        <td><div class="form-group">
+            
+            <select class="form-control" id="types">
+              <option>type1</option>
+              <option>type2</option>
+              </td>
+    </tr>
+<tr>
+    <td> <label><b>Skill Category</b></label></td>
+     <td><div class="form-group">
+        
+        <select class="form-control" id="category">
+          <option>Arts</option>
+          <option>Building Skills</option>
+          <option>Event Skills</option>
+          <option>Business/Technology</option>
+          <option>Business/Team Skills</option>
+          <option>Discipleship/Spirituality</option>
+        </select>
+      </div> </td>   
+
+    
+</tr>
+</table>
+    <p id="my-error-message-container" style="display:none; border:1px solid red; color:red; background-color:yellow; font-weight:bold; padding:5px; width:188px;"></p>
+        <button class="btn btn-info" type="submit">Create Skill</button>
+
+        <button class="btn btn-danger" role="button">Cancel</button>
+
+</div>
+
+
+      <!-- <div class="container" style="background-color:#f1f1f1">
+        <input type="checkbox" checked="checked"> Remember me
+        <span class="psw"> <a href="#">Forgot password?</a></span>
+      </div> -->
+    </form>
+    <!-- test script -->
+     <!-- test script -->
+     
+                                                                    
+
+
+
+
+            <script>
+function validateForm() {
+    var x = document.forms["form"]["sname"].value;
+    var z = document.forms["form"]["stype"].value;
+    var y = /^[a-zA-Z0-9-_]{2,16}$/;
+    var p = /^[a-z0-9_-]{2,18}$/;
+    if (x== "") {
+        alert("please enter skillname");
+        return false;
+    }
+    else if(x.length < 2)
+    {
+        alert("skillname should contain minimum 2 characters");
+        return false;
+    }
+    else if(y.test(x)== false)
+    {
+        alert("follow the pattern");
+        return false;
+    }
+    if(z== "")
+    {
+        alert("please enter skilltype");
+        return false;
+    }
+    else if(z.length <2)
+    {
+        alert("skilltype should contain minimum 2 characters");
+        return false;
+    }
+    else if(p.test(z)== false)
+    {
+        alert("follow the pattern");
+        return false;
+    }
+
+}
+</script>
+
+    </body>
+    </html>
+</center>
+
+</body>
+</html>

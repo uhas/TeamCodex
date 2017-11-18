@@ -25,6 +25,12 @@
     input.select();
     })
     $('a.edit').click(function () {
+    var text = $('.pAddress').text();
+    var input = $('<input id="attributeadd" type="text" value="' + text + '" />')
+    $('.pAddress').text('').append(input);
+    input.select();
+    })
+    $('a.edit').click(function () {
     var text = $('.numb').text();
     var input = $('<input id="attributenumb" type="text" value="' + text + '" />')
     $('.numb').text('').append(input);
@@ -37,6 +43,9 @@
     $('a.save').click(function () {
         $('.mail').html ( $('#attributemail').val() );
     });
+    $('a.save').click(function () {
+        $('.pAddress').html ( $('#attributadd').val() );
+    })
     $('a.save').click(function () {
         $('.numb').html ( $('#attributenumb').val() );
         $('.save').hide();
@@ -64,24 +73,21 @@
                                     <img src="/jolaine.jpg" alt="image.png" class="img-rounded img-responsive" />
                                 </div>
                                 <div class="col-sm-7">
-<<<<<<< HEAD
                                     <div class="align-top"><a class= "edit" href="#"><div align="right"><button type="button" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-pencil"></span> Edit
         </button></div></a></div>
                                     <h2>Welcome <%= user %> ! </h2>
 
-=======
-                                        
+
                                     <!-- <div class="align-top"><a class= "edit" href="#"><div align="right">edit</div></a></div> -->
-                                   
-                                    <h3>Welcome <%= user %> ! </h3>
->>>>>>> 94d795917f4fa161bd38d02fb824d41cf2c18a8d
+
+                                    <!-- <h3>Welcome <%= user %> ! </h3> -->
 
                                     <p class="text-info">
 
                                            <b>Name:</b><label class="name"> <%= user %> </label>
                                             <br />
-                                            <b>Address:</b><label class="name"> 1115 N collge dr, Apt 163,Maryville , Mo. </label>
+                                            <b>Address:</b><label class="pAddress"> 1115 N collge dr, Apt 163,Maryville , Mo. </label>
                                             <br/>
                                             </i><b>Phone:</b><label class="numb"> +1 660-528-0011</label>
                                         <br />
