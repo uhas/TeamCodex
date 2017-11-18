@@ -76,23 +76,23 @@
                                     <div class="align-top"><a class= "edit" href="#"><div align="right"><button type="button" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-pencil"></span> Edit
         </button></div></a></div>
-                                    <h2>Welcome <%= user %> ! </h2>
+                                    <h2>Welcome <%= parishioner.Lastname %>,<%=parishioner.Firstname %> ! </h2>
 
 
                                     <!-- <div class="align-top"><a class= "edit" href="#"><div align="right">edit</div></a></div> -->
 
-                                    <!-- <h3>Welcome <%= user %> ! </h3> -->
+                                    
 
                                     <p class="text-info">
 
-                                           <b>Name:</b><label class="name"> <%= user %> </label>
+                                           <b>Name:</b><label class="name"> <%= parishioner.Lastname %>,<%=parishioner.Firstname%> </label>
                                             <br />
-                                            <b>Address:</b><label class="pAddress"> 1115 N collge dr, Apt 163,Maryville , Mo. </label>
+                                            <b>Address:</b><label class="pAddress">  </label>
                                             <br/>
-                                            </i><b>Phone:</b><label class="numb"> +1 660-528-0011</label>
+                                            </i><b>Phone:</b><label class="numb"><%= parishioner.Phone %> </label>
                                         <br />
 
-                                        <b>Email:</b><label class="mail"> <%= user %>@stgregory.com </label>
+                                        <b>Email:</b><label class="mail"> <%= parishioner%> </label>
                                     </p>
                                         <div class="align-top"><a class= "save" href="#" hidden><div align="right">save</div></a></div>
                                     <!-- Split button -->

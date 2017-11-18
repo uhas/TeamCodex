@@ -5,7 +5,9 @@ var churchloginschema=mongoose.Schema({
     username:{type: String, unique: true},
     Firstname:{type: String},
     Lastname:{type: String},
+    Address:{type: String},
     Email:{type:String},
+    Phone:{type:String},
     password:{type:String},
     skills:{type:String},
     ministries:{type:String}

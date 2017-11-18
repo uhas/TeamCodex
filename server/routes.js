@@ -74,9 +74,6 @@ router.get('/Min_Lead',function(req,res){
 router.get('/Min_Lead',function(req,res){
   res.render('Min_Lead');
 });
-router.get('/newskill',function(req,res){
-  res.render('newskill');
-});
 
   router.get('/login', function(req,res){
     res.render('login',{
@@ -88,21 +85,39 @@ router.get('/newskill',function(req,res){
   router.post("/newuser", function(req,res){
     console.log(req.body);
     var user = new churchmodel();
-    user.PID = req.body.pid;
-    user.username  = req.body.username;
-    user.Firstname  = req.body.fname;
-    user.Lastname = req.body.lname;
-    user.Email =  req.body.email;
-    user.Password = req.body.password;
-
+    Parishionerid = req.body.pid;
    
-    user.save(function(err, result){
-         if(!err){
-         res.log("User created successfully"); }
-         else{
-         console.log(err);
-     }
-     });
+    
+
+    churchmodel.find({PID:Parishionerid}, function(err,results){
+      if(!results.length){
+        console.log("parishioner id already exists");
+    // $("#abc").html("incorrect password");
+    // results.render('login',{
+    //       errorMessage: "Please Enter Valid Entries"
+    //     });
+}
+      
+      else {
+        user.PID = req.body.pid;
+        user.username  = req.body.username;
+        user.Firstname  = req.body.fname;
+        user.Lastname = req.body.lname;
+        user.Email =  req.body.email;
+        user.Password = req.body.password;
+
+        user.save(function(err, result){
+          if(!err){
+            console.log("User created successfully"); }
+          else{
+          console.log(err);
+              }
+            });
+        }
+
+    });
+
+    
 
  });
 
@@ -110,13 +125,13 @@ router.get('/newskill',function(req,res){
 
 
   router.post('/login', function(req,res){
-    console.log('hello');
-  console.log(req.body.uname);
+  //   console.log('hello');
+  // console.log(req.body.uname);
   var username=req.body.uname;
 current=username;
   var password=req.body.psw;
 
-    churchmodel.find({username:username, password:password}, function(err,results){
+    churchmodel.find({username:username, Password:password}, function(err,results){
       if(!results.length){
     // $("#abc").html("incorrect password");
         res.render('login',{
@@ -124,9 +139,9 @@ current=username;
         });
 
 
-      } else if(docs.length>0){
-        res.render("/parishioner", {tasks: results});
-      }
+      } else
+        res.render("parishioner", {parishioner: results});
+      
     });
   });
 
