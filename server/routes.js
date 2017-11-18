@@ -81,6 +81,31 @@ router.get('/Min_Lead',function(req,res){
     });
   });
 
+
+  router.post("/newuser", function(req,res){
+    console.log(req.body);
+    var user = new churchmodel();
+    user.PID = req.body.pid;
+    user.username  = req.body.username;
+    user.Firstname  = req.body.fname;
+    user.Lastname = req.body.lname;
+    user.Email =  req.body.email;
+    user.Password = req.body.password;
+
+   
+    user.save(function(err, result){
+         if(!err){
+         res.log("User created successfully"); }
+         else{
+         console.log(err);
+     }
+     });
+
+ });
+
+
+
+
   router.post('/login', function(req,res){
     console.log('hello');
   console.log(req.body.uname);
@@ -88,8 +113,8 @@ router.get('/Min_Lead',function(req,res){
 current=username;
   var password=req.body.psw;
 
-    churchmodel.find({username:username, password:password}, function(err,docs){
-      if(!docs.length){
+    churchmodel.find({username:username, password:password}, function(err,results){
+      if(!results.length){
     // $("#abc").html("incorrect password");
         res.render('login',{
           errorMessage: "Please Enter Valid Entries"
@@ -97,13 +122,15 @@ current=username;
 
 
       } else if(docs.length>0){
-        res.redirect('/parishioner');
+        res.render("/parishioner", {tasks: results});
       }
     });
   });
 
   router.get('/parishioner', function(req,res){
-    console.log('call for parishioner');
+    // console.log('call for parishioner');
+
+
     res.render('parishioner',{
       user:current
     });
@@ -124,4 +151,5 @@ current=username;
 // });
 
 
-module.exports=router;
+
+module.exports=router ;
