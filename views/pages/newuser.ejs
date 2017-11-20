@@ -79,30 +79,36 @@
 
     <h2>Create New User</h2>
 
-    <form method="post" action="/" onSubmit="return validateForm(this)" name="form">
+    <form method="POST" action="/newuser" onSubmit="return validateForm(this)" name="form">
 
 
       <div class="container">
         <table>
             <tr>
-        <td><label><b>ParishionerID</b></label></td>
-        <td><input type="text" style="width: 300px" placeholder="Enter ChurchID" name="ChurchId" ></td>
+        <td><label><b >ParishionerID</b></label></td>
+        <td><input type="text" style="width: 300px" placeholder="Enter ParishionerID" name="pid" ></td>
     </tr>
 <tr>
-    <td> <label><b>Username</b></label></td>
-<td><input type="text" style="width: 300px" placeholder="Enter Username" name="uname" ></td>
+    <td> <label name= "username"><b >Username</b></label></td>
+<td><input type="text" style="width: 300px" placeholder="Enter Username" name="username" ></td>
+</tr>
+<td> <label name= "username"><b >First Name</b></label></td>
+<td><input type="text" style="width: 300px" placeholder="Enter Username" name="fname" ></td>
+</tr>
+<td> <label name= "username"><b >Last Name</b></label></td>
+<td><input type="text" style="width: 300px" placeholder="Enter Username" name="lname" ></td>
 </tr>
     <tr>
         <td> <label><b>Email</b></label></td>
-    <td>  <input type="email" style="width: 300px" placeholder="Enter Email" name="Email" ></td>
+    <td>  <input type="email" style="width: 300px" placeholder="Enter Email" name="email" ></td>
     </tr>
 <tr>
     <td>  <label><b>Password</b></label></td>
-<td> <input type="password" style="width: 300px" placeholder="Enter Password" name="psw" ></td>
+<td> <input type="password" style="width: 300px" placeholder="Enter Password" name="password" ></td>
     </tr>
 <tr>
     <td>  <label><b>Retype Password</b></label></td>
-<td>  <input type="password" style="width: 300px" placeholder="Enter Password again" name="psw" ></td>
+<td>  <input type="password" style="width: 300px" placeholder="Enter Password again" name="repassword" ></td>
     </tr>
 
 </table>

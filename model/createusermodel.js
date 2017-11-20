@@ -1,10 +1,14 @@
 var mongoose=require('mongoose');
 
 var churchloginschema=mongoose.Schema({
-    ParishionerID:{type: String, unique: true },
-    username:{type: String},
+    PID:{type: String, unique: true },
+    username:{type: String, unique: true},
+    Firstname:{type: String},
+    Lastname:{type: String},
     Email:{type:String},
-    password:{type:String}
+    password:{type:String},
+    skills:{type:String},
+    ministries:{type:String}
 });
 
 // var churchdata= new churchloginschema({
