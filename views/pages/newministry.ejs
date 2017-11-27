@@ -17,7 +17,7 @@
 
     <h2>Create New Ministry</h2>
 
-    <form method="post" action="/" onSubmit="return validateForm(this)" name="form">
+    <form method="POST" action="/newministry" onSubmit="return validateForm(this)" name="form">
 
 
       <div class="container">
@@ -35,7 +35,7 @@
 <td><label><b>Assign Ministrylead</b></label> </td>
 <td>  <div id="custom-search-input">
         <div class="input-group col-md-12">
-            <input type="text" class="  search-query form-control" placeholder="Search" />
+            <input type="text" class="  search-query form-control" placeholder="Search" name="m_lead"/>
             <span class="input-group-btn">
                 <button class="btn btn-danger" type="button">
                     <span class=" glyphicon glyphicon-search"></span>
@@ -49,11 +49,13 @@
         <td> &nbsp; </td>  
       </tr>
       
-        <td> <label><b>Description</b></label></td>
-    <td>  <textarea col style="height: 150px;width:300px" placeholder="Enter Textarea" name="Tarea" ></textarea></td>
+        <td> <label><b>Mission</b></label></td>
+    <td>  <textarea col style="height: 150px;width:300px" placeholder="Enter Textarea" name="mission" ></textarea></td>
     </tr>
 <tr>
-
+    <td> <label><b>Description</b></label></td>
+    <td>  <textarea col style="height: 150px;width:300px" placeholder="Enter Textarea" name="description" ></textarea></td>
+    
         
 
     
@@ -61,7 +63,7 @@
 </table></br>
     <p id="my-error-message-container" style="display:none; border:1px solid red; color:red; background-color:yellow; font-weight:bold; padding:5px; width:188px;"></p>
     <table>  <tr> 
-   <td> <button class="btn btn-info" type="submit">Create User</button></td>
+   <td> <button class="btn btn-info" type="submit">Create Ministry</button></td>
    <td>  <button class="btn btn-danger" role="button">Cancel</button></td>
     </tr>
     </table> 

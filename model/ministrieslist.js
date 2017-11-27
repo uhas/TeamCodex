@@ -25,4 +25,4 @@ var ministryschema=mongoose.Schema({
 // });
 
 
-module.exports=mongoose.model('ministrydatas', ministryschema);
+module.exports=mongoose.model('ministriesdata', ministryschema);

@@ -1,4 +1,6 @@
 var  churchmodel=require('../model/churchmodel');
+var  ministrymodel=require('../model/ministrymodel.js');
+
 var express=require('express');
 var router=express.Router();
 var current;
@@ -31,9 +33,9 @@ var current;
   router.get('/contact',function(req,res){
     res.render('contact');
   });
-  router.get('/ministries',function(req,res){
-    res.render('ministries');
-  });
+  // router.get('/ministries',function(req,res){
+  //   res.render('ministries');
+  // });
   router.get('/ministrySurvey',function(req,res){
     res.render('ministrySurvey');
   });
@@ -82,33 +84,33 @@ router.get('/Min_Lead',function(req,res){
   });
 
 
-  router.post("/newuser", function(req,res){
-    console.log(req.body);
-    var user = new churchmodel();
-    Parishionerid = req.body.pid;
+router.post("/newuser", function(req,res){
+  console.log(req.body);
+  var user = new churchmodel();
+  Parishionerid = req.body.pid;
    
     
 
-    churchmodel.find({PID:Parishionerid}, function(err,results){
-      if(!results.length){
-        console.log("parishioner id already exists");
-    // $("#abc").html("incorrect password");
-    // results.render('login',{
-    //       errorMessage: "Please Enter Valid Entries"
-    //     });
-}
+  churchmodel.find({PID:Parishionerid}, function(err,results){
+    if(results.length>0){
+       
+    console.log('parishioner id already exists');
+    res.render("newuser");
+  }
       
-      else {
-        user.PID = req.body.pid;
-        user.username  = req.body.username;
-        user.Firstname  = req.body.fname;
-        user.Lastname = req.body.lname;
-        user.Email =  req.body.email;
-        user.Password = req.body.password;
-
-        user.save(function(err, result){
+  else {
+    user.PID = req.body.pid;
+    user.username  = req.body.username;
+    user.Firstname  = req.body.fname;
+    user.Lastname = req.body.lname;
+    user.Email =  req.body.email;
+    user.Password = req.body.password;
+  
+      user.save(function(err, result){
           if(!err){
-            console.log("User created successfully"); }
+            console.log("User created successfully");
+            res.render("newuser"); }
+           
           else{
           console.log(err);
               }
@@ -125,13 +127,11 @@ router.get('/Min_Lead',function(req,res){
 
 
   router.post('/login', function(req,res){
-  //   console.log('hello');
-  // console.log(req.body.uname);
   var username=req.body.uname;
 current=username;
   var password=req.body.psw;
 
-    churchmodel.find({username:username, Password:password}, function(err,results){
+    churchmodel.find({username:username, Password:password},["Firstname","Lastname","Email","skills","ministries"], function(err,results){
       if(!results.length){
     // $("#abc").html("incorrect password");
         res.render('login',{
@@ -141,11 +141,12 @@ current=username;
 
       } else
         res.render("parishioner", {parishioner: results});
+        console.log("datails are"+results);
       
     });
   });
 
-  router.get('/parishioner', function(req,res){
+  router.get('/parishionerdata', function(req,res){
     // console.log('call for parishioner');
 
 
@@ -167,6 +168,84 @@ current=username;
 //     res.send("sandeep has been added");
 //   }
 // });
+
+
+
+//Adding new ministry
+
+router.post("/newministry", function(req,res){
+  // console.log(req.body);
+  var ministry = new ministrymodel();
+  let m_name = req.body.Mname;
+
+ 
+  
+
+  ministrymodel.find({minisrtyname:m_name}, function(err,results){
+    if(results.length>0){
+     
+      console.log("Ministry already exists");
+      
+
+}
+    
+    else {
+      // ministry. = req.body.pid;
+      // ministry.ministryid = rand;
+      ministry.minisrtyname  = req.body.Mname;
+      ministry.lead  = req.body.m_lead;
+      ministry.mission = req.body.mission;
+      ministry.description =  req.body.description;
+     
+
+      ministry.save(function(err, result){
+        if(!err){
+          
+          console.log("Ministry created successfully"); 
+          res.render('newministry')
+          }
+        else{
+        console.log(err);
+            }
+          });
+      }
+
+  });
+
+  
+
+});
+
+
+
+
+
+router.get("/allministries", function(req,res){
+  // console.log(req.query);
+  //res.send("list of tasks "+ req.query.task_name);
+  //res.render("allTasks");
+  // mongodb command to retrive tasks to do from today is {toDate: {$gte: moment().startOf('day').format("YYYY-MM-DDTHH:mm")}} 
+  // following will retrive all tasks in ascendding(+1 ascending nd -1 desecending) order of fromDate
+
+  // let Ministry = new ministrymodel();
+  // console.log(Ministry);
+  ministrymodel.find({}, ["minisrtyname"] , function(err, results){
+      console.log("minsitries", results);
+      res.render("ministries", {ministrylist: results});
+  });
+});
+
+
+router.get("/ministry/:id", function(req, res){
+  // console.log(req.params);
+  // res.send(" task - "+ req.params.id );
+  //res.render("viewTask");
+  ministrymodel.findOne({_id: req.params.id}, function(err,result){
+      if(!err){
+          res.render("ministry", {ministry:result});
+      }
+  });
+});
 
 
 
