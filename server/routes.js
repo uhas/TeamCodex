@@ -18,6 +18,9 @@ var current;
   router.get('/adminViewMinistry',function(req,res){
     res.render('adminViewMinistry');
   });
+  router.get('/adminInactiveMinistries',function(req,res){
+    res.render('adminInactiveMinistries');
+  });
   router.get('/adminDeleteMinistry',function(req,res){
     res.render('adminDeleteMinistry');
   });
