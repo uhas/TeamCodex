@@ -77,6 +77,10 @@ router.get('/Min_Lead',function(req,res){
   res.render('Min_Lead');
 });
 
+router.get('/newskill',function(req,res){
+  res.render('newskill');
+});
+
   router.get('/login', function(req,res){
     res.render('login',{
       errorMessage: ""
@@ -116,11 +120,7 @@ router.post("/newuser", function(req,res){
               }
             });
         }
-
-    });
-
-    
-
+   });
  });
 
 
@@ -154,24 +154,6 @@ current=username;
       user:current
     });
   });
-
-// var churchdata= new churchmodel({
-//   username : "bhavishya",
-//   password: "abcd"
-// });
-//
-// churchdata.save(function(err,result){
-//   if(err){
-//     console.log(err);
-//   } else{
-//     console.log("success");
-//     res.send("sandeep has been added");
-//   }
-// });
-
-
-
-//Adding new ministry
 
 router.post("/newministry", function(req,res){
   // console.log(req.body);
@@ -221,14 +203,6 @@ router.post("/newministry", function(req,res){
 
 
 router.get("/allministries", function(req,res){
-  // console.log(req.query);
-  //res.send("list of tasks "+ req.query.task_name);
-  //res.render("allTasks");
-  // mongodb command to retrive tasks to do from today is {toDate: {$gte: moment().startOf('day').format("YYYY-MM-DDTHH:mm")}} 
-  // following will retrive all tasks in ascendding(+1 ascending nd -1 desecending) order of fromDate
-
-  // let Ministry = new ministrymodel();
-  // console.log(Ministry);
   ministrymodel.find({}, ["minisrtyname"] , function(err, results){
       console.log("minsitries", results);
       res.render("ministries", {ministrylist: results});
@@ -237,10 +211,7 @@ router.get("/allministries", function(req,res){
 
 
 router.get("/ministry/:id", function(req, res){
-  // console.log(req.params);
-  // res.send(" task - "+ req.params.id );
-  //res.render("viewTask");
-  ministrymodel.findOne({_id: req.params.id}, function(err,result){
+   ministrymodel.findOne({_id: req.params.id}, function(err,result){
       if(!err){
           res.render("ministry", {ministry:result});
       }
