@@ -134,7 +134,7 @@ router.post("/newuser", function(req,res){
 current=username;
   var password=req.body.psw;
 
-    churchmodel.find({username:username, Password:password},["Firstname","Lastname","Email","skills","ministries"], function(err,results){
+    churchmodel.find({Email:username, Password:password},["Firstname","Lastname","Email","skills","ministries"], function(err,results){
       if(!results.length){
     // $("#abc").html("incorrect password");
         res.render('login',{
