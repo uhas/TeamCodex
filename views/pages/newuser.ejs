@@ -5,7 +5,7 @@
 </head>
 
 <body>
-  <% include ./partials/top.ejs %>
+  <% include ./partials/loggedtop.ejs %>
   <% include ./partials/adminnav.ejs %>
 
 
@@ -47,6 +47,14 @@
     .imgcontainer {
         text-align: center;
         margin: 24px 0 12px 0;
+    }
+    .btn-info{
+      
+        width: 10%;
+    }
+    .btn-danger{
+        width: 10%;
+
     }
 
     img.avatar {
@@ -90,10 +98,10 @@
     </tr>
 
 <td> <label name= "username"><b >First Name</b></label></td>
-<td><input type="text" style="width: 300px" placeholder="Enter Username" name="fname" ></td>
+<td><input type="text" style="width: 300px" placeholder="Enter Firstname" name="fname" ></td>
 </tr>
 <td> <label name= "username"><b >Last Name</b></label></td>
-<td><input type="text" style="width: 300px" placeholder="Enter Username" name="lname" ></td>
+<td><input type="text" style="width: 300px" placeholder="Enter Lastname" name="lname" ></td>
 </tr>
     <tr>
         <td> <label><b>Email</b></label></td>
@@ -110,11 +118,11 @@
 
 </table>
     <p id="my-error-message-container" style="display:none; border:1px solid red; color:red; background-color:yellow; font-weight:bold; padding:5px; width:188px;"></p>
-    <div class="btn-group-vertical">
-        <button class="btn btn-info" style='margin-right:100px' type="submit">Create User</button>
-    </br>
-        <button class="btn btn-danger" style='margin-right:100px' role="button">Cancel</button>
-        </div>
+
+        <button class="btn btn-info" style='margin-right:10px' type="submit">Create User</button>
+    <!-- <br> -->
+        <button class="btn btn-danger" style='margin-right:10px' role="button">Cancel</button>
+
 </div>
 
 
