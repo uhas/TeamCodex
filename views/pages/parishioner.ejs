@@ -53,6 +53,20 @@
     $('a.save').click(function () {
         $('h2').text("Welcome "+$('.name').text()+"!");
     });
+    
+    $("#profileImage").click(function(e) {
+        $("#imageUpload").click();
+    });
+    function fasterPreview( uploader ) {
+        if ( uploader.files && uploader.files[0] ){
+          $('#profileImage').attr('src', 
+             window.URL.createObjectURL(uploader.files[0]) );
+        }
+    }
+    $("#imageUpload").change(function(){
+        fasterPreview( this );
+        $('.save').show();
+    });
   });
     </Script>
 </head>
@@ -61,7 +75,32 @@
   <% include ./partials/top.ejs %>
   <% include ./partials/nav.ejs %>
 
+
             <!-- page code -->
+    <style>
+    #imageUpload {
+    display: none;
+    }
+
+    #profileImage {
+    cursor: pointer;
+    }
+    #profile-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    }
+    #profile-container img {
+    width: 150px;
+    height: 150px;
+    }
+    </style>
+
             <div class="container">
                 <div class="row">
                     <div>
@@ -70,8 +109,13 @@
                                 <!-- <div class="align-top"><a class= "edit" href="#"><div align="right">edit</div></a></div> -->
                             <div class="row">
                                 <div class="col-sm-2 col-sm-6">
-                                    <img src="/jolaine.jpg" alt="image.png" class="img-rounded img-responsive" />
-                                </div>
+                                   <!-- <img src="/jolaine.jpg" alt="image.png" class="img-rounded img-responsive" /> -->
+                                   <div id="profile-container">
+                                        <image id="profileImage" src="/profilepic.png" />
+                                        <input id="imageUpload" type="file" 
+                                            name="profile_photo" placeholder="Photo" required="" capture>
+                                     </div>
+                                </div> 
                                 <div class="col-sm-7">
                                     <div class="align-top"><a class= "edit" href="#"><div align="right"><button type="button" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-pencil"></span> Edit

@@ -144,7 +144,7 @@ current=username;
 
       } else
         res.render("parishioner", {parishioner: results});
-        console.log("datails are"+results);
+        console.log("details are"+results);
       
     });
   });
