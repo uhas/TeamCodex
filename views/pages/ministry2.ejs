@@ -11,13 +11,22 @@
             <!-- Main code -->
 
             <div>
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                
 
 
                     <!-- Wrapper for slides -->
+                    <div class="col-sm-9" id="con">
                     <div class="carousel-inner">
                         <div class="item active">
-                            <center> <img src="/slide2.jpg" alt="team 1"> </center>
+                                <div style="float:left;">
+                             
+                            <center> <img src="/slide2.jpg" alt="team 1" align="left" height="350" width="1000"> </center>
+                            <center>
+                                <a href="#contentpara">
+                                    <h4>Scroll Down</h4>
+                                </a>
+                            </center>    
+                        </div>
                             <div class="carousel-caption">
                                 <h1><font color="White">Altar Servers</font></h1>
 
@@ -25,50 +34,20 @@
                         </div>
 
                     </div>
+                    
 
                     <!-- Left and right controls -->
-                    <a class="left carousel-control" href="/ministry" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left"></span>
+                   
               <span class="sr-only">Previous</span>
             </a>
-                    <a class="right carousel-control" href="/ministry2" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right"></span>
+                    
               <span class="sr-only">Next</span>
             </a>
                 </div>
-                <center>
-                    <a href="#content">
-                        <h4>Scroll Down</h4>
-                    </a>
-                </center>
+                
             </div>
-
-            <div id="content">
-                <div class="col-sm-9" class="container">
-                    <div class="jumbotron">
-                        <h1>Welcome to Altar Servers</h1>
-                        <p>“You can do something I cannot do. I can do something you cannot do. Together let us do something
-                            beautiful for God.” – Blessed Mother Teresa
-                        </p>
-                    </div>
-                    <p align="justify">
-                        Each portrayal was followed by a hymn led by seventh graders Cassidy Spire and Tori Allen or a piano instrumental. Nielson
-                        said her students have become familiar with the Stations of the Cross throughout their years at St.
-                        Gregory’s, but that they take extra time to focus and reflect on them before the reenactment. “Anytime
-                        we can step out of the desks and outside the classroom we do,” Nielson said. “The more we can act
-                        out, the more the students will remember and understand the significance of it.” The traditional
-                        Stations of the Cross include 14 events ending with Jesus’ body being sealed in the tomb. However,
-                        a 15th station is sometimes added, the Resurrection on Easter morning. “(Holy Week) is the darkest
-                        time in our liturgical year,” Nielson said. “The students understand that and take it seriously.”
-                        The Last Supper reenactment took place on Holy Thursday, which is also called Maundy Thursday. “Maundy”
-                        comes from the Latin word “mandatum” which means “mandate” or “commandment.” It refers to Christ’s
-                        commandment to his disciples to show love for one another as he showed them love through his sacrificial
-                        death.
-                    </p>
-                </div>
-
-
-                <div class="col-sm-3">
+            </div>
+              <div class="col-sm-3" id="co">
                     <div class="panel-group">
                         <div class="panel panel-default">
                             <div class="panel-heading" class="col-sm-3">Activities</div>
@@ -82,6 +61,19 @@
                                 </ul>
                             </div>
                         </div>
+                        <div class="panel panel-default">
+                        <div class="panel-heading" class="col-sm-3">Updates</div>
+                        <div class="panel-body">
+                                <ul>
+                                        <li>Event one has started </br>
+                                        </li>
+                                        <li>event 2 has ended</br>
+                                        </li>
+                                        <li>event 3 is on 2-23-2017, You are welcome to it </li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </div>  
                         <div class="panel panel-default">
                             <div class="panel-heading" class="col-sm-3">Contact</div>
                             <div class="panel-body">
@@ -99,8 +91,47 @@
                 </div>
 
             </div>
+
+            <div id="content">
+                <div class="col-sm-9" class="container">
+                    <div class="jumbotron">
+                        <h1>Welcome to Altar Servers</h1>
+                        <p>“You can do something I cannot do. I can do something you cannot do. Together let us do something
+                            beautiful for God.” – Blessed Mother Teresa
+                        </p>
+                    </div>
+                    <p align="justify" id="contentpara">
+                        Each portrayal was followed by a hymn led by seventh graders Cassidy Spire and Tori Allen or a piano instrumental. Nielson
+                        said her students have become familiar with the Stations of the Cross throughout their years at St.
+                        Gregory’s, but that they take extra time to focus and reflect on them before the reenactment. “Anytime
+                        we can step out of the desks and outside the classroom we do,” Nielson said. “The more we can act
+                        out, the more the students will remember and understand the significance of it.” The traditional
+                        Stations of the Cross include 14 events ending with Jesus’ body being sealed in the tomb. However,
+                        a 15th station is sometimes added, the Resurrection on Easter morning. “(Holy Week) is the darkest
+                        time in our liturgical year,” Nielson said. “The students understand that and take it seriously.”
+                        The Last Supper reenactment took place on Holy Thursday, which is also called Maundy Thursday. “Maundy”
+                        comes from the Latin word “mandatum” which means “mandate” or “commandment.” It refers to Christ’s
+                        commandment to his disciples to show love for one another as he showed them love through his sacrificial
+                        death.
+                    </p>
+                </div>
+
+
+                
             <style>
+                #co {
+                    position: relative;
+                    top: 10px;
+                    
+                }
+                 #con {
+                    position: relative;
+                    top: 10px;
+                    
+                }
                 #content {
+                    position: relative;
+                    top: -130px;
                     margin-left: 60px;
                     margin-right: 60px;
                 }
