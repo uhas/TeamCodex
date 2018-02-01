@@ -33,203 +33,101 @@
 <div class="container">
   <div class="row">
     <!-- <div class="col-sm-4"></div> -->
-  <div class="col-sm-12">
+  <!-- <div class="col-sm-12"> -->
 
     <div class="col-sm-12">
      <div class="panel panel-default">
+				
        <div class="panel-heading"> Arts </div>
          <div class="panel-body">
-			  <table style="width: 85%; height: 100%;">
-
-				<tr>
-					<td><input id="scheckBox1" type="checkbox"> Music(Vocal) </td>
-					<td><input id="scheckBox2" type="checkbox"> Musical Instrument </td>
-					<td><input id="scheckBox3" type="checkbox"> FLoral Arrangement </td>
-				</tr>
-				<tr>
-					<td><input id="scheckBox4" type="checkbox"> Writing </td>
-					<td><input id="scheckBox5" type="checkbox"> Photography </td>
-					<td><input id="scheckBox6" type="checkbox"> Sewing </td>
-				</tr>
-				<tr>
-					<td><input id="scheckBox7" type="checkbox"> Sewing </td>
-					<td><input id="scheckBox8" type="checkbox"> Knitting/Crocheting </td>
-					<td><input id="scheckBox9" type="checkbox"> Decorating and Interior Design </td>
-				</tr>
-				<tr>
-					<td><input id="scheckBox10" type="checkbox"> Church Laundry </td>
-				</tr>
-			  </table>
+						<ul class="ministryListBlk">
+							<% for(let i=0; i<skillslist.length; i++) { %>
+									<% if (skillslist[i].Skill_Category == 'Arts'){ %>
+							<li><input id="scheckBox14" type="checkbox"><%= skillslist[i].Skill_Name  %></li>
+								<% } }%>
+							</ul>
 		</div>
   </div>
 </div>
-
+  <!-- </div> -->
+  <!-- </div> -->
 	<!-- </div> -->
 
 
-
-
-  <div class="col-sm-12">
-     <div class="panel panel-default">
-       <div class="panel-heading"> Building Skills </div>
-         <div class="panel-body">
-			  <table style="width: 49%; height: 60%;">
-
-<!-- <div class="col-sm-4"> -->
-				<tr>
-
-					<td><input id="scheckBox11" type="checkbox" > General Maintenance </td>
-					<td><input id="scheckBox12" type="checkbox"> Plumbing </td>
-					  <td><input id="scheckBox13" type="checkbox"> Electrical Work </td>
-				</tr>
-
-
-
-				<tr>
-					<td><input id="scheckBox14" type="checkbox"> Painting </td>
-					<td><input id="scheckBox15" type="checkbox"> Renovation </td>
-<!-- </div> -->
-</tr>
-<!-- </div> -->
-<!-- </div> -->
-
-
-			  </table>
-        </div>
-		</div>
-	  </div>
-
-<!-- <div class="row">
-<div class="col-sm-12"> -->
-  <div class="col-sm-12">
-     <div class="panel panel-default">
-       <div class="panel-heading"> Event Skills </div>
-         <div class="panel-body">
-			  <table style="width: 65%; height: 65%;">
-
-				<tr>
-					<td><input id="scheckBox16" type="checkbox"> Party Event Planning </td>
-					<td><input id="scheckBox17" type="checkbox"> Selling </td>
-					<td><input id="scheckBox18" type="checkbox"> Creating Publicity </td>
-				</tr>
-				<tr>
-					<td><input id="scheckBox19" type="checkbox"> Kitchen Organizing </td>
-					<td><input id="scheckBox20" type="checkbox"> Preparing Food </td>
-					<td><input id="scheckBox21" type="checkbox"> Baking and Cooking </td>
-				</tr>
-				<tr>
-					<td><input id="scheckBox22" type="checkbox"> Serving Food </td>
-					<td><input id="scheckBox23" type="checkbox"> Setting-up </td>
-					<td><input id="scheckBox24" type="checkbox"> Clean Up After Events </td>
-				</tr>
-				<tr>
-					<td><input id="scheckBox25" type="checkbox"> Event Decorating </td>
-					<td><input id="scheckBox26" type="checkbox"> Event Fundraising </td>
-					<td><input id="scheckBox27" type="checkbox"> Co-hosting Social Events </td>
-				</tr>
-				<tr>
-					<td><input id="scheckBox28" type="checkbox"> Provide Child Care </td>
-				</tr>
-			  </table>
-		</div>
-	  </div>
-	</div>
-
-
-
-
-  <div class="col-sm-12">
-     <div class="panel panel-default">
-       <div class="panel-heading"> Business/Technology </div>
-         <div class="panel-body">
-			  <table style="width: 73%; height: 100%;">
-
-				<tr>
-					<td> <input id="scheckBox29" type="checkbox"> Audio and Video Systems </td>
-					<td> <input id="scheckBox30" type="checkbox"> Computer Maintenance </td>
-					<td> <input id="scheckBox31" type="checkbox">  Website Maintenance and Development </td>
-				</tr>
-				<tr>
-					<td> <input id="scheckBox32" type="checkbox"> Data Entry </td>
-					<td> <input id="scheckBox33" type="checkbox"> Data Programming </td>
-					<td> <input id="scheckBox34" type="checkbox"> Computer Software </td>
-				</tr>
-				<tr>
-					<td> <input id="scheckBox35" type="checkbox"> Graphic Design </td>
-					<td> <input id="scheckBox36" type="checkbox"> Clerical Tasks </td>
-				</tr>
-			  </table>
-		</div>
-	  </div>
-	</div>
-
-  <div class="col-sm-12">
-     <div class="panel panel-default">
-       <div class="panel-heading"> Business/Team Skills </div>
-         <div class="panel-body">
-			  <table style="width: 53%; height: 100%;">
-
-				<tr>
-					<td><input id="scheckBox37" type="checkbox"> Communicating and Marketing </td>
-					<td><input id="scheckBox38" type="checkbox"> Finance </td>
-					<td><input id="checkBox" type="checkbox"> Fundraising </td>
-				</tr>
-				<tr>
-					<td><input id="checkBox" type="checkbox"> Organization </td>
-					<td><input id="checkBox" type="checkbox"> Facilitating </td>
-					<td><input id="checkBox" type="checkbox"> Problem Solving </td>
-				</tr>
-				<tr>
-					<td><input id="checkBox" type="checkbox"> Consensus Building </td>
-					<td><input id="checkBox" type="checkbox"> Planning </td>
-					<td><input id="checkBox" type="checkbox"> Team Building </td>
-				</tr>
-				<tr>
-					<td><input id="checkBox" type="checkbox"> Recruiting </td>
-					<td><input id="checkBox" type="checkbox"> Share Vision and Ideas </td>
-					<td><input id="checkBox" type="checkbox"> Process Improvement </td>
-				</tr>
-				<tr>
-					<td><input id="checkBox" type="checkbox"> Public Speaking </td>
-				</tr>
-			  </table>
-		</div>
-		</div>
-		</div>
-
-		<div class="col-sm-12">
+	<div class="col-sm-12">
 			<div class="panel panel-default">
+				 
+				<div class="panel-heading"> Building Skills </div>
+					<div class="panel-body">
+						 <ul class="ministryListBlk">
+							 <% for(let i=0; i<skillslist.length; i++) { %>
+									 <% if (skillslist[i].Skill_Category == 'Building Skills'){ %>
+							 <li><input id="scheckBox14" type="checkbox"><%= skillslist[i].Skill_Name  %></li>
+								 <% } }%>
+							 </ul>
+		 </div>
+	 </div>
+ </div>
+	 <!-- </div> -->
+	 <!-- </div> -->
+
+	 <div class="col-sm-12">
+			<div class="panel panel-default">
+				 
+				<div class="panel-heading"> Event Skills </div>
+					<div class="panel-body">
+						 <ul class="ministryListBlk">
+							 <% for(let i=0; i<skillslist.length; i++) { %>
+									 <% if (skillslist[i].Skill_Category == 'Event Skills'){ %>
+							 <li><input id="scheckBox14" type="checkbox"><%= skillslist[i].Skill_Name  %></li>
+								 <% } }%>
+							 </ul>
+		 </div>
+	 </div>
+ </div>
+	 <!-- </div> -->
+	 <!-- </div> -->
+
+
+
+	 <div class="col-sm-12">
+			<div class="panel panel-default">
+				 
+				<div class="panel-heading"> Business/Technology </div>
+					<div class="panel-body">
+						 <ul class="ministryListBlk">
+							 <% for(let i=0; i<skillslist.length; i++) { %>
+									 <% if (skillslist[i].Skill_Category == 'Business/Technology'){ %>
+							 <li><input id="scheckBox14" type="checkbox"><%= skillslist[i].Skill_Name  %></li>
+								 <% } }%>
+							 </ul>
+		 </div>
+	 </div>
+ </div>
+	 <!-- </div> -->
+	 <!-- </div> -->
+
+
+	 <div class="col-sm-12">
+			<div class="panel panel-default">
+				 
 				<div class="panel-heading"> Discipleship/Spirituality </div>
 					<div class="panel-body">
-
-				 <table style="width: 58%; height: 100%;">
-
-
-
-						<tr>
-
-						<td> <input id="checkBox" type="checkbox"> Teaching/Assisting </td>
-						<td> <input id="checkBox" type="checkbox"> Elementary </td>
-						<td> <input id="checkBox" type="checkbox"> Youth </td>
-					</tr>
-					<tr>
-						<td> <input id="checkBox" type="checkbox"> Sick and Elderly Minister </td>
-						<td> <input id="checkBox" type="checkbox"> Crisis Minister </td>
-						<td> <input id="checkBox" type="checkbox"> Prayer Leader </td>
-					</tr>
-					<tr>
-						<td> <input id="checkBox" type="checkbox"> Bilingual </td>
-						<td> <input id="checkBox" type="checkbox"> Using Sign Language </td>
-						<td> <input id="checkBox" type="checkbox"> Provide transportation </td>
-					</tr>
-				 </table>
+						 <ul class="ministryListBlk">
+							 <% for(let i=0; i<skillslist.length; i++) { %>
+									 <% if (skillslist[i].Skill_Category == 'Discipleship/Spirituality'){ %>
+							 <li><input id="scheckBox14" type="checkbox"><%= skillslist[i].Skill_Name  %></li>
+								 <% } }%>
+							 </ul>
 		 </div>
-		 </div>
-		 </div>
-     </div>
-     <!-- <div class="col-sm-0"></div> -->
-   </div>
+	 </div>
  </div>
+	 </div>
+	 </div>
+
+
+	</div>
+	 
 
 
 
@@ -243,10 +141,21 @@
 
 
 			<style>
-				#content {
+				/* #content {
 					margin-left: 0px;
 					margin-right: 0px;
-				}
+				} */
+				
+    #content {
+      margin-left: 100px;
+      margin-right: 100px;
+    }
+    ul.ministryListBlk {
+        height: 100px;
+        columns: 4;
+        overflow: auto;
+    }
+ 
 			</style>
 </body>
 

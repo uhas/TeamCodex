@@ -83,12 +83,16 @@
            width: 100%;
         }
     }
+
+    #cat1{
+        display: none;
+    }
     </style>
     <body>
 
     <h2>Create New Skill</h2>
 
-    <form method="post" action="/" onSubmit="return validateForm(this)" name="form">
+    <form method="post" action="/newskill" onSubmit="return validateForm(this)" name="form">
 
 
       <div class="container">
@@ -110,14 +114,16 @@
     <td> <label><b>Skill Category</b></label></td>
      <td><div class="form-group">
 
-        <select class="form-control" id="category">
-          <option>Arts</option>
-          <option>Building Skills</option>
-          <option>Event Skills</option>
-          <option>Business/Technology</option>
-          <option>Business/Team Skills</option>
-          <option>Discipleship/Spirituality</option>
-        </select>
+            <!-- <select class="form-control" name="cat1"> -->
+          <select class="form-control" name="cat1" required="">
+          <option value="Select">Select a skill Category</option>
+          <option  value="Arts">Arts</option>
+          <option  value="Building Skills">Building Skills</option>
+          <option value="Event Skills">Event Skills</option>
+          <option  value="Business/Technology">Business/Technology</option>
+          <option  value="Business/Team Skills">Business/Team Skills</option>
+          <option  value="Discipleship/Spirituality">Discipleship/Spirituality</option>
+          </select>
       </div> </td>
 
 
@@ -140,6 +146,7 @@
      <!-- test script -->
 
 
+     <textarea id="demo"  name="cat2"></textarea>
 
 
 
@@ -181,6 +188,14 @@ function validateForm() {
     }
 
 }
+
+
+function findCat() {
+  var category =  document.getElementById("category").value;
+  document.getElementById("demo").innerHTML = category;
+//   return category;
+};
+module.export = findCat;
 </script>
 
     </body>

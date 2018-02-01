@@ -1,7 +1,16 @@
 var  churchmodel=require('../model/churchmodel');
 var  ministrymodel=require('../model/ministrymodel.js');
-
+var skillsmodel = require('../model/skillsmodel.js');
+var session = require('express-session');
+ // using Version 5.4.1
+//  var jsdom = require('jsdom').jsdom;
+// //  var document = jsdom('<html></html>', {});
+//  var window = document.defaultView;
+//  var $ = require('jquery')(window);
 var express=require('express');
+var http = require('http');
+var bcrypt = require('bcrypt');
+// var categoryfun = require('../views/pages/newskill.ejs')findCat();
 var router=express.Router();
 var current;
 
@@ -12,6 +21,16 @@ var current;
   // router.get('/parishioner',function(req,res){
   //   res.render('parishioner');
   // });
+
+//Session
+  // app.use(session({
+  //   cookieName: 'session',
+  //   secret: 'random_string_goes_here',
+  //   duration: 30 * 60 * 1000,
+  //   activeDuration: 5 * 60 * 1000,
+  // }));
+
+
   router.get('/admin',function(req,res){
     res.render('admin');
   });
@@ -51,9 +70,9 @@ var current;
   router.get('/ministry',function(req,res){
     res.render('ministry');
   });
-  router.get('/skillSurvey',function(req,res){
-    res.render('skillSurvey');
-  });
+  // router.get('/skillSurvey',function(req,res){
+  //   res.render('skillSurvey');
+  // });
   router.get('/ministry2',function(req,res){
     res.render('ministry2');
     });
@@ -90,13 +109,30 @@ router.get('/newskill',function(req,res){
     });
   });
 
+//use sessions for tracking logins
+// app.use(session({
+//   secret: 'work hard',
+//   resave: true,
+//   saveUninitialized: false
+// }));
+
+
+
+const saltRounds = 10;
+const myPlaintextPassword = 's0/\/\P4$$w0rD';
+const someOtherPlaintextPassword = 'not_bacon';
+
 
 router.post("/newuser", function(req,res){
   console.log(req.body);
   var user = new churchmodel();
   Parishionerid = req.body.pid;
    
-    
+  var password = req.body.password;
+  bcrypt.hash(password, saltRounds, function(err, hash) {
+    // Store hash in your password DB.
+  });
+  
 
   churchmodel.find({PID:Parishionerid}, function(err,results){
     if(results.length>0){
@@ -137,6 +173,7 @@ current=username;
     churchmodel.find({Email:username, Password:password},["Firstname","Lastname","Email","skills","ministries"], function(err,results){
       if(!results.length){
     // $("#abc").html("incorrect password");
+    req.session.user = user;
         res.render('login',{
           errorMessage: "Please Enter Valid Entries"
         });
@@ -213,6 +250,7 @@ router.get("/allministries", function(req,res){
 });
 
 
+
 router.get("/ministry/:id", function(req, res){
    ministrymodel.findOne({_id: req.params.id}, function(err,result){
       if(!err){
@@ -222,5 +260,65 @@ router.get("/ministry/:id", function(req, res){
 });
 
 
+
+
+
+
+
+// var cheerio = require('cheerio'),
+// $ = cheerio.load('file.ejs'),
+// fs = require('fs');
+
+
+
+router.post("/newskill", function(req,res){
+  // console.log(req.body);
+  var skill = new skillsmodel();
+  let skillname = req.body.sname;
+let skillcat = req.body.cat1;
+  console.log(req.body.selectpicker);
+  
+
+  skillsmodel.find({Skill_Name:skillname}, function(err,results){
+    if(results.length>0){
+     
+      console.log(req.body.selectpicker);
+      
+
+}
+    
+    else {
+      // ministry. = req.body.pid;
+      // ministry.ministryid = rand;
+      skill.Skill_Name  = req.body.sname;
+      skill.Skill_Category  = req.body.cat1;
+      // skill.Cat_Id = req.body.mission;
+      // skill.skill_Id =  req.body.description;
+     
+
+      skill.save(function(err, result){
+        if(!err){
+          
+          console.log("skill created successfully"); 
+          res.render('newskill')
+          }
+        else{
+        console.log(err);
+            }
+          });
+      }
+
+  });
+
+  
+
+});
+
+router.get("/allskills", function(req,res){
+  skillsmodel.find({}, ["Skill_Name","Skill_Category"] , function(err, results){
+      console.log("skills", results);
+      res.render("skillSurvey", {skillslist: results});
+  });
+});
 
 module.exports=router ;
