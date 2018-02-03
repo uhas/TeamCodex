@@ -5,219 +5,180 @@
 </head>
 
 <body>
-  <% include ./partials/loggedtop.ejs %>
-  <% include ./partials/adminnav.ejs %>
+  <% include ./partials/top.ejs %>
+  <% include ./partials/nav.ejs %>
 
 
-
-
-	<div class="container">
+	<form action="/" method="post">
+<!-- <div id="content"> -->
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-13">
 		<div class="jumbotron">
-		<h1>Select skills to delete</h1>
+		<h1>Delete the skills</h1>
+		<p>“Select the skills need to be deleted”
+
+			</p>
+    </div>
+    <!-- <div class="col-sm-1"></div> -->
+    </div>
 		</div>
 
 
-<div id="content">
 
 
 
-  <div class="col-sm-12">
+<div class="container">
+  <div class="row">
+    <!-- <div class="col-sm-4"></div> -->
+  <!-- <div class="col-sm-12"> -->
+
+    <div class="col-sm-12">
      <div class="panel panel-default">
+				
        <div class="panel-heading"> Arts </div>
          <div class="panel-body">
-			  <table style="width: 100%; height: 100%;">
-
-				<tr>
-					<th><input id="scheckBox1" type="checkbox"> Music(Vocal) </th>
-					<th><input id="scheckBox2" type="checkbox"> Musical Instrument </th>
-					<th><input id="scheckBox3" type="checkbox"> FLoral Arrangement </th>
-				</tr>
-				<tr>
-					<th><input id="scheckBox4" type="checkbox"> Writing </th>
-					<th><input id="scheckBox5" type="checkbox"> Photography </th>
-					<th><input id="scheckBox6" type="checkbox"> Sewing </th>
-				</tr>
-				<tr>
-					<th><input id="scheckBox7" type="checkbox"> Sewing </th>
-					<th><input id="scheckBox8" type="checkbox"> Knitting/Crocheting </th>
-					<th><input id="scheckBox9" type="checkbox"> Decorating and Interior Design </th>
-				</tr>
-				<tr>
-					<th><input id="scheckBox10" type="checkbox"> Church Laundry </th>
-				</tr>
-			  </table>
+						<ul class="ministryListBlk">
+							<% for(let i=0; i<skillslist.length; i++) { %>
+									<% if (skillslist[i].Skill_Category == 'Arts'){ %>
+							<li><input name="scheckBox14" type="checkbox" value = "<%= skillslist[i].Skill_Name %>"/><%= skillslist[i].Skill_Name  %></li>
+								<% } }%>
+							</ul>
 		</div>
-	  </div>
-	</div>
+  </div>
+</div>
+  <!-- </div> -->
+  <!-- </div> -->
+	<!-- </div> -->
 
 
-
-
-  <div class="col-sm-12">
-     <div class="panel panel-default">
-       <div class="panel-heading"> Building Skills </div>
-         <div class="panel-body">
-			  <table style="width: 100%; height: 100%;">
-
-				<tr>
-					<th><input id="scheckBox11" type="checkbox"> General Maintenance </th>
-					<th><input id="scheckBox12" type="checkbox"> Plumbing </th>
-					<th><input id="scheckBox13" type="checkbox"> Electrical Work </th>
-				</tr>
-				<tr>
-					<th><input id="scheckBox14" type="checkbox"> Painting </th>
-					<th><input id="scheckBox15" type="checkbox"> Renovation </th>
-
-				</tr>
-
-
-			  </table>
-		</div>
-	  </div>
-	</div>
-
-
-  <div class="col-sm-12">
-     <div class="panel panel-default">
-       <div class="panel-heading"> Event Skills </div>
-         <div class="panel-body">
-			  <table style="width: 100%; height: 100%;">
-
-				<tr>
-					<th><input id="scheckBox16" type="checkbox"> Party Event Planning </th>
-					<th><input id="scheckBox17" type="checkbox"> Selling </th>
-					<th><input id="scheckBox18" type="checkbox"> Creating Publicity </th>
-				</tr>
-				<tr>
-					<th><input id="scheckBox19" type="checkbox"> Kitchen Organizing </th>
-					<th><input id="scheckBox20" type="checkbox"> Preparing Food </th>
-					<th><input id="scheckBox21" type="checkbox"> Baking and Cooking </th>
-				</tr>
-				<tr>
-					<th><input id="scheckBox22" type="checkbox"> Serving Food </th>
-					<th><input id="scheckBox23" type="checkbox"> Setting-up </th>
-					<th><input id="scheckBox24" type="checkbox"> Clean Up After Events </th>
-				</tr>
-				<tr>
-					<th><input id="scheckBox25" type="checkbox"> Event Decorating </th>
-					<th><input id="scheckBox26" type="checkbox"> Event Fundraising </th>
-					<th><input id="scheckBox27" type="checkbox"> Co-hosting Social Events </th>
-				</tr>
-				<tr>
-					<th><input id="scheckBox28" type="checkbox"> Provide Child Care </th>
-				</tr>
-			  </table>
-		</div>
-	  </div>
-	</div>
-
-
-  <div class="col-sm-12">
-     <div class="panel panel-default">
-       <div class="panel-heading"> Business/Technology </div>
-         <div class="panel-body">
-			  <table style="width: 100%; height: 100%;">
-
-				<tr>
-					<th> <input id="scheckBox29" type="checkbox"> Audio and Video Systems </th>
-					<th> <input id="scheckBox30" type="checkbox"> Computer Maintenance </th>
-					<th> <input id="scheckBox31" type="checkbox">  Website Maintenance and Development </th>
-				</tr>
-				<tr>
-					<th> <input id="scheckBox32" type="checkbox"> Data Entry </th>
-					<th> <input id="scheckBox33" type="checkbox"> Data Programming </th>
-					<th> <input id="scheckBox34" type="checkbox"> Computer Software </th>
-				</tr>
-				<tr>
-					<th> <input id="scheckBox35" type="checkbox"> Graphic Design </th>
-					<th> <input id="scheckBox36" type="checkbox"> Clerical Tasks </th>
-				</tr>
-			  </table>
-		</div>
-	  </div>
-	</div>
-
-  <div class="col-sm-12">
-     <div class="panel panel-default">
-       <div class="panel-heading"> Business/Team Skills </div>
-         <div class="panel-body">
-			  <table style="width: 100%; height: 100%;">
-
-				<tr>
-					<th><input id="scheckBox37" type="checkbox"> Communicating and Marketing </th>
-					<th><input id="scheckBox38" type="checkbox"> Finance </th>
-					<th><input id="checkBox" type="checkbox"> Fundraising </th>
-				</tr>
-				<tr>
-					<th><input id="checkBox" type="checkbox"> Organization </th>
-					<th><input id="checkBox" type="checkbox"> Facilitating </th>
-					<th><input id="checkBox" type="checkbox"> Problem Solving </th>
-				</tr>
-				<tr>
-					<th><input id="checkBox" type="checkbox"> Consensus Building </th>
-					<th><input id="checkBox" type="checkbox"> Planning </th>
-					<th><input id="checkBox" type="checkbox"> Team Building </th>
-				</tr>
-				<tr>
-					<th><input id="checkBox" type="checkbox"> Recruiting </th>
-					<th><input id="checkBox" type="checkbox"> Share Vision and Ideas </th>
-					<th><input id="checkBox" type="checkbox"> Process Improvement </th>
-				</tr>
-				<tr>
-					<th><input id="checkBox" type="checkbox"> Public Speaking </th>
-				</tr>
-			  </table>
-		</div>
-		</div>
-		</div>
-
-		<div class="col-sm-12">
+	<div class="col-sm-12">
 			<div class="panel panel-default">
+				 
+				<div class="panel-heading"> Building Skills </div>
+					<div class="panel-body">
+						 <ul class="ministryListBlk">
+							 <% for(let i=0; i<skillslist.length; i++) { %>
+									 <% if (skillslist[i].Skill_Category == 'Building Skills'){ %>
+							 <li><input name="scheckBox14" type="checkbox" value = "<%= skillslist[i].Skill_Name %>"/><%= skillslist[i].Skill_Name  %></li>
+								 <% } }%>
+							 </ul>
+		 </div>
+	 </div>
+ </div>
+	 <!-- </div> -->
+	 <!-- </div> -->
+
+	 <div class="col-sm-12">
+			<div class="panel panel-default">
+				 
+				<div class="panel-heading"> Event Skills </div>
+					<div class="panel-body">
+						 <ul class="ministryListBlk">
+							 <% for(let i=0; i<skillslist.length; i++) { %>
+									 <% if (skillslist[i].Skill_Category == 'Event Skills'){ %>
+							 <li><input id="scheckBox14" type="checkbox" value = "<%= skillslist[i].Skill_Name %>"/><%= skillslist[i].Skill_Name  %></li>
+								 <% } }%>
+							 </ul>
+		 </div>
+	 </div>
+ </div>
+	 <!-- </div> -->
+	 <!-- </div> -->
+
+
+
+	 <div class="col-sm-12">
+			<div class="panel panel-default">
+				 
+				<div class="panel-heading"> Business/Technology </div>
+					<div class="panel-body">
+						 <ul class="ministryListBlk">
+							 <% for(let i=0; i<skillslist.length; i++) { %>
+									 <% if (skillslist[i].Skill_Category == 'Business/Technology'){ %>
+							 <li><input name="scheckBox14" type="checkbox" value = "<%= skillslist[i].Skill_Name %>"/><%= skillslist[i].Skill_Name  %></li>
+								 <% } }%>
+							 </ul>
+		 </div>
+	 </div>
+ </div>
+	 <!-- </div> -->
+	 <!-- </div> -->
+
+
+	 <div class="col-sm-12">
+			<div class="panel panel-default">
+				 
 				<div class="panel-heading"> Discipleship/Spirituality </div>
 					<div class="panel-body">
-
-				 <table style="width: 100%; height: 100%;">
-
-					<tr>
-
-				 	<table style="width: 100%; height: 100%;">
-
-						<tr>
-
-						<th> <input id="checkBox" type="checkbox"> Teaching/Assisting </th>
-						<th> <input id="checkBox" type="checkbox"> Elementary </th>
-						<th> <input id="checkBox" type="checkbox"> Youth </th>
-					</tr>
-					<tr>
-						<th> <input id="checkBox" type="checkbox"> Sick and Elderly Minister </th>
-						<th> <input id="checkBox" type="checkbox"> Crisis Minister </th>
-						<th> <input id="checkBox" type="checkbox"> Prayer Leader </th>
-					</tr>
-					<tr>
-						<th> <input id="checkBox" type="checkbox"> Bilingual </th>
-						<th> <input id="checkBox" type="checkbox"> Using Sign Language </th>
-						<th> <input id="checkBox" type="checkbox"> Provide transportation </th>
-					</tr>
-				 </table>
+						 <ul class="ministryListBlk">
+							 <% for(let i=0; i<skillslist.length; i++) { %>
+									 <% if (skillslist[i].Skill_Category == 'Discipleship/Spirituality'){ %>
+							 <li><input name="scheckBox14" type="checkbox" value = "<%= skillslist[i].Skill_Name %>"/><%= skillslist[i].Skill_Name  %></li>
+								 <% } }%>
+							 </ul>
+							 <Input type="button" value="Submit" id ="btest" class="btn btn-success"/>
 		 </div>
-		 </div>
-		 </div>
-		</div>
+	 </div>
+ </div>
+	 </div>
+	 </div>
 
-
-		 <form action="" method="post">
-			<div style="text-align:right">
-				<button type="submit" value="Submit">Submit</button>
-			</div>	</div>
-		</form>
 
 	</div>
+	<Input type="button" value="Submit" id ="btest3" class="btn btn-success"/>
+</form>
 
+
+
+		 <!-- <form action="" method="post">
+			<div style="text-align:right">
+				<button type="submit" value="Submit" id ="btest1" class="btn btn-success">Submit</button>
+			</div>
+		</form> -->
+</div>
+
+
+
+<script type="text/javascript">
+                        
+  function getSelectedChbox(frm) {
+    var selchbox = [];// array that will store the value of selected checkboxes
+    // gets all the input tags in frm, and their number
+    var inpfields = frm.getElementsByTagName('input');
+    var nr_inpfields = inpfields.length;
+    // traverse the inpfields elements, and adds the value of selected (checked) checkbox in selchbox
+    for(var i=0; i<nr_inpfields; i++) {
+      if(inpfields[i].type == 'checkbox' && inpfields[i].checked == true) selchbox.push(inpfields[i].value);
+    }
+    return selchbox;
+  }   
+                          
+  
+  document.getElementById('btest').onclick = function(){
+    var selchb = getSelectedChbox(this.form);     // gets the array returned by getSelectedChbox()
+    alert(selchb);
+  }
+                          
+ </Script>
 			<style>
-				#content {
+				/* #content {
 					margin-left: 0px;
 					margin-right: 0px;
-				}
+				} */
+				
+    #content {
+      margin-left: 100px;
+      margin-right: 100px;
+    }
+    ul.ministryListBlk {
+        height: 100px;
+        columns: 4;
+        overflow: auto;
+    }
+ 
 			</style>
 </body>
 

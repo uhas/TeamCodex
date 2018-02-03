@@ -1,7 +1,7 @@
 var  churchmodel=require('../model/churchmodel');
 var  ministrymodel=require('../model/ministrymodel.js');
 var skillsmodel = require('../model/skillsmodel.js');
-var session = require('express-session');
+var session = require('client-sessions');
  // using Version 5.4.1
 //  var jsdom = require('jsdom').jsdom;
 // //  var document = jsdom('<html></html>', {});
@@ -23,7 +23,7 @@ var current;
   // });
 
 //Session
-  // app.use(session({
+  // routes.use(session({
   //   cookieName: 'session',
   //   secret: 'random_string_goes_here',
   //   duration: 30 * 60 * 1000,
@@ -166,11 +166,12 @@ router.post("/newuser", function(req,res){
 
 
   router.post('/login', function(req,res){
+    let id = req.params.id;
   var username=req.body.uname;
 current=username;
   var password=req.body.psw;
 
-    churchmodel.find({Email:username, Password:password},["Firstname","Lastname","Email","skills","ministries"], function(err,results){
+    churchmodel.find({Email:username, Password:password},[], function(err,results){
       if(!results.length){
     // $("#abc").html("incorrect password");
     req.session.user = user;
@@ -180,15 +181,18 @@ current=username;
 
 
       } else
-        res.render("parishioner", {parishioner: results});
-        console.log("details are"+results);
-      
+      {
+        // let id = req.params.id;
+        // res.render("parishioner", {parishioner: results});
+        // console.log("details are"+results);
+        return next();
+      }
     });
   });
 
-  router.get('/parishionerdata', function(req,res){
+  router.get('/parishioner/:id', function(req,res){
     // console.log('call for parishioner');
-
+    let id = req.params.id;
 
     res.render('parishioner',{
       user:current
@@ -224,7 +228,9 @@ router.post("/newministry", function(req,res){
         if(!err){
           
           console.log("Ministry created successfully"); 
-          res.render('newministry')
+          res.render('newministry',{
+            Message: "Ministry created successfully"
+            })
           }
         else{
         console.log(err);
@@ -318,6 +324,21 @@ router.get("/allskills", function(req,res){
   skillsmodel.find({}, ["Skill_Name","Skill_Category"] , function(err, results){
       console.log("skills", results);
       res.render("skillSurvey", {skillslist: results});
+  });
+});
+
+
+router.get("/deleteskills", function(req,res){
+  skillsmodel.find({}, ["Skill_Name","Skill_Category"] , function(err, results){
+      console.log("skillses", results);
+      res.render("adminDeleteSkills", {skillslist: results});
+  });
+});
+
+router.get("/ministriessurvey", function(req,res){
+  ministrymodel.find({}, ["minisrtyname"] , function(err, results){
+    console.log("minsitries", results);
+    res.render("ministrySurvey", {ministrylist: results});
   });
 });
 
