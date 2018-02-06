@@ -182,10 +182,10 @@ current=username;
 
       } else
       {
+        res.render("parishioner", {parishioner: results});
         // let id = req.params.id;
-        // res.render("parishioner", {parishioner: results});
         // console.log("details are"+results);
-        return next();
+        //return next();
       }
     });
   });
