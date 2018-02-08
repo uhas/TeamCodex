@@ -2,6 +2,18 @@
 <html>
 <head>
   <% include ./partials/header.ejs %>
+  <script>
+       $(document).ready(function(){
+            $('.skill').click(function(){
+                $('.createSkill').show();
+                $('.createCategory').hide();
+            });
+            $('.category').click(function(){
+                $('.createSkill').hide();
+                $('.createCategory').show();
+            });
+       });
+  </script>
 </head>
 
 <body>
@@ -91,8 +103,11 @@
     <body>
 
     <h2>Create New Skill</h2>
-
-    <form method="post" action="/newskill" onSubmit="return validateForm(this)" name="form">
+    <div class="radio">
+        <span> <label><input type="radio" name="optradio" class="skill">Create skill  </label> </span>
+         <span><label><input type="radio" name="optradio" class="category">Create category</label></span>
+       </div>
+    <form method="post" action="/newskill" onSubmit="return validateForm(this)" name="form" class="createSkill" hidden>
 
 
       <div class="container">
@@ -145,8 +160,31 @@
     <!-- test script -->
      <!-- test script -->
 
-
-     <textarea id="demo"  name="cat2"></textarea>
+     <form method="post" action="/newskill" onSubmit="return validateForm(this)" name="form" class="createCategory" hidden>
+        
+        
+              <div class="container">
+                <table>
+                    <tr>
+                <td><label><b>Category Name</b></label></td>
+                <td><input type="text" style="width: 300px" placeholder="Enter category name" name="sname" ></td>
+            </tr>
+        
+               
+                
+            
+        </table>
+            <p id="my-error-message-container" style="display:none; border:1px solid red; color:red; background-color:yellow; font-weight:bold; padding:5px; width:188px;"></p>
+              <div>  <button class="btn btn-info" type="submit">Create category</button></div>
+        
+                <button class="btn btn-danger" role="button">Cancel</button>
+        
+        </div>
+        
+        
+             
+            </form>
+     <!-- <textarea id="demo"  name="cat2"></textarea> -->
 
 
 
