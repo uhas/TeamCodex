@@ -8,7 +8,7 @@ var bcrypt = require('bcrypt');
 var router = express.Router();
 var current;
 
-//****** ROUTES FOR DIFFERENT PAGES********/
+//****** ROUTES FOR DIFFERENT PAGES (USING GET REQUESTS)********/
 
 //*Redirects to the index page 
 router.get('/', function (req, res) {
@@ -99,17 +99,64 @@ router.get('/login', function (req, res) {
     errorMessage: ""
   });
 });
+//*Redirects to parishioner page with the given ID
+router.get('/parishioner/:id', function (req, res) {
+  console.log('call for parishioner');
+  let id = req.params.id;
+
+  res.render('parishioner', {
+    user: current
+  });
+});
+//*Redirects to minsitries page which gets all the ministrys from database
+router.get("/allministries", function (req, res) {
+  ministrymodel.find({}, ["minisrtyname"], function (err, results) {
+    console.log("minsitries", results);
+    res.render("ministries", { ministrylist: results });
+  });
+});
+
+//*Redirects to minsitry page which gets a specific ministry with a specific id
+router.get("/ministry/:id", function (req, res) {
+  ministrymodel.findOne({ _id: req.params.id }, function (err, result) {
+    if (!err) {
+      res.render("ministry", { ministry: result });
+    }
+  });
+});
+//*Redirects to skills page which gets all the skills from database
+router.get("/allskills", function (req, res) {
+  skillsmodel.find({}, ["Skill_Name", "Skill_Category"], function (err, results) {
+    console.log("skills", results);
+    res.render("skillSurvey", { skillslist: results });
+  });
+});
+
+//*Redirects to deletskills page which is used to delet a skill from database
+router.get("/deleteskills", function (req, res) {
+  skillsmodel.find({}, ["Skill_Name", "Skill_Category"], function (err, results) {
+    console.log("skillses", results);
+    res.render("adminDeleteSkills", { skillslist: results });
+  });
+});
+//*Redirects to ministry survay page which gets all the ministries from database
+router.get("/ministriessurvey", function (req, res) {
+  ministrymodel.find({}, ["minisrtyname"], function (err, results) {
+    console.log("minsitries", results);
+    res.render("ministrySurvey", { ministrylist: results });
+  });
+});
 
 
-
-
+//****** ROUTES FROM DIFFERENT PAGES TO DATABASE (USING POST REQUESTS)********/
 const saltRounds = 10;
 const myPlaintextPassword = 's0/\/\P4$$w0rD';
 const someOtherPlaintextPassword = 'not_bacon';
 
-
+//* Sending New users data from newuser page to Database
 router.post("/newuser", function (req, res) {
   console.log(req.body);
+
   var user = new churchmodel();
   Parishionerid = req.body.pid;
 
@@ -117,7 +164,6 @@ router.post("/newuser", function (req, res) {
   bcrypt.hash(password, saltRounds, function (err, hash) {
     // Store hash in your password DB.
   });
-
 
   churchmodel.find({ PID: Parishionerid }, function (err, results) {
     if (results.length > 0) {
@@ -148,10 +194,9 @@ router.post("/newuser", function (req, res) {
   });
 });
 
-
-
-
+//* Sending Users Login data from login page to Database
 router.post('/login', function (req, res) {
+  console.log(req.body);
   let id = req.params.id;
   var username = req.body.uname;
   current = username;
@@ -175,31 +220,17 @@ router.post('/login', function (req, res) {
   });
 });
 
-router.get('/parishioner/:id', function (req, res) {
-  // console.log('call for parishioner');
-  let id = req.params.id;
-
-  res.render('parishioner', {
-    user: current
-  });
-});
-
+//* Sending New Ministry data from newministry page to Database
 router.post("/newministry", function (req, res) {
   // console.log(req.body);
   var ministry = new ministrymodel();
   let m_name = req.body.Mname;
 
-
-
-
   ministrymodel.find({ minisrtyname: m_name }, function (err, results) {
+
     if (results.length > 0) {
-
       console.log("Ministry already exists");
-
-
     }
-
     else {
       // ministry. = req.body.pid;
       // ministry.ministryid = rand;
@@ -207,8 +238,6 @@ router.post("/newministry", function (req, res) {
       ministry.lead = req.body.m_lead;
       ministry.mission = req.body.mission;
       ministry.description = req.body.description;
-
-
       ministry.save(function (err, result) {
         if (!err) {
 
@@ -222,59 +251,25 @@ router.post("/newministry", function (req, res) {
         }
       });
     }
-
-  });
-
-
-
-});
-
-
-
-
-
-router.get("/allministries", function (req, res) {
-  ministrymodel.find({}, ["minisrtyname"], function (err, results) {
-    console.log("minsitries", results);
-    res.render("ministries", { ministrylist: results });
   });
 });
 
+            // var cheerio = require('cheerio'),
+            // $ = cheerio.load('file.ejs'),
+            // fs = require('fs');
 
-
-router.get("/ministry/:id", function (req, res) {
-  ministrymodel.findOne({ _id: req.params.id }, function (err, result) {
-    if (!err) {
-      res.render("ministry", { ministry: result });
-    }
-  });
-});
-
-
-
-
-
-
-
-// var cheerio = require('cheerio'),
-// $ = cheerio.load('file.ejs'),
-// fs = require('fs');
-
-
-
+//* Sending New skill data from newskill page to Database
 router.post("/newskill", function (req, res) {
-  // console.log(req.body);
+  console.log(req.body);
   var skill = new skillsmodel();
   let skillname = req.body.sname;
   let skillcat = req.body.cat1;
   console.log(req.body.selectpicker);
 
-
   skillsmodel.find({ Skill_Name: skillname }, function (err, results) {
     if (results.length > 0) {
 
       console.log(req.body.selectpicker);
-
 
     }
 
@@ -301,30 +296,8 @@ router.post("/newskill", function (req, res) {
 
   });
 
-
-
-});
-
-router.get("/allskills", function (req, res) {
-  skillsmodel.find({}, ["Skill_Name", "Skill_Category"], function (err, results) {
-    console.log("skills", results);
-    res.render("skillSurvey", { skillslist: results });
-  });
 });
 
 
-router.get("/deleteskills", function (req, res) {
-  skillsmodel.find({}, ["Skill_Name", "Skill_Category"], function (err, results) {
-    console.log("skillses", results);
-    res.render("adminDeleteSkills", { skillslist: results });
-  });
-});
-
-router.get("/ministriessurvey", function (req, res) {
-  ministrymodel.find({}, ["minisrtyname"], function (err, results) {
-    console.log("minsitries", results);
-    res.render("ministrySurvey", { ministrylist: results });
-  });
-});
 
 module.exports = router;
