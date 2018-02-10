@@ -9,7 +9,20 @@ var session = require('client-sessions');
 //  var $ = require('jquery')(window);
 var express=require('express');
 var http = require('http');
+const app = express();
 var bcrypt = require('bcrypt');
+const mongoClient = require('mongodb').MongoClient,
+  assert = require('assert');
+// const url = 'mongodb://localhost:27017/churchdb';
+// mongoClient.connect(url, (err, db) => {
+//   assert.equal(null, err);
+
+//   console.log("Connected correctly to server");
+
+//   insertDocuments(db, function () {
+//     db.close();
+//   });
+// });
 // var categoryfun = require('../views/pages/newskill.ejs')findCat();
 var router=express.Router();
 var current;
@@ -33,6 +46,9 @@ var current;
 
   router.get('/admin',function(req,res){
     res.render('admin');
+  });
+  router.get('/import',function(req,res){
+    res.render('import');
   });
   router.get('/adminViewMinistry',function(req,res){
     res.render('adminViewMinistry');
@@ -164,7 +180,11 @@ router.post("/newuser", function(req,res){
 
 
 
-
+ router.post('/import',function(req,res){
+  // res.render('admin');
+  let filepath=req.body.file;
+  res.render('import1')
+});
   router.post('/login', function(req,res){
     let id = req.params.id;
   var username=req.body.uname;
