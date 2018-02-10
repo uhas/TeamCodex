@@ -73,6 +73,10 @@ var current;
   // router.get('/skillSurvey',function(req,res){
   //   res.render('skillSurvey');
   // });
+  router.get('/Ministrytest',function(req,res){
+    res.render('Ministrytest');
+    });
+
   router.get('/ministry2',function(req,res){
     res.render('ministry2');
     });
@@ -183,9 +187,9 @@ current=username;
       } else
       {
         // let id = req.params.id;
-        // res.render("parishioner", {parishioner: results});
-        // console.log("details are"+results);
-        return next();
+        res.render("parishioner", {parishioner: results});
+        console.log("details are"+results);
+        // return next();
       }
     });
   });
@@ -328,18 +332,50 @@ router.get("/allskills", function(req,res){
 });
 
 
-router.get("/deleteskills", function(req,res){
-  skillsmodel.find({}, ["Skill_Name","Skill_Category"] , function(err, results){
-      console.log("skillses", results);
-      res.render("adminDeleteSkills", {skillslist: results});
-  });
-});
+
 
 router.get("/ministriessurvey", function(req,res){
   ministrymodel.find({}, ["minisrtyname"] , function(err, results){
     console.log("minsitries", results);
     res.render("ministrySurvey", {ministrylist: results});
   });
+});
+
+
+
+
+
+
+//code to test surveypages
+
+// router.post('/ministrytest',function(req,res){
+//   // var parsed = JSON.parse(survey);
+//   // console.log('Survey data:', parsed);
+//   var mlist = req.body.ministry;
+//   for(var i =0; i<mlist.length;i++){  console.log(mlist[i]);}
+
+//   console.log(req.body.ministry);
+//   // res.render("/skillSurvey")
+//   // res.render('Ministrytest');
+// });
+
+
+
+
+router.post("/deleteministry",function(req,res){
+  var mlist = req.body.ministry;
+  for(var i =0; i<mlist.length;i++){  console.log(mlist[i]);}
+
+  console.log(req.body.ministry);
+console.log("still need to work");
+});
+
+router.post("/deleteskills",function(req,res){
+  var mlist = req.body.scheckBox14;
+  for(var i =0; i<mlist.length;i++){  console.log(mlist[i]);}
+
+  console.log(req.body.scheckBox14);
+console.log("still need to work");
 });
 
 module.exports=router ;

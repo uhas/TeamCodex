@@ -1,0 +1,83 @@
+
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ./partials/header.ejs %>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("button").click(function(){
+            var favorite = [];
+            $.each($("input[name='sport']:checked"), function(){            
+                favorite.push($(this).val());
+            });
+            alert("My favourite sports are: " + favorite.join(", "));
+        });
+    });
+</script>
+</head>
+
+<body>
+
+        <!-- <div class="container">
+                
+    <% include ./partials/top.ejs %>
+    <% include ./partials/nav.ejs %> 
+                </div> -->
+
+    <br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-13">
+		<div class="jumbotron">
+		<h1>Delete the skills</h1>
+		<p>“Select the skills need to be deleted”
+
+			</p>
+    </div>
+    <!-- <div class="col-sm-1"></div> -->
+    </div>
+		</div>
+    <div class="container">
+            <div class="row">
+
+
+    <form action="/deleteskill" method="post">
+
+        <div class="col-sm-12">
+                <div class="panel panel-default">
+                           
+                  <div class="panel-heading"> Arts </div>
+                    <div class="panel-body">
+                                   <ul class="ministryListBlk">
+                                       <% for(let i=0; i<skillslist.length; i++) { %>
+                                               <% if (skillslist[i].Skill_Category == 'Arts'){ %>
+                                       <li><input name="scheckBox14" type="checkbox" value = "<%= skillslist[i].Skill_Name %>"/><%= skillslist[i].Skill_Name  %></li>
+                                           <% } }%>
+                                       </ul>
+    <button type="button">Get Values</button>
+</form>
+            </div>
+</div>
+<style>
+        /* #content {
+            margin-left: 0px;
+            margin-right: 0px;
+        } */
+        
+#container {
+margin-left: 100px;
+margin-right: 100px;
+padding-top: 100px;
+}
+ul.ministryListBlk {
+height: 100px;
+columns: 4;
+overflow: auto;
+}
+</style>
+</body>
+</html>
