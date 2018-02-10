@@ -259,6 +259,13 @@ router.get("/allministries", function(req,res){
   });
 });
 
+router.get("/viewministries", function(req,res){
+  ministrymodel.find({}, ["minisrtyname"] , function(err, results){
+      console.log("minsitries", results);
+      res.render("adminViewMinistry", {ministrylist: results});
+  });
+});
+
 router.get("/inactiveministries", function(req,res){
   ministrymodel.find({}, ["minisrtyname"] , function(err, results){
       console.log("adminInactiveMinistries", results);
@@ -334,6 +341,13 @@ router.get("/allskills", function(req,res){
   skillsmodel.find({}, ["Skill_Name","Skill_Category"] , function(err, results){
       console.log("skills", results);
       res.render("skillSurvey", {skillslist: results});
+  });
+});
+
+router.get("/viewskills", function(req,res){
+  skillsmodel.find({}, ["Skill_Name","Skill_Category"] , function(err, results){
+      console.log("skills", results);
+      res.render("adminViewSkills", {skillslist: results});
   });
 });
 
