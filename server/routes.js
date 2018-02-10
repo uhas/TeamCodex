@@ -259,6 +259,12 @@ router.get("/allministries", function(req,res){
   });
 });
 
+router.get("/inactiveministries", function(req,res){
+  ministrymodel.find({}, ["minisrtyname"] , function(err, results){
+      console.log("adminInactiveMinistries", results);
+      res.render("adminInactiveMinistries", {ministrylist: results});
+  });
+});
 
 
 router.get("/ministry/:id", function(req, res){
