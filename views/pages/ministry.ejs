@@ -10,47 +10,84 @@
 
             <!-- Main code -->
             <div >
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <div class="col-sm-9" id="con">
 
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                         
                         <div class="item active">
-                            <center> <img src="/slide1.jpg" alt="team 1"> </center>
+                            <center> <img src="/slide1.jpg" alt="team 1" align="left" height="350" width="1000"> 
                             <div class="carousel-caption">
 
-                                <right><h1><font color="white"><%= ministry.minisrtyname%></font></h1></right>
-
+                                <h1><font color="white"><%= ministry.minisrtyname%></font></h1>
+                                </div>
+                                <center>
+                                <a href="#contentpara">
+                                    <h4>Scroll Down</h4>
+                                </a>
+                            </center>
                               </div>
                         </div>
 
                     </div>
-                    </div>
-                <!-- <div class="item"> -->
-                    <!-- Left and right controls -->
-                    <a class="left carousel-control" href="/ministry" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
+                   
+                    <a href="/Ministry3">
+                        
                         <span class="sr-only">Previous</span>
                       </a>
-                              <a class="right carousel-control" href="/ministry3" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
+                      <a href="/Ministry3">
+                             
                         <span class="sr-only">Next</span>
                       </a>
+                          </div>
+                          
+                      </div>
+                      </div>
+            <div class="col-sm-3" id="co">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" class="col-sm-3">Activities</div>
+                        <div class="panel-body">
+                            <ul>
+                                <li>Activity one has started </br>
+                                </li>
+                                <li>Activity has ended</br>
+                                </li>
+                                <li>Activity 3 is on 2-23-2017, You are welcome to it </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                    <div class="panel-heading" class="col-sm-3">Updates</div>
+                    <div class="panel-body">
+                            <ul>
+                                    <li>Event one has started </br>
+                                    </li>
+                                    <li>event 2 has ended</br>
+                                    </li>
+                                    <li>event 3 is on 2-23-2017, You are welcome to it </li>
+                                </ul>
+                                </div>
+                            </div>
+                        </div>  
+                    <div class="panel panel-default">
+                        <div class="panel-heading" class="col-sm-3">Contact</div>
+                        <div class="panel-body">
+                            <ul>
+                                Ministry lead</br>
+                                Jolaine </br>
 
 
-                    <a class="right carousel-control" href="/ministry2" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right"></span>
-              <span class="sr-only">Next</span>
-            </a>
-        </div>
+
+                                +1-660-7777-222
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <center>
-                    <a href="#content">
-                        <h4>Scroll Down</h4>
-                    </a>
-                </center>
             </div>
+
+        </div>
 
             <div id="content">
                 <div class="col-sm-9" class="container">
@@ -59,45 +96,27 @@
                         <p><%= ministry.mission%>
                         </p>
                     </div>
-                    <p align="justify">
+                    <p align="justify" id="contentpara">
                         <%= ministry.description%>
                     </p>
                 </div>
 
 
-                <div class="col-sm-3">
-                    <div class="panel-group">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" class="col-sm-3">Activities</div>
-                            <div class="panel-body">
-                                <ul>
-                                    <li>Activity one has started </br>
-                                    </li>
-                                    <li>Activity has ended</br>
-                                    </li>
-                                    <li>Activity 3 is on 2-23-2017, You are welcome to it </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" class="col-sm-3">Contact</div>
-                            <div class="panel-body">
-                                <ul>
-                                    Ministry lead</br>
-                                    Jolaine </br>
-
-
-
-                                    +1-660-7777-222
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <style>
+               
+                <style>
+                #co {
+                    position: relative;
+                    top: 10px;
+                    
+                }
+                 #con {
+                    position: relative;
+                    top: 10px;
+                    
+                }
                 #content {
+                    position: relative;
+                    top: -110px;
                     margin-left: 60px;
                     margin-right: 60px;
                 }
