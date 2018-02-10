@@ -30,67 +30,62 @@
 
 
 
-<div class="container">
-  <div class="row">
-    <!-- <div class="col-sm-4"></div> -->
-  <!-- <div class="col-sm-12"> -->
+		<div class="container">
+		<div class="row">
+			<!-- <div class="col-sm-4"></div> -->
+		<!-- <div class="col-sm-12"> -->
+	
 		<form action="/updateskills" method="post">
-    <div class="col-sm-12">
-     <div class="panel panel-default">
-				
-       <div class="panel-heading"> Arts </div>
-         <div class="panel-body">
-						<ul class="ministryListBlk">
-							<% for(let i=0; i<skillslist.length; i++) { %>
-									<% if (skillslist[i].Skill_Category == 'Arts'){ %>
-							<li><input id="scheckBox14" type="checkbox"><%= skillslist[i].Skill_Name  %></li>
-								<% } }%>
-							</ul>
+			<div class="col-sm-12">
+			 <div class="panel panel-default">
+					
+				 <div class="panel-heading"> Arts </div>
+					 <div class="panel-body">
+							<ul class="ministryListBlk">
+								<% for(let i=0; i<skillslist.length; i++) { %>
+										<% if (skillslist[i].Skill_Category == 'Arts'){ %>
+								<li><input name="scheckBox14" type="checkbox" value = "<%= skillslist[i].Skill_Name %>"/><%= skillslist[i].Skill_Name  %></li>
+									<% } }%>
+								</ul>
+			</div>
 		</div>
-  </div>
-</div>
-  <!-- </div> -->
-  <!-- </div> -->
-	<!-- </div> -->
-
-
-	<div class="col-sm-12">
-			<div class="panel panel-default">
-				 
-				<div class="panel-heading"> Building Skills </div>
-					<div class="panel-body">
-						 <ul class="ministryListBlk">
-							 <% for(let i=0; i<skillslist.length; i++) { %>
-									 <% if (skillslist[i].Skill_Category == 'Building Skills'){ %>
-							 <li><input id="scheckBox14" type="checkbox"><%= skillslist[i].Skill_Name  %></li>
-								 <% } }%>
-							 </ul>
+	</div>
+		<!-- </div> -->
+		<!-- </div> -->
+		<!-- </div> -->
+	
+	
+		<div class="col-sm-12">
+				<div class="panel panel-default">
+					 
+					<div class="panel-heading"> Building Skills </div>
+						<div class="panel-body">
+							 <ul class="ministryListBlk">
+								 <% for(let i=0; i<skillslist.length; i++) { %>
+										 <% if (skillslist[i].Skill_Category == 'Building Skills'){ %>
+								 <li><input name="scheckBox14" type="checkbox" value = "<%= skillslist[i].Skill_Name %>"/><%= skillslist[i].Skill_Name  %></li>
+									 <% } }%>
+								 </ul>
+			 </div>
 		 </div>
 	 </div>
- </div>
-	 <!-- </div> -->
-	 <!-- </div> -->
-
+		
 	 <div class="col-sm-12">
 			<div class="panel panel-default">
 				 
-				<div class="panel-heading"> Event Skills </div>
+				<div class="panel-heading"> Event skills </div>
 					<div class="panel-body">
 						 <ul class="ministryListBlk">
 							 <% for(let i=0; i<skillslist.length; i++) { %>
 									 <% if (skillslist[i].Skill_Category == 'Event Skills'){ %>
-							 <li><input id="scheckBox14" type="checkbox"><%= skillslist[i].Skill_Name  %></li>
+							 <li><input name="scheckBox14" type="checkbox" value = "<%= skillslist[i].Skill_Name %>"/><%= skillslist[i].Skill_Name  %></li>
 								 <% } }%>
 							 </ul>
 		 </div>
 	 </div>
- </div>
-	 <!-- </div> -->
-	 <!-- </div> -->
-
-
-
-	 <div class="col-sm-12">
+	</div>
+	
+	<div class="col-sm-12">
 			<div class="panel panel-default">
 				 
 				<div class="panel-heading"> Business/Technology </div>
@@ -98,47 +93,20 @@
 						 <ul class="ministryListBlk">
 							 <% for(let i=0; i<skillslist.length; i++) { %>
 									 <% if (skillslist[i].Skill_Category == 'Business/Technology'){ %>
-							 <li><input id="scheckBox14" type="checkbox"><%= skillslist[i].Skill_Name  %></li>
+							 <li><input name="scheckBox14" type="checkbox" value = "<%= skillslist[i].Skill_Name %>"/><%= skillslist[i].Skill_Name  %></li>
 								 <% } }%>
 							 </ul>
 		 </div>
 	 </div>
- </div>
-	 <!-- </div> -->
-	 <!-- </div> -->
-
-
-	 <div class="col-sm-12">
-			<div class="panel panel-default">
-				 
-				<div class="panel-heading"> Discipleship/Spirituality </div>
-					<div class="panel-body">
-						 <ul class="ministryListBlk">
-							 <% for(let i=0; i<skillslist.length; i++) { %>
-									 <% if (skillslist[i].Skill_Category == 'Discipleship/Spirituality'){ %>
-							 <li><input id="scheckBox14" type="checkbox"><%= skillslist[i].Skill_Name  %></li>
-								 <% } }%>
-							 </ul>
-		 </div>
-	 </div>
- </div>
-	 </div>
-	 </div>
-
-
 	</div>
-	 
-
-
-
-
-		
-			<div style="text-align:right">
-				<button type="submit" value="Submit" class="btn btn-success">Submit</button>
-			</div>
+	
+		 <button class="btn btn-info" type="submit">Submit</button>  
+	
 		</form>
-</div>
-
+		</div>
+	
+	</div>
+	
 
 			<style>
 				/* #content {

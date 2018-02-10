@@ -360,22 +360,46 @@ router.get("/ministriessurvey", function(req,res){
 // });
 
 
+router.get("/deleteskills", function(req,res){
+  skillsmodel.find({}, ["Skill_Name","Skill_Category"] , function(err, results){
+      console.log("skills", results);
+      res.render("adminDeleteSkills", {skillslist: results});
+  });
+});
 
+router.post("/deleteskillsAdmin",function(req,res){
+  var skillslist = req.body.scheckBox14;
+  for(var i =0; i<skillslist.length;i++){ 
+    var myquery = { Skill_Name: skillslist[i] };
+    skillsmodel.remove(myquery, function(err, obj) {
+      if (err) throw err;
+      console.log(obj.result.n + " document(s) deleted");
+      // db.close();
+  
+  });  
+  
+  }
 
-router.post("/deleteministry",function(req,res){
+  console.log(req.body.scheckBox14);
+console.log("still need to work/delete skills");
+res.redirect('back');
+});
+
+router.post("/minsurvey",function(req,res){
   var mlist = req.body.ministry;
   for(var i =0; i<mlist.length;i++){  console.log(mlist[i]);}
 
   console.log(req.body.ministry);
-console.log("still need to work");
+console.log("still need to work//ministry survey");
 });
 
-router.post("/deleteskills",function(req,res){
-  var mlist = req.body.scheckBox14;
-  for(var i =0; i<mlist.length;i++){  console.log(mlist[i]);}
+router.post("/updateskills",function(req,res){
+  var skillslist = req.body.scheckBox14;
+  for(var i =0; i<skillslist.length;i++){ 
+    console.log(skillslist[i]);
+  }
 
   console.log(req.body.scheckBox14);
-console.log("still need to work");
+console.log("still need to work//Skillsurvey");
 });
-
 module.exports=router ;
