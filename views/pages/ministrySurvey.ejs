@@ -4,39 +4,47 @@
 <html>
 <head>
   <% include ./partials/header.ejs %>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 
 <body>
   <% include ./partials/top.ejs %>
   <% include ./partials/nav.ejs %>
 
-
+  <div class="container">
+  <!-- <form action="/updateministry" method="get"> -->
 	
 <!-- page code -->
-<div class="container">
+<!-- <div class="container"> -->
 <h2>Here is the list of all our ministries. Click on the ministry name to know more about them.</h2>
+ 
 <!-- <h4><b>Active Ministries:</b><h4> <h5> Click on the ministry name to view descriptions and activities of the ministry.  Use the navigation tools in the menu bar to easily move from ministry to ministry.</h5> -->
 <div id="Ministrycontainer" class="panel panel-default">
     <div class="panel-heading"><b>OUR MINISTRIES</b></div>
     <div id="panel-body">
-      
+        <form action="/ministrytest" method="post">
         <ul class="ministryListBlk">
         <% for(let i=0; i<ministrylist.length; i++) { %>
-                  <li><input id="scheckBox14" type="checkbox"><a href="/ministry/<%= ministrylist[i]._id %>"> <%= ministrylist[i].minisrtyname  %></a></li>
+                  <li><input id="scheckBox14" type="checkbox" name="ministry" value= <%= ministrylist[i].minisrtyname  %>><a href="/ministry/<%= ministrylist[i]._id %>"> <%= ministrylist[i].minisrtyname  %></a></li>
         <% } %>
         </ul>
-    </div>
-  </div>
+    </div></div>
 </div>
+        <button class="btn btn-info" type="submit">Submit</button>   
+
+  </form>
+  
 
 
 
-<form action="" method="post">
+
 	<div style="text-align:right">
-		<button type="submit" value="Submit" class="btn btn-success">Submit</button>
+	
 	</div>
-</form>
+
 </div>
+</div>
+<!-- </div> -->
 <!-- ministrylist -->
 
 <style>
@@ -51,27 +59,24 @@
     }
   </style>
 
-<script type="text/javascript">
-                        
-  function getSelectedChbox(frm) {
-    var selchbox = [];// array that will store the value of selected checkboxes
-    // gets all the input tags in frm, and their number
-    var inpfields = frm.getElementsByTagName('input');
-    var nr_inpfields = inpfields.length;
-    // traverse the inpfields elements, and adds the value of selected (checked) checkbox in selchbox
-    for(var i=0; i<nr_inpfields; i++) {
-      if(inpfields[i].type == 'checkbox' && inpfields[i].checked == true) selchbox.push(inpfields[i].value);
-    }
-    return selchbox;
-  }   
+
+  
+  <script type="text/javascript">
+    //   $(document).ready(function() {
+    //       $("button").click(function(){
+    //           var favorite = [];
+    //           $.each($("input[name='ministry']:checked"), function(){            
+    //               favorite.push($(this).val());
+
+    //               var survey = JSON.stringify(favorite);
+    //           });
+    //         //   alert("My favourite sports are: " + favorite.join(", "));
+    //       });
+    //   });
+  </script>
                           
   
-  document.getElementById('btest').onclick = function(){
-    var selchb = getSelectedChbox(this.form);     // gets the array returned by getSelectedChbox()
-    alert(selchb);
-  }
-                          
- </Script>
+
 
     </main>
     <footer>
