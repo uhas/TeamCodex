@@ -5,216 +5,131 @@
 </head>
 
 <body>
-  <% include ./partials/loggedtop.ejs %>
-  <% include ./partials/adminnav.ejs %>
+  <% include ./partials/top.ejs %>
+  <% include ./partials/nav.ejs %>
 
-
-
-
-	<div class="container">
+<!-- 
+	<form action="/deleteskill" method="post"> -->
+<!-- <div id="content"> -->
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-13">
 		<div class="jumbotron">
-		<h1>Skills</h1>
-
+		<h1>Delete the skills</h1>
+		<p>“Select the skills need to be deleted”
 
 			</p>
+    </div>
+    <!-- <div class="col-sm-1"></div> -->
+    </div>
 		</div>
 
 
-<div id="content">
 
 
+	
+<div class="container">
+  <div class="row">
+    <!-- <div class="col-sm-4"></div> -->
+  <!-- <div class="col-sm-12"> -->
 
-  <div class="col-sm-12">
+
+    <div class="col-sm-12">
      <div class="panel panel-default">
+				
        <div class="panel-heading"> Arts </div>
          <div class="panel-body">
-			  <table style="width: 100%; height: 100%;">
-
-				<tr>
-					<th>Music(Vocal) </th>
-					<th> Musical Instrument </th>
-					<th> FLoral Arrangement </th>
-				</tr>
-				<tr>
-					<th> Writing </th>
-					<th> Photography </th>
-					<th> Sewing </th>
-				</tr>
-				<tr>
-					<th> Church Laundry </th>
-					<th> Knitting/Crocheting </th>
-					<th> Decorating and Interior Design </th>
-				</tr>
-
-			  </table>
+						<ul class="ministryListBlk">
+							<% for(let i=0; i<skillslist.length; i++) { %>
+									<% if (skillslist[i].Skill_Category == 'Arts'){ %>
+							<li><%= skillslist[i].Skill_Name  %></li>
+								<% } }%>
+							</ul>
 		</div>
-	  </div>
-	</div>
+  </div>
+</div>
+  <!-- </div> -->
+  <!-- </div> -->
+	<!-- </div> -->
 
 
-
-
-  <div class="col-sm-12">
-     <div class="panel panel-default">
-       <div class="panel-heading"> Building Skills </div>
-         <div class="panel-body">
-			  <table style="width: 100%; height: 100%;">
-
-				<tr>
-					<th> General Maintenance </th>
-					<th> Plumbing </th>
-					<th> Electrical Work </th>
-				</tr>
-				<tr>
-					<th> Painting </th>
-					<th> Renovation </th>
-
-				</tr>
-
-
-			  </table>
-		</div>
-	  </div>
-	</div>
-
-
-  <div class="col-sm-12">
-     <div class="panel panel-default">
-       <div class="panel-heading"> Event Skills </div>
-         <div class="panel-body">
-			  <table style="width: 100%; height: 100%;">
-
-				<tr>
-					<th> Party Event Planning </th>
-					<th> Selling </th>
-					<th> Creating Publicity </th>
-				</tr>
-				<tr>
-					<th> Kitchen Organizing </th>
-					<th> Preparing Food </th>
-					<th> Baking and Cooking </th>
-				</tr>
-				<tr>
-					<th> Serving Food </th>
-					<th> Setting-up </th>
-					<th> Clean Up After Events </th>
-				</tr>
-				<tr>
-					<th> Event Decorating </th>
-					<th> Event Fundraising </th>
-					<th> Co-hosting Social Events </th>
-				</tr>
-				<tr>
-					<th>< Provide Child Care </th>
-				</tr>
-			  </table>
-		</div>
-	  </div>
-	</div>
-
-
-  <div class="col-sm-12">
-     <div class="panel panel-default">
-       <div class="panel-heading"> Business/Technology </div>
-         <div class="panel-body">
-			  <table style="width: 100%; height: 100%;">
-
-				<tr>
-					<th>  Audio and Video Systems </th>
-					<th>  Computer Maintenance </th>
-					<th>  Website Maintenance and Development </th>
-				</tr>
-				<tr>
-					<th>  Data Entry </th>
-					<th>  Data Programming </th>
-					<th>  Computer Software </th>
-				</tr>
-				<tr>
-					<th>  Graphic Design </th>
-					<th>  Clerical Tasks </th>
-				</tr>
-			  </table>
-		</div>
-	  </div>
-	</div>
-
-  <div class="col-sm-12">
-     <div class="panel panel-default">
-       <div class="panel-heading"> Business/Team Skills </div>
-         <div class="panel-body">
-			  <table style="width: 100%; height: 100%;">
-
-				<tr>
-					<th> Communicating and Marketing </th>
-					<th> Finance </th>
-					<th> Fundraising </th>
-				</tr>
-				<tr>
-					<th> Organization </th>
-					<th> Facilitating </th>
-					<th> Problem Solving </th>
-				</tr>
-				<tr>
-					<th> Consensus Building </th>
-					<th> Planning </th>
-					<th> Team Building </th>
-				</tr>
-				<tr>
-					<th> Recruiting </th>
-					<th> Share Vision and Ideas </th>
-					<th> Process Improvement </th>
-				</tr>
-				<tr>
-					<th> Public Speaking </th>
-				</tr>
-			  </table>
-		</div>
-		</div>
-		</div>
-
-		<div class="col-sm-12">
+	<div class="col-sm-12">
 			<div class="panel panel-default">
-				<div class="panel-heading"> Discipleship/Spirituality </div>
+				 
+				<div class="panel-heading"> Building Skills </div>
 					<div class="panel-body">
-
-				 <table style="width: 100%; height: 100%;">
-
-					<tr>
-
-				 	<table style="width: 100%; height: 100%;">
-
-						<tr>
-
-						<th>  Teaching/Assisting </th>
-						<th>  Elementary </th>
-						<th>  Youth </th>
-					</tr>
-					<tr>
-						<th>  Sick and Elderly Minister </th>
-						<th>  Crisis Minister </th>
-						<th>  Prayer Leader </th>
-					</tr>
-					<tr>
-						<th>  Bilingual </th>
-						<th>  Using Sign Language </th>
-						<th>  Provide transportation </th>
-					</tr>
-				 </table>
+						 <ul class="ministryListBlk">
+							 <% for(let i=0; i<skillslist.length; i++) { %>
+									 <% if (skillslist[i].Skill_Category == 'Building Skills'){ %>
+							 <li><%= skillslist[i].Skill_Name  %></li>
+								 <% } }%>
+							 </ul>
 		 </div>
-		 </div>
-		 </div>
-		</div>
+	 </div>
+ </div>
+	
+ <div class="col-sm-12">
+		<div class="panel panel-default">
+			 
+			<div class="panel-heading"> Event skills </div>
+				<div class="panel-body">
+					 <ul class="ministryListBlk">
+						 <% for(let i=0; i<skillslist.length; i++) { %>
+								 <% if (skillslist[i].Skill_Category == 'Event Skills'){ %>
+						 <li><%= skillslist[i].Skill_Name  %></li>
+							 <% } }%>
+						 </ul>
+	 </div>
+ </div>
+</div>
 
+<div class="col-sm-12">
+		<div class="panel panel-default">
+			 
+			<div class="panel-heading"> Business/Technology </div>
+				<div class="panel-body">
+					 <ul class="ministryListBlk">
+						 <% for(let i=0; i<skillslist.length; i++) { %>
+								 <% if (skillslist[i].Skill_Category == 'Business/Technology'){ %>
+						 <li><%= skillslist[i].Skill_Name  %></li>
+							 <% } }%>
+						 </ul>
+	 </div>
+ </div>
+</div>
 
-
-
+	
 	</div>
+
+</div>
+
+
+		 <!-- <form action="" method="post">
+			<div style="text-align:right">
+				<button type="submit" value="Submit" id ="btest1" class="btn btn-success">Submit</button>
+			</div>
+		</form> -->
+
+
 
 			<style>
-				#content {
+				/* #content {
 					margin-left: 0px;
 					margin-right: 0px;
-				}
+				} */
+				
+    #content {
+      margin-left: 100px;
+      margin-right: 100px;
+    }
+    ul.ministryListBlk {
+        height: 100px;
+        columns: 4;
+        overflow: auto;
+    }
+ 
 			</style>
 </body>
 

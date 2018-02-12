@@ -2,6 +2,15 @@ var  churchmodel=require('../model/churchmodel');
 var  ministrymodel=require('../model/ministrymodel.js');
 var skillsmodel = require('../model/skillsmodel.js');
 var session = require('client-sessions');
+{/* <script src="jquery-3.3.1.min.js"></script> */}
+// GLOBAL.document = new JSDOM(html).window.document;
+// jsdom = require("jsdom");
+
+// var popupss = require('popups');
+// var window=require('window');
+
+// import alert from 'alert-node';
+
  // using Version 5.4.1
 //  var jsdom = require('jsdom').jsdom;
 // //  var document = jsdom('<html></html>', {});
@@ -18,6 +27,9 @@ var current;
   router.get('/',function(req,res){
     res.render('index');
   });
+  
+
+
   // router.get('/parishioner',function(req,res){
   //   res.render('parishioner');
   // });
@@ -56,7 +68,7 @@ var current;
     res.render('contact');
   });
   // router.get('/ministries',function(req,res){
-  //   res.render('ministries');
+  //   res.render('ministxries');
   // });
   router.get('/ministrySurvey',function(req,res){
     res.render('ministrySurvey');
@@ -85,6 +97,7 @@ var current;
 });
 router.get('/newuser',function(req,res){
   res.render('newuser');
+  errorMessage1: ""
 });
 
 router.get('/newministry',function(req,res){
@@ -156,7 +169,11 @@ router.post("/newuser", function(req,res){
       user.save(function(err, result){
           if(!err){
             console.log("User created successfully");
-            res.render("newuser"); }
+            res.render('login',{
+              errorMessage1: "Created"
+              
+            });
+          }
            
           else{
           console.log(err);
@@ -308,8 +325,9 @@ let skillcat = req.body.cat1;
 
       skill.save(function(err, result){
         if(!err){
-          
+          // import alert from 'alert-node';
           console.log("skill created successfully"); 
+          res.send('skill created successfully')
           res.render('newskill')
           }
         else{
@@ -391,6 +409,7 @@ router.post("/minsurvey",function(req,res){
 
   console.log(req.body.ministry);
 console.log("still need to work//ministry survey");
+res.redirect('back')
 });
 
 router.post("/updateskills",function(req,res){
@@ -402,4 +421,27 @@ router.post("/updateskills",function(req,res){
   console.log(req.body.scheckBox14);
 console.log("still need to work//Skillsurvey");
 });
+
+
+
+router.get("/skillsviewadmin", function(req,res){
+  skillsmodel.find({}, ["Skill_Name","Skill_Category"] , function(err, results){
+      console.log("skills", results);
+      res.render("adminViewSkills", {skillslist: results});
+  });
+});
+
+
+
+router.post("/updateskills",function(req,res){
+  var skillslist = req.body.scheckBox14;
+  for(var i =0; i<skillslist.length;i++){ 
+    console.log(skillslist[i]);
+  }
+
+  console.log(req.body.scheckBox14);
+console.log("still need to work//Skillsurvey");
+});
+{/* <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> */}
+
 module.exports=router ;
