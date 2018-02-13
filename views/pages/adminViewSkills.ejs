@@ -6,19 +6,21 @@
 
 <body>
   <% include ./partials/top.ejs %>
-  <% include ./partials/adminnav.ejs %>
+  <% include ./partials/nav.ejs %>
 
-	<form action="/updateskills" method="post">
-
-<!-- <div id="content"> -->s
+<!-- 
+	<form action="/deleteskill" method="post"> -->
+<!-- <div id="content"> -->
 <br>
 <div class="container">
   <div class="row">
     <div class="col-sm-1"></div>
     <div class="col-sm-13">
 		<div class="jumbotron">
-		<h1>Here all the list of skills available</h1>
-		
+		<h1>Skills</h1>
+		<p>“Skills under different category”
+
+			</p>
     </div>
     <!-- <div class="col-sm-1"></div> -->
     </div>
@@ -27,11 +29,13 @@
 
 
 
+	
 <div class="container">
   <div class="row">
     <!-- <div class="col-sm-4"></div> -->
   <!-- <div class="col-sm-12"> -->
-		<form action="/updateskills" method="post">
+
+
     <div class="col-sm-12">
      <div class="panel panel-default">
 				
@@ -65,62 +69,39 @@
 		 </div>
 	 </div>
  </div>
-	 <!-- </div> -->
-	 <!-- </div> -->
-
-	 <div class="col-sm-12">
-			<div class="panel panel-default">
-				 
-				<div class="panel-heading"> Event Skills </div>
-					<div class="panel-body">
-						 <ul class="ministryListBlk">
-							 <% for(let i=0; i<skillslist.length; i++) { %>
-									 <% if (skillslist[i].Skill_Category == 'Event Skills'){ %>
-							 <li><%= skillslist[i].Skill_Name  %></li>
-								 <% } }%>
-							 </ul>
-		 </div>
+	
+ <div class="col-sm-12">
+		<div class="panel panel-default">
+			 
+			<div class="panel-heading"> Event skills </div>
+				<div class="panel-body">
+					 <ul class="ministryListBlk">
+						 <% for(let i=0; i<skillslist.length; i++) { %>
+								 <% if (skillslist[i].Skill_Category == 'Event Skills'){ %>
+						 <li><%= skillslist[i].Skill_Name  %></li>
+							 <% } }%>
+						 </ul>
 	 </div>
  </div>
-	 <!-- </div> -->
-	 <!-- </div> -->
+</div>
 
-
-
-	 <div class="col-sm-12">
-			<div class="panel panel-default">
-				 
-				<div class="panel-heading"> Business/Technology </div>
-					<div class="panel-body">
-						 <ul class="ministryListBlk">
-							 <% for(let i=0; i<skillslist.length; i++) { %>
-									 <% if (skillslist[i].Skill_Category == 'Business/Technology'){ %>
-							 <li><%= skillslist[i].Skill_Name  %></li>
-								 <% } }%>
-							 </ul>
-		 </div>
+<div class="col-sm-12">
+		<div class="panel panel-default">
+			 
+			<div class="panel-heading"> Business/Technology </div>
+				<div class="panel-body">
+					 <ul class="ministryListBlk">
+						 <% for(let i=0; i<skillslist.length; i++) { %>
+								 <% if (skillslist[i].Skill_Category == 'Business/Technology'){ %>
+						 <li><%= skillslist[i].Skill_Name  %></li>
+							 <% } }%>
+						 </ul>
 	 </div>
  </div>
-	 <!-- </div> -->
-	 <!-- </div> -->
+</div>
 
-
-	 <div class="col-sm-12">
-			<div class="panel panel-default">
-				 
-				<div class="panel-heading"> Discipleship/Spirituality </div>
-					<div class="panel-body">
-						 <ul class="ministryListBlk">
-							 <% for(let i=0; i<skillslist.length; i++) { %>
-									 <% if (skillslist[i].Skill_Category == 'Discipleship/Spirituality'){ %>
-							 <li><%= skillslist[i].Skill_Name  %></li>
-								 <% } }%>
-							 </ul>
-		 </div>
-	 </div>
- </div>
-	 </div>
-	 </div>
+	
+	</div>
 
 </div>
 
@@ -133,13 +114,6 @@
 			</div>
 		</form> -->
 
-
-
-
-		
-		
-		</form>
-</div>
 
 
 			<style>

@@ -2,15 +2,6 @@ var  churchmodel=require('../model/churchmodel');
 var  ministrymodel=require('../model/ministrymodel.js');
 var skillsmodel = require('../model/skillsmodel.js');
 var session = require('client-sessions');
-{/* <script src="jquery-3.3.1.min.js"></script> */}
-// GLOBAL.document = new JSDOM(html).window.document;
-// jsdom = require("jsdom");
-
-// var popupss = require('popups');
-// var window=require('window');
-
-// import alert from 'alert-node';
-
  // using Version 5.4.1
 //  var jsdom = require('jsdom').jsdom;
 // //  var document = jsdom('<html></html>', {});
@@ -27,9 +18,6 @@ var current;
   router.get('/',function(req,res){
     res.render('index');
   });
-  
-
-
   // router.get('/parishioner',function(req,res){
   //   res.render('parishioner');
   // });
@@ -68,7 +56,7 @@ var current;
     res.render('contact');
   });
   // router.get('/ministries',function(req,res){
-  //   res.render('ministxries');
+  //   res.render('ministries');
   // });
   router.get('/ministrySurvey',function(req,res){
     res.render('ministrySurvey');
@@ -97,7 +85,6 @@ var current;
 });
 router.get('/newuser',function(req,res){
   res.render('newuser');
-  errorMessage1: ""
 });
 
 router.get('/newministry',function(req,res){
@@ -169,11 +156,7 @@ router.post("/newuser", function(req,res){
       user.save(function(err, result){
           if(!err){
             console.log("User created successfully");
-            res.render('login',{
-              errorMessage1: "Created"
-              
-            });
-          }
+            res.render("newuser"); }
            
           else{
           console.log(err);
@@ -276,19 +259,6 @@ router.get("/allministries", function(req,res){
   });
 });
 
-router.get("/viewministries", function(req,res){
-  ministrymodel.find({}, ["minisrtyname"] , function(err, results){
-      console.log("minsitries", results);
-      res.render("adminViewMinistry", {ministrylist: results});
-  });
-});
-
-router.get("/inactiveministries", function(req,res){
-  ministrymodel.find({}, ["minisrtyname"] , function(err, results){
-      console.log("adminInactiveMinistries", results);
-      res.render("adminInactiveMinistries", {ministrylist: results});
-  });
-});
 
 
 router.get("/ministry/:id", function(req, res){
@@ -338,9 +308,8 @@ let skillcat = req.body.cat1;
 
       skill.save(function(err, result){
         if(!err){
-          // import alert from 'alert-node';
+          
           console.log("skill created successfully"); 
-          res.send('skill created successfully')
           res.render('newskill')
           }
         else{
@@ -359,13 +328,6 @@ router.get("/allskills", function(req,res){
   skillsmodel.find({}, ["Skill_Name","Skill_Category"] , function(err, results){
       console.log("skills", results);
       res.render("skillSurvey", {skillslist: results});
-  });
-});
-
-router.get("/viewskills", function(req,res){
-  skillsmodel.find({}, ["Skill_Name","Skill_Category"] , function(err, results){
-      console.log("skills", results);
-      res.render("adminViewSkills", {skillslist: results});
   });
 });
 
@@ -407,6 +369,8 @@ router.get("/deleteskills", function(req,res){
 
 router.post("/deleteskillsAdmin",function(req,res){
   var skillslist = req.body.scheckBox14;
+  console.log(req.body.scheckBox14);
+  // for(var i =0; i<skillslist.length;i++){  console.log(skillslist[i]);}
   for(var i =0; i<skillslist.length;i++){ 
     var myquery = { Skill_Name: skillslist[i] };
     skillsmodel.remove(myquery, function(err, obj) {
@@ -462,6 +426,5 @@ router.post("/updateskills",function(req,res){
   console.log(req.body.scheckBox14);
 console.log("still need to work//Skillsurvey");
 });
-{/* <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> */}
 
 module.exports=router ;
