@@ -22,7 +22,7 @@
 <div id="Ministrycontainer" class="panel panel-default">
     <div class="panel-heading"><b>OUR MINISTRIES</b></div>
     <div id="panel-body">
-        <form action="/ministrytest" method="post">
+        <form action="/minsurvey" method="post">
         <ul class="ministryListBlk">
         <% for(let i=0; i<ministrylist.length; i++) { %>
                   <li><input id="scheckBox14" type="checkbox" name="ministry" value= <%= ministrylist[i].minisrtyname  %>><a href="/ministry/<%= ministrylist[i]._id %>"> <%= ministrylist[i].minisrtyname  %></a></li>
