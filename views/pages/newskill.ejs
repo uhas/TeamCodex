@@ -129,7 +129,7 @@
     <td> <label><b>Skill Category</b></label></td>
      <td><div class="form-group">
 
-            <!-- <select class="form-control" name="cat1"> -->
+            
           <select class="form-control" name="cat1" required="">
           <option value="Select">Select a skill Category</option>
           <option  value="Arts">Arts</option>
@@ -146,7 +146,7 @@
 </tr>
 </table>
     <p id="my-error-message-container" style="display:none; border:1px solid red; color:red; background-color:yellow; font-weight:bold; padding:5px; width:188px;"></p>
-      <div>  <button class="btn btn-info" type="submit">Create Skill</button></div>
+      <div>  <button onclick="myFunction()" class="btn btn-info" type="submit">Create Skill</button></div>
 
         <button class="btn btn-danger" role="button">Cancel</button>
 
@@ -168,7 +168,7 @@
                 <table>
                     <tr>
                 <td><label><b>Category Name</b></label></td>
-                <td><input type="text" style="width: 300px" placeholder="Enter category name" name="sname" ></td>
+                <td><input id="myText" type="text" style="width: 300px" placeholder="Enter category name" name="sname" ></td>
             </tr>
         
                
@@ -191,6 +191,9 @@
 
 
             <script>
+                function myFunction() {
+                    alert("Skill successfully created");
+                }
 function validateForm() {
     var x = document.forms["form"]["sname"].value;
     var z = document.forms["form"]["stype"].value;
@@ -229,12 +232,8 @@ function validateForm() {
 }
 
 
-// function findCat() {
-//   var category =  document.getElementById("category").value;
-//   document.getElementById("demo").innerHTML = category;
-// //   return category;
-// };
-// module.export = findCat;
+
+
 </script>
 
     </body>
