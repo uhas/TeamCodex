@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <% include ./partials/header.ejs %>
@@ -104,7 +104,7 @@
 
     <h2>Create New Skill</h2>
     <div class="radio">
-        <span> <label><input type="radio" name="optradio" class="skill">Create skill  </label> </span>
+        <span> <label><input type="radio" name="optradio" class="skill">Create skill  </label> </span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
          <span><label><input type="radio" name="optradio" class="category">Create category</label></span>
        </div>
     <form method="post" action="/newskill" onSubmit="return validateForm(this)" name="form" class="createSkill" hidden>
@@ -123,15 +123,15 @@
             <select class="form-control" id="types">
               <option>type1</option>
               <option>type2</option>
-              </td>
+              </td> 
     </tr>
 <tr>
     <td> <label><b>Skill Category</b></label></td>
      <td><div class="form-group">
 
-            
-          <select class="form-control" name="cat1" required="">
-          <option value="Select">Select a skill Category</option>
+            <!-- <select class="form-control" name="cat1"> -->
+          <select class="form-control" name="cat1" required="" id="skills">
+          <option value="Select">Select a skill Category</option>&nbsp&nbsp&nbsp
           <option  value="Arts">Arts</option>
           <option  value="Building Skills">Building Skills</option>
           <option value="Event Skills">Event Skills</option>
@@ -146,7 +146,7 @@
 </tr>
 </table>
     <p id="my-error-message-container" style="display:none; border:1px solid red; color:red; background-color:yellow; font-weight:bold; padding:5px; width:188px;"></p>
-      <div>  <button onclick="myFunction()" class="btn btn-info" type="submit">Create Skill</button></div>
+      <div>  <button class="btn btn-info" type="submit">Create Skill</button></div>
 
         <button class="btn btn-danger" role="button">Cancel</button>
 
@@ -168,7 +168,8 @@
                 <table>
                     <tr>
                 <td><label><b>Category Name</b></label></td>
-                <td><input id="myText" type="text" style="width: 300px" placeholder="Enter category name" name="sname" ></td>
+                <td><input type="text" style="width: 300px" placeholder="Enter category name" name="cname" id="cName" ></td>
+                
             </tr>
         
                
@@ -176,7 +177,7 @@
             
         </table>
             <p id="my-error-message-container" style="display:none; border:1px solid red; color:red; background-color:yellow; font-weight:bold; padding:5px; width:188px;"></p>
-              <div>  <button class="btn btn-info" type="submit">Create category</button></div>
+              <div>  <button class="btn btn-info" type="submit" onclick="myFunction()">Create category</button></div>
         
                 <button class="btn btn-danger" role="button">Cancel</button>
         
@@ -189,12 +190,7 @@
 
 
 
-
             <script>
-                function myFunction() {
-                    alert("Skill successfully created");
-                    
-                }
 function validateForm() {
     var x = document.forms["form"]["sname"].value;
     var z = document.forms["form"]["stype"].value;
@@ -223,7 +219,7 @@ function validateForm() {
     {
         alert("skilltype should contain minimum 2 characters");
         return false;
-    }
+    } 
     else if(p.test(z)== false)
     {
         alert("follow the pattern");
@@ -233,9 +229,24 @@ function validateForm() {
 }
 
 
+// function findCat() {
+//   var category =  document.getElementById("category").value;
+//   document.getElementById("demo").innerHTML = category;
+// //   return category;
+// };
+// module.export = findCat;
 
 
-</script>
+function myFunction() {
+var x = document.getElementById("skills");
+var option = document.createElement("option");
+var category =  document.getElementById("cName").value;
+
+option.text = category;
+x.add(option);
+}
+    </script>
+
 
     </body>
     </html>

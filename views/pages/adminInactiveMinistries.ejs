@@ -16,7 +16,7 @@
 			<p>Select Ministires to make them active or inactive</p>
 			</div>
 		</div>
-
+                <form action="/updateministries" method="post">
 			<div id="content">
 				<div class="row">
 					<div class="col-sm-12">
@@ -25,8 +25,8 @@
 							<div class="panel-body">
 								<table style="width: 100%; height: 100%;">
                                                                         <% for(let i=0; i<ministrylist.length; i++){ %>
-
-                                                                       
+                                                                               
+                                                                                
 									<tr>
 										<th>
                                                                                         <div id="panel-body">
@@ -43,7 +43,7 @@
                                        
                                                        
                                                                         <label class="switch">
-                                                                        <input type="checkbox">
+                                                                        <input type="checkbox" name = "inacministry">
                                                                         <span class="slider"></span>
                                                                       </label>
                                                           
@@ -62,7 +62,7 @@
 									
                                     
 
-			<form action="/deleteministry" method="post">
+			
 				<div style="text-align:right">
 					<button type="submit" value="Submit" id="btest">Submit</button>
 				</div>

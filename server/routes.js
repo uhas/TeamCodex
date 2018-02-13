@@ -341,12 +341,19 @@ router.get("/ministriessurvey", function(req,res){
   });
 });
 
+router.get("/inactiveministries", function(req,res){
+  ministrymodel.find({}, ["minisrtyname"] , function(err, results){
+    console.log("minsitries", results);
+    res.render("adminInactiveMinistries", {ministrylist: results});
+  });
+});
 
 
 
 
 
-//code to test surveypages
+
+//code to test surveypages viewministries
 
 // router.post('/ministrytest',function(req,res){
 //   // var parsed = JSON.parse(survey);
@@ -426,5 +433,18 @@ router.post("/updateskills",function(req,res){
   console.log(req.body.scheckBox14);
 console.log("still need to work//Skillsurvey");
 });
+
+
+
+router.post("/updateministries",function(req,res){
+  var mlist = req.body.inacministry;
+  for(var i =0; i<mlist.length;i++){ 
+    console.log(mlist[i]);
+  }
+
+  console.log(req.body.inacministry);
+console.log("still need to work//Skillsurvey");
+});
+
 
 module.exports=router ;
