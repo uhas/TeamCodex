@@ -106,6 +106,9 @@ router.get('/Min_Lead',function(req,res){
 router.get('/newskill',function(req,res){
   res.render('newskill');
 });
+router.get('/adminprofile',function(req,res){
+  res.render('adminprofile');
+});
 
   router.get('/login', function(req,res){
     res.render('login',{

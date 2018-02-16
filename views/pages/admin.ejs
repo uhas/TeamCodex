@@ -35,6 +35,12 @@
                 $('.savePswd').hide();
             });
         });
+        function newPopup(url) {
+	popupWindow = window.open(
+		url,'popUpWindow','height=300,width=400,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes')
+}
+
+
      </script>   
 </head>
 
@@ -55,9 +61,13 @@
 
                             <h2>Welcome Admin!</h2>
                             <div class="align-top"><div align="right"><a href="" class= "glyphicon glyphicon-bell">Notifications</div></a></div>
-                            <div class="align-top"><a class= "edit" href="#"><div align="left"><button type="button" class="btn btn-default btn-sm">
+                            <div class="align-top"><a class= "edit" href="#"><div align="left">
+                                    <a href="JavaScript:newPopup('/adminprofile');"><button type="button" class="btn btn-default btn-sm">
                                      Manage Profile
-                                  </button></div></a></div>
+                                  </button></a>
+                                  
+                                </div></a></div>
+                                    
 
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -88,6 +98,7 @@
                                 </div>
                                 <div class="align-top"><a class= "savePswd" href="#" hidden><div align="right">Reset</div></a></div>
                             </p>
+                            
 
 
                                 
