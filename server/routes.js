@@ -102,6 +102,10 @@ router.get('/Min_Lead',function(req,res){
 router.get('/Min_Lead',function(req,res){
   res.render('Min_Lead');
 });
+router.get('/chart',function(req,res){
+  res.render('chart')
+});
+
 
 router.get('/newskill',function(req,res){
   res.render('newskill');
