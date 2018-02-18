@@ -15,7 +15,7 @@ var routes=require('./server/routes');
 
 
 app.locals.pretty = true;
-app.set('port', process.env.PORT || 3006);
+app.set('port', process.env.PORT || 3030);
 // app.set('views', __dirname + '/app/server/views');
 
 // my new code

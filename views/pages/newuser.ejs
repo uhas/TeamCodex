@@ -17,6 +17,9 @@
     form {
         border: 3px solid #f1f1f1;
     }
+    h5{
+        color:green
+    }
 
     input[type=text], input[type=password],input[type=email] {
         width: 35%;
@@ -86,7 +89,7 @@
     <body>
 
     <h2>Create New User</h2>
-    
+    <h5><b text-color="red"><%= errorMessage1 %></b></h5>
     <form method="POST" action="/newuser" onSubmit="return validateForm(this)" name="form">
 
 

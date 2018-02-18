@@ -103,10 +103,13 @@
     <body>
 
     <h2>Create New Skill</h2>
+    <h5><b text-color="red"><%= errorMessage3 %></b></h5>
+
     <div class="radio">
         <span> <label><input type="radio" name="optradio" class="skill">Create skill  </label> </span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
          <span><label><input type="radio" name="optradio" class="category">Create category</label></span>
        </div>
+       
     <form method="post" action="/newskill" onSubmit="return validateForm(this)" name="form" class="createSkill" hidden>
 
 
@@ -160,7 +163,7 @@
     </form>
     <!-- test script -->
      <!-- test script -->
-
+     
      <form method="post" action="/newskill" onSubmit="return validateForm(this)" name="form" class="createCategory" hidden>
         
         
@@ -252,5 +255,10 @@ x.add(option);
     </html>
 </center>
 
+<style>
+    h5{
+        color:green
+    }
+</style>
 </body>
 </html>
