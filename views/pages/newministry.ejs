@@ -16,7 +16,7 @@
     <body>
 
     <h2>Create New Ministry</h2>
-
+    <h5><b text-color="red"><%= errorMessage2 %></b></h5>
     <form method="POST" action="/newministry" onSubmit="return validateForm(this)" name="form">
 
 
@@ -106,10 +106,15 @@ function validateForm() {
         alert("follow the pattern");
         return false;
     }
-
+  
 }
-</script>
 
+</script>
+<style>
+    h5{
+        color:green
+    }
+    </style>
     </body>
     </html>
 </center>
