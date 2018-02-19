@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ./partials/header.ejs %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script>
+  $(document).ready(function(){
+    $('a.edit').click(function () {
+    var text = $('.name').text();
+    var input = $('<input id="attributename" type="text" value="' + text + '" />')
+    $('.name').text('').append(input);
+    input.select();
+    var result = $('.name').val();
+    });
+    $('a.edit').click(function () {
+    var text = $('.mail').text();
+    var input = $('<input id="attributemail" type="text" value="' + text + '" />')
+    $('.mail').text('').append(input);
+    input.select();
+    })
+    $('a.edit').click(function () {
+    var text = $('.pAddress').text();
+    var input = $('<input id="attributeadd" type="text" value="' + text + '" />')
+    $('.pAddress').text('').append(input);
+    input.select();
+    })
+    $('a.edit').click(function () {
+    var text = $('.numb').text();
+    var input = $('<input id="attributenumb" type="text" value="' + text + '" />')
+    $('.numb').text('').append(input);
+    input.select();
+    $('.save').show();
+    })
+    $('a.save').click(function () {
+        $('.name').html ( $('#attributename').val() );
+    });
+    $('a.save').click(function () {
+        $('.mail').html ( $('#attributemail').val() );
+    });
+    $('a.save').click(function () {
+        $('.pAddress').html ( $('#attributadd').val() );
+    })
+    $('a.save').click(function () {
+        $('.numb').html ( $('#attributenumb').val() );
+        $('.save').hide();
+    });
+    $('a.save').click(function () {
+        $('h2').text("Welcome "+$('.name').text()+"!");
+    });
+    
+    $("#profileImage").click(function(e) {
+        $("#imageUpload").click();
+    });
+    function fasterPreview( uploader ) {
+        if ( uploader.files && uploader.files[0] ){
+          $('#profileImage').attr('src', 
+             window.URL.createObjectURL(uploader.files[0]) );
+        }
+    }
+    $("#imageUpload").change(function(){
+        fasterPreview( this );
+        $('.save').show();
+    });
+  });
+    </Script>
+</head>
+
+<body>
+  <% include ./partials/loggedtop.ejs %>
+  <% include ./partials/nav.ejs %>
+
+
+            <!-- page code -->
+    <style>
+    #imageUpload {
+    display: none;
+    }
+
+    #profileImage {
+    cursor: pointer;
+    }
+    #profile-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    }
+    #profile-container img {
+    width: 150px;
+    height: 150px;
+    }
+    </style>
+
+            <div class="container">
+                <div class="row">
+                    <div>
+                        <div class="jumbotron">
+                                <div align="right"><h5><i class="glyphicon glyphicon-bell"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= parishioner.Lastname %></h5></div>
+                                <!-- <div class="align-top"><a class= "edit" href="#"><div align="right">edit</div></a></div> -->
+                            <div class="row">
+                                <div class="col-sm-2 col-sm-6">
+                                   <!-- <img src="/jolaine.jpg" alt="image.png" class="img-rounded img-responsive" /> -->
+                                   <div id="profile-container">
+                                        <image id="profileImage" src="/profilepic.png" />
+                                        <input id="imageUpload" type="file" 
+                                            name="profile_photo" placeholder="Photo" required="" capture>
+                                     </div>
+                                </div> 
+                                <div class="col-sm-7">
+                                    <div class="align-top"><a class= "edit" href="#"><div align="right"><button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-pencil"></span> Edit
+        </button></div></a></div>
+                                    <h2>Welcome <%= parishioner.Lastname %>,<%=parishioner.Firstname %> ! </h2>
+
+
+                                    <!-- <div class="align-top"><a class= "edit" href="#"><div align="right">edit</div></a></div> -->
+
+                                    
+
+                                    <p class="text-info">
+
+                                           <b>Name:</b><label class="name"><%= parishioner.Lastname %> <%=parishioner.Firstname%> </label>
+                                            <br />
+                                            <b>Address:</b><label class="pAddress"></label>
+                                            <br/>
+                                            </i><b>Phone:</b><label class="numb"><%= parishioner.Phone %> </label>
+                                        <br />
+
+                                        <b>Email:</b><label class="mail"> <%= parishioner.Email%> </label>
+                                    </p>
+                                        <div class="align-top"><a class= "save" href="#" hidden><div align="right">save</div></a></div>
+                                    <!-- Split button -->
+
+
+
+                                    Note:<textarea name="message" rows="2" cols="100">Ill be free during Saturdays and Sundays between 10 am to 7pm.
+                                            </textarea>
+                                <footer></footer>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- pannels for skill and ministries -->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="panel panel-default">
+                                <div class="panel-heading"><div class="col-sm-9">Your ministries</div><a href= "/ministriessurvey" ><div align="right"><button type="button" class="btn btn-default btn-sm">
+      <span class="glyphicon glyphicon-pencil"></span> Edit
+    </button></div></a></div>
+                            <div class="panel-body">
+
+                                <ul><a href="/ministry2">Altar Servers</a></ul>
+                                <ul><a href="/ministry">Adult Faith Formation Programs</a></ul>
+                                
+                                <ul><a href="/ministry">Annulment Advocate</a></ul>
+                                <ul><a href="/ministry">Art & Environment Committee</a></ul>
+                                <ul><a href="/ministry">Bereavement Ministry</a></ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="panel panel-default">
+                                <div class="panel-heading"><div class="col-sm-9">Your skills</div><a href= "/allskills" ><div align="right"><button type="button" class="btn btn-default btn-sm">
+      <span class="glyphicon glyphicon-pencil"></span> Edit
+    </button></div></a></div>
+                            <div class="panel-body">
+                                    <ul>Facilitating</ul>
+                                    <ul>Planning</ul>
+                                    <ul>Photography</ul>
+                                    <ul>Bilingual</ul>
+                                    <ul>Hardscape</ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            </div>
+
+
+            <!-- page code -->
+
+
+</body>
+
+</html>
