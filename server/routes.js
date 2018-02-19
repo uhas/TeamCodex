@@ -533,7 +533,7 @@ if (req.body.uname && req.body.psw) //if both email and pasword gields are prese
     
   Users.authenticate(req.body.uname, req.body.psw, function (error, users) {
       if (error || !users) {
-        
+
         res.render('SessionLogin',{
           errorMessage: "Please Enter Valid Entries"
         });
@@ -594,5 +594,23 @@ router.get('/logout', function (req, res, next) {
   }
 });
 // End for sessions
+//session internal test code
+function requiresLogin(req, res, next) {
+  if (req.session && req.session.userId) {
+    return next();
+  } else {
+    var err = new Error('You must be logged in to view this page.');
+    err.status = 401;
+    return next(res.render('SessionLogin',{
+      errorMessage: "You need to be logged in to access this page"
+    })
+  );
+  }
+}
+
+router.get('/req',requiresLogin, function(req, res, next) {
+
+  res.render('requireslog');
+});
 
 module.exports=router ;
