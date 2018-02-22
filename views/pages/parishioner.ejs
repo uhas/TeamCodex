@@ -54,15 +54,20 @@
         $('h2').text("Welcome "+$('.name').text()+"!");
     });
     
+    //profileimage function
+
     $("#profileImage").click(function(e) {
         $("#imageUpload").click();
     });
+
+    //gives preview of the image
     function fasterPreview( uploader ) {
         if ( uploader.files && uploader.files[0] ){
           $('#profileImage').attr('src', 
              window.URL.createObjectURL(uploader.files[0]) );
         }
     }
+    //setting image to the user
     $("#imageUpload").change(function(){
         fasterPreview( this );
         $('.save').show();

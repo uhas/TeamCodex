@@ -178,7 +178,7 @@ router.post("/newuser", function(req,res){
  });
 
 
-
+//post method for login 
 
   router.post('/login', function(req,res){
     let id = req.params.id;
@@ -379,7 +379,7 @@ router.get("/inactiveministries", function(req,res){
 //   // res.render('Ministrytest');
 // });
 
-
+//get method for delete skills
 router.get("/deleteskills", function(req,res){
   skillsmodel.find({}, ["Skill_Name","Skill_Category"] , function(err, results){
       console.log("skills", results);
@@ -427,7 +427,7 @@ console.log("still need to work//Skillsurvey");
 });
 
 
-
+//get method for skillsviewadmin
 router.get("/skillsviewadmin", function(req,res){
   skillsmodel.find({}, ["Skill_Name","Skill_Category"] , function(err, results){
       console.log("skills", results);
@@ -436,7 +436,7 @@ router.get("/skillsviewadmin", function(req,res){
 });
 
 
-
+//post method for updateskills
 router.post("/updateskills",function(req,res){
   var skillslist = req.body.scheckBox14;
   for(var i =0; i<skillslist.length;i++){ 
@@ -448,6 +448,7 @@ console.log("still need to work//Skillsurvey");
 });
 
 
+//post method for updateministries
 
 router.post("/updateministries",function(req,res){
   var mlist = req.body.inacministry;
