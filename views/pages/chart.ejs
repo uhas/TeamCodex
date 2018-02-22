@@ -10,7 +10,7 @@
 
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Number of inactive parishioners',     10],
+          ['Number of inactive parishioners',     11],
           ['Number of active parishioners',      2],
           
         ]);
@@ -30,7 +30,7 @@
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
-        chart.draw(data, options);
+        chart.draw(options, data);
       }
     </script>
   </head>
