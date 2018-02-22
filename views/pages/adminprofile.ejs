@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <script>
+                    $(document).ready(function(){
+                        $('a.edit').click(function(){
+                            $('.totalEvents').hide();
+                            $('.totalMinistries').hide();
+                            $('.totalParishioners').hide();
+                            $('.resetPassword').show();
+                            $('.save').show();
+                            $('.name').show();
+                            
+                        });
+                        $('a.save').click(function () {
+                            $('.save').hide();
+                            $('.totalParishioners').show();
+                            $('.totalEvents').show();
+                            $('.totalMinistries').show();
+                            $('.resetPassword').hide();
+                            $('.name').hide();
+                            $('.pswdLabel').hide();
+                            $('.savePswd').hide();
+                          
+                         });
+                        $('.resetPassword').click(function(){
+                            $('.pswdLabel').show();
+                            $('.savePswd').show();
+                        });
+                        $('.savePswd').click(function(){
+                            $('.pswdLabel').hide();
+                            $('.savePswd').hide();
+                        });
+                    });
+                    </script>
+    </head>
+    <body>
+            <div class="container">
+                    <div class="row">
+                        <div>
+                            <div class="jumbotron">
+                                <div class="row">
+            
+                                   
+            
+            <div class='name' hidden>
+                    <b>Name: </b><label> <input id="name" type="text" value="" />  </label> </div>
+
+            <div class="align-top"><a class= "save" href="#" hidden><div align="right">save</div></a></div>
+            <div class="align-top"><a class= "resetPassword" href="#" hidden><div align="left"><button type="button" class="btn btn-default btn-sm">
+                    Reset Password
+                 </button></div></a></div>
+                 <p>
+                        <div class="pswdLabel">
+                        <b>Old Password: </b><label class="oldPswd"> <input id="oldPswd" type="text" value="" />  </label>
+                        <b>new Password: </b><label class="newPswd"><input id="newPswd" type="text" value="" /> </label></br>
+                        </div>
+                        <div class="align-top"><a class= "savePswd" href="#" hidden><div align="right">Reset</div></a></div>
+                    </p>    
+        
+</body>
+</html>
