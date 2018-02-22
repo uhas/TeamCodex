@@ -545,7 +545,7 @@ if (req.body.uname && req.body.psw) //if both email and pasword gields are prese
 
         req.session.userId = users._id;
       //  return res.redirect('/profile');
-
+      console.log("session details are" + req.session.userId)
         res.render("sessionParishioner", {parishioner: users});// sessions code here was ' return res.redirect('/profile');'
         console.log("details are"+users);
       }
@@ -575,6 +575,7 @@ router.get('/sessionParishioner',function(req,res){
           res.render('parishioner',{
             user:current
           });
+
         }
       }
     });
