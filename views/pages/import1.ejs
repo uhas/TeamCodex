@@ -52,7 +52,7 @@ const insertDocuments = (db, callback) => {
     .on('csv', (csvRow) => {
       csvRow.forEach(function (element) {
         // Save data on mongo database
-        collection.insertOne({ email: element }, (err, result) => {
+        //collection.insertOne({ email: element }, (err, result) => {
           if (err) {
             console.log(err);
           } else {
