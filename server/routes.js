@@ -104,7 +104,6 @@ router.get('/chart',function(req,res){
   res.render('chart')
 });
 
-
 router.get('/newskill', function(req,res){
   res.render('newskill',{
     errorMessage3: ""
@@ -113,6 +112,7 @@ router.get('/newskill', function(req,res){
 router.get('/adminprofile',function(req,res){
   res.render('adminprofile');
 });
+
 
 
   router.get('/login', function(req,res){
@@ -151,6 +151,7 @@ router.post("/newuser", function(req,res){
        
     console.log('parishioner id already exists');
     res.render("newuser");
+    
   }
       
   else {
