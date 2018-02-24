@@ -83,12 +83,16 @@ var current;
     router.get('/admin',function(req,res){
       res.render('admin');
 });
-router.get('/newuser',function(req,res){
-  res.render('newuser');
+router.get('/newuser', function(req,res){
+  res.render('newuser',{
+    errorMessage1: ""
+  });
 });
 
-router.get('/newministry',function(req,res){
-  res.render('newministry');
+router.get('/newministry', function(req,res){
+  res.render('newministry',{
+    errorMessage2: ""
+  });
 });
 router.get('/passwordreset',function(req,res){
   res.render('Passwordreset');
@@ -103,9 +107,12 @@ router.get('/Min_Lead',function(req,res){
   res.render('Min_Lead');
 });
 
-router.get('/newskill',function(req,res){
-  res.render('newskill');
+router.get('/newskill', function(req,res){
+  res.render('newskill',{
+    errorMessage3: ""
+  });
 });
+
 
   router.get('/login', function(req,res){
     res.render('login',{
@@ -143,6 +150,7 @@ router.post("/newuser", function(req,res){
        
     console.log('parishioner id already exists');
     res.render("newuser");
+    
   }
       
   else {
@@ -156,7 +164,10 @@ router.post("/newuser", function(req,res){
       user.save(function(err, result){
           if(!err){
             console.log("User created successfully");
-            res.render("newuser"); }
+            res.render('newuser',{
+              errorMessage1: "User created successfully"
+            });
+          }
            
           else{
           console.log(err);
@@ -233,8 +244,8 @@ router.post("/newministry", function(req,res){
           
           console.log("Ministry created successfully"); 
           res.render('newministry',{
-            Message: "Ministry created successfully"
-            })
+            errorMessage2: "Ministry created successfully"
+            });
           }
         else{
         console.log(err);
@@ -310,7 +321,9 @@ let skillcat = req.body.cat1;
         if(!err){
           
           console.log("skill created successfully"); 
-          res.render('newskill')
+          res.render('newskill',{
+            errorMessage3: "Skill created successfully"
+            });
           }
         else{
         console.log(err);
