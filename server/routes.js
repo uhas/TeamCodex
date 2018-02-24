@@ -13,7 +13,7 @@ var bcrypt = require('bcrypt');
 // var categoryfun = require('../views/pages/newskill.ejs')findCat();
 var router=express.Router();
 var current;
-
+var Users = require('../model/ChurchParishionermodule');//For Sessions
 
   router.get('/',function(req,res){
     res.render('index');
@@ -22,13 +22,7 @@ var current;
   //   res.render('parishioner');
   // });
 
-//Session
-  // routes.use(session({
-  //   cookieName: 'session',
-  //   secret: 'random_string_goes_here',
-  //   duration: 30 * 60 * 1000,
-  //   activeDuration: 5 * 60 * 1000,
-  // }));
+
 
 
   router.get('/admin',function(req,res){
@@ -106,12 +100,19 @@ router.get('/Min_Lead',function(req,res){
 router.get('/Min_Lead',function(req,res){
   res.render('Min_Lead');
 });
+router.get('/chart',function(req,res){
+  res.render('chart')
+});
 
 router.get('/newskill', function(req,res){
   res.render('newskill',{
     errorMessage3: ""
   });
 });
+router.get('/adminprofile',function(req,res){
+  res.render('adminprofile');
+});
+
 
 
   router.get('/login', function(req,res){
@@ -178,7 +179,7 @@ router.post("/newuser", function(req,res){
  });
 
 
-
+//post method for login 
 
   router.post('/login', function(req,res){
     let id = req.params.id;
@@ -189,7 +190,7 @@ current=username;
     churchmodel.find({Email:username, Password:password},[], function(err,results){
       if(!results.length){
     // $("#abc").html("incorrect password");
-    req.session.user = user;
+   // req.session.user = user;
         res.render('login',{
           errorMessage: "Please Enter Valid Entries"
         });
@@ -379,7 +380,7 @@ router.get("/inactiveministries", function(req,res){
 //   // res.render('Ministrytest');
 // });
 
-
+//get method for delete skills
 router.get("/deleteskills", function(req,res){
   skillsmodel.find({}, ["Skill_Name","Skill_Category"] , function(err, results){
       console.log("skills", results);
@@ -427,7 +428,7 @@ console.log("still need to work//Skillsurvey");
 });
 
 
-
+//get method for skillsviewadmin
 router.get("/skillsviewadmin", function(req,res){
   skillsmodel.find({}, ["Skill_Name","Skill_Category"] , function(err, results){
       console.log("skills", results);
@@ -436,7 +437,7 @@ router.get("/skillsviewadmin", function(req,res){
 });
 
 
-
+//post method for updateskills
 router.post("/updateskills",function(req,res){
   var skillslist = req.body.scheckBox14;
   for(var i =0; i<skillslist.length;i++){ 
@@ -448,6 +449,7 @@ console.log("still need to work//Skillsurvey");
 });
 
 
+//post method for updateministries
 
 router.post("/updateministries",function(req,res){
   var mlist = req.body.inacministry;
@@ -459,5 +461,158 @@ router.post("/updateministries",function(req,res){
 console.log("still need to work//Skillsurvey");
 });
 
+
+//For Sessions***********************************************************************
+//rout for creating a using sessionss
+router.get('/SessionAdminCreatUser', function(req,res){
+  res.render('SessionAdminCreatUser',{
+    errorMessage1: ""
+  });
+});
+
+
+//post request for creating user using sessions
+router.post('/SessionAdminCreatUser', function (req, res, next) {
+  // confirm that user typed same password twice
+  if (req.body.password !== req.body.repassword) {
+    var err = new Error('Passwords do not match.');
+    err.status = 400;
+    res.send("passwords dont match");
+    return next(err);
+  }
+
+  if (req.body.pid&&
+//    req.body.username&&
+    req.body.fname&&
+    req.body.lname&&
+    req.body.email&&
+    req.body.password&&
+    req.body.repassword ) {
+
+    var usersData = {
+      PID: req.body.pid,
+      username: req.body.username,
+      Firstname: req.body.fname,
+      Lastname: req.body.lname,
+      Email: req.body.email,
+      password: req.body.password,
+    }
+
+    Users.create(usersData, function (error, users) {
+      if (error) {
+        return next(error);
+      } else {
+        console.log("User created successfully");
+        res.render('SessionAdminCreatUser',{
+          errorMessage1: "User created successfully"
+        });
+      }
+    });
+
+  }
+  else {
+    var err = new Error('All fields required.');
+    err.status = 400;
+    return next(err);
+  }
+})
+
+
+//rout for sessionLogin Page***********************************************
+router.get('/SessionLogin',function(req,res){
+
+  res.render('SessionLogin',{
+    errorMessage: ""
+  });
+
+
+});
+
+//POST route for checking user data before login
+router.post('/SessionLogin', function (req, res, next) {
+if (req.body.uname && req.body.psw) //if both email and pasword gields are present
+ {
+    
+  Users.authenticate(req.body.uname, req.body.psw, function (error, users) {
+      if (error || !users) {
+
+        res.render('SessionLogin',{
+          errorMessage: "Please Enter Valid Entries"
+        });
+        // var err = new Error('Wrong email or password.');
+        // err.status = 401;
+        // return next(err);
+      }
+      else {
+
+        req.session.userId = users._id;
+      //  return res.redirect('/profile');
+
+        res.render("sessionParishioner", {parishioner: users});// sessions code here was ' return res.redirect('/profile');'
+        console.log("details are"+users);
+      }
+    });
+  }
+  else {
+    var err = new Error('All fields required.');
+    err.status = 400;
+    return next(err);
+  }
+})
+
+
+router.get('/sessionParishioner',function(req,res){
+
+
+  User.findById(req.session.userId)
+    .exec(function (error, users) {
+      if (error) {
+        return next(error);
+      } else {
+        if (users === null) {
+          var err = new Error('Not authorized! Go back!');
+          err.status = 400;
+          return next(err);
+        } else {
+          res.render('parishioner',{
+            user:current
+          });
+        }
+      }
+    });
+});
+
+
+router.get('/logout', function (req, res, next) {
+  if (req.session) {
+    // delete session object
+    req.session.destroy(function (err) {
+      if (err) {
+        return next(err);
+      } else {
+        return res.redirect('/SessionLogin');
+      }
+    });
+  }
+});
+// End for sessions
+//session internal test code
+function requiresLogin(req, res, next) {
+  if (req.session && req.session.userId) {
+    return next();
+  } else {
+    var err = new Error('You must be logged in to view this page.');
+    err.status = 401;
+    return next(res.render('SessionLogin',{
+      errorMessage: "You need to be logged in to access this page"
+    })
+  );
+  }
+}
+
+router.get('/req',requiresLogin, function(req, res, next) {
+
+  res.render('requireslog');
+});
 
 module.exports=router ;

@@ -3,39 +3,45 @@
 
 <head>
     <% include ./partials/header.ejs %>
-    
     <script>
-        $(document).ready(function(){
-            $('a.edit').click(function(){
-                $('.totalEvents').hide();
-                $('.totalMinistries').hide();
-                $('.totalParishioners').hide();
-                $('.resetPassword').show();
-                $('.save').show();
-                $('.name').show();
-                
-            });
-            $('a.save').click(function () {
-                $('.save').hide();
-                $('.totalParishioners').show();
-                $('.totalEvents').show();
-                $('.totalMinistries').show();
-                $('.resetPassword').hide();
-                $('.name').hide();
-                $('.pswdLabel').hide();
-                $('.savePswd').hide();
-              
-             });
-            $('.resetPassword').click(function(){
-                $('.pswdLabel').show();
-                $('.savePswd').show();
-            });
-            $('.savePswd').click(function(){
-                $('.pswdLabel').hide();
-                $('.savePswd').hide();
-            });
-        });
-     </script>   
+        function newPopup(url) {
+	popupWindow = window.open(
+		url,'popUpWindow','height=300,width=400,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes')
+}
+    </script>
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Percent of inactive parishioners',     4],
+          ['Percent of active parishioners',      7],
+          
+        ]);
+
+        var options = {
+          title: 'Parishioners data',
+        
+          pieSliceText: 'percentage',
+          is3D: true,
+
+        };
+        
+
+    
+        // <option name="charting.chart">column</option>
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+     
 </head>
 
 <body>
@@ -60,38 +66,31 @@
                                 </a>
                               </p> </div></div>
                             <div class="align-top"><a class= "edit" href="#"><div align="left"><button type="button" class="btn btn-default btn-sm">
+                            <div class="align-top"><div align="right"><a href="" class= "glyphicon glyphicon-bell">Notifications</div></a></div>
+                            <div class="align-top"><a class= "edit" href="#"><div align="left">
+                                    <a href="JavaScript:newPopup('/adminprofile');"><button type="button" class="btn btn-default btn-sm">
                                      Manage Profile
-                                  </button></div></a></div>
+                                  </button></a>
+                                </br>
+                                  
+                                </div></a></div>
+                                <div id="piechart" style="width: 600px; height: 500px;"></div>
 
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-
-                            <p>
-                                                                    
-                                <div class="totalMinistries"><i class="glyphicon glyphicon-user"></i><b>Total no. of Ministries: </b>57 </div>
-                                <br />
-                                <div class="totalParishioners"><i class="glyphicon glyphicon-user"></i><b>Total no. of parishioners: </b> 250 </div>
-                                <br/>
-                                <div class="totalParishioners"><i class="glyphicon glyphicon-user"></i><b>Total no. of active parishioners: </b> 200 </div>
-                            </p>
-                                <div class='name' hidden>
-                                        <b>Name: </b><label> <input id="name" type="text" value="" />  </label> </div>
-
-                                <div class="align-top"><a class= "save" href="#" hidden><div align="right">save</div></a></div>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp -->
+                            
+                            
+                            
+</div>
+</div>
+</div>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 
                                
-
-                                <div class="align-top"><a class= "resetPassword" href="#" hidden><div align="left"><button type="button" class="btn btn-default btn-sm">
-                                        Reset Password
-                                     </button></div></a></div>
-                            <p>
-                                <div class="pswdLabel" hidden>
-                                <b>Old Password: </b><label class="oldPswd"> <input id="oldPswd" type="text" value="" />  </label>
-                                <b>New Password: </b><label class="newPswd"><input id="newPswd" type="text" value="" /> </label></br>
-                                </div>
-                                <div class="align-top"><a class= "savePswd" href="#" hidden><div align="right">Reset</div></a></div>
-                            </p>
+                            
 
 
                                 
@@ -113,5 +112,14 @@
                 </style>
 
 </body>
+<style>
+    .pswdLabel {
+        padding: 16px;
+
+    }
+    form {
+        border: 3px solid #f1f1f1;
+    }
+</style>
 
 </html>
