@@ -1,3 +1,5 @@
+SessionAdminCreatUser
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,7 +92,7 @@
 
     <h2>Create New User</h2>
     <h5><b text-color="red"><%= errorMessage1 %></b></h5>
-    <form method="POST" action="/newuser" onSubmit="return validateForm(this)" name="form">
+    <form method="POST" action="/SessionAdminCreatUser" onSubmit="return validateForm(this)" name="form">
 
 
       <div class="container">
@@ -115,7 +117,7 @@
 <td> <input type="password" style="width: 300px" placeholder="Enter Password" name="password" ></td>
     </tr>
 <tr>
-    <td>  <label><b>Retype Password &nbsp;&nbsp;&nbsp;</b></label></td>
+    <td>  <label><b>Retype Password</b></label></td>
 <td>  <input type="password" style="width: 300px" placeholder="Enter Password again" name="repassword" ></td>
     </tr>
 
