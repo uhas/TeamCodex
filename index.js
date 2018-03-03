@@ -26,17 +26,23 @@ app.set('views', path.join(__dirname, 'views/pages'));
 app.set('view engine', 'ejs');
 
 
-var dbURL = 'mongodb://localhost:27017/churchdb';
-mongoose.connect(dbURL);
+var dbURL = 'mongodb://sandeep:bunty@ds151528.mlab.com:51528/teamcodex';
+
+mongoose.connect(dbURL, { useMongoClient: true });
+mongoose.Promise = global.Promise;
 var db = mongoose.connection;
-app.use(session({
-    secret: 'work hard',
-    resave: true,
-    saveUninitialized: false,
-    store: new MongoStore({
-      mongooseConnection: db
-    })
-  }));
+db.on('error', console.error.bind(console, 'dbURL connection error:'));
+
+// mongoose.connect(dbURL);
+// var db = mongoose.connection;
+// app.use(session({
+//     secret: 'work hard',
+//     resave: true,
+//     saveUninitialized: false,
+//     store: new MongoStore({
+//       mongooseConnection: db
+//     })
+//   }));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
