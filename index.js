@@ -33,7 +33,7 @@ mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'dbURL connection error:'));
 
-// mongoose.connect(dbURL);
+ mongoose.connect(dbURL);
 // var db = mongoose.connection;
 // app.use(session({
 //     secret: 'work hard',
