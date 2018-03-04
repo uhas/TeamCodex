@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ./partials/header.ejs %>
+</head>
+
+<body>
+  <% include ./partials/top.ejs %>
+  <% include ./partials/nav.ejs %>
+
+<!-- 
+	<form action="/deleteskill" method="post"> -->
+<!-- <div id="content"> -->
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-13">
+		<div class="jumbotron">
+		<h1>Delete the skills</h1>
+		<p>“Select the skills need to be deleted”
+
+			</p>
+    </div>
+    <!-- <div class="col-sm-1"></div> -->
+    </div>
+		</div>
+
+
+
+
+	
+<div class="container">
+  <div class="row">
+    <!-- <div class="col-sm-4"></div> -->
+  <!-- <div class="col-sm-12"> -->
+
+	<form action="/deleteministry" method="post">
+    <div class="col-sm-12">
+     <div class="panel panel-default">
+				
+       <div class="panel-heading"> Arts </div>
+         <div class="panel-body">
+						<ul class="ministryListBlk">
+							<% for(let i=0; i<skillslist.length; i++) { %>
+									<% if (skillslist[i].Skill_Category == 'Arts'){ %>
+							<li><input name="scheckBox14" type="checkbox" value = "<%= skillslist[i].Skill_Name %>"/><%= skillslist[i].Skill_Name  %></li>
+								<% } }%>
+							</ul>
+		</div>
+  </div>
+</div>
+  <!-- </div> -->
+  <!-- </div> -->
+	<!-- </div> -->
+
+
+	<div class="col-sm-12">
+			<div class="panel panel-default">
+				 
+				<div class="panel-heading"> Building Skills </div>
+					<div class="panel-body">
+						 <ul class="ministryListBlk">
+							 <% for(let i=0; i<skillslist.length; i++) { %>
+									 <% if (skillslist[i].Skill_Category == 'Building Skills'){ %>
+							 <li><input name="scheckBox14" type="checkbox" value = "<%= skillslist[i].Skill_Name %>"/><%= skillslist[i].Skill_Name  %></li>
+								 <% } }%>
+							 </ul>
+		 </div>
+	 </div>
+ </div>
+	 <!-- </div> -->
+	 <!-- </div> -->
+
+	 <div class="col-sm-12">
+			<div class="panel panel-default">
+				 
+				<div class="panel-heading"> Event Skills </div>
+					<div class="panel-body">
+						 <ul class="ministryListBlk">
+							 <% for(let i=0; i<skillslist.length; i++) { %>
+									 <% if (skillslist[i].Skill_Category == 'Event Skills'){ %>
+							 <li><input id="scheckBox14" type="checkbox" value = "<%= skillslist[i].Skill_Name %>"/><%= skillslist[i].Skill_Name  %></li>
+								 <% } }%>
+							 </ul>
+		 </div>
+	 </div>
+ </div>
+	 <!-- </div> -->
+	 <!-- </div> -->
+
+
+
+	 <div class="col-sm-12">
+			<div class="panel panel-default">
+				 
+				<div class="panel-heading"> Business/Technology </div>
+					<div class="panel-body">
+						  <form action="/skilltest" method="post"></form>
+						 <ul class="ministryListBlk">
+							 <% for(let i=0; i<skillslist.length; i++) { %>
+									 <% if (skillslist[i].Skill_Category == 'Business/Technology'){ %>
+							 <li><input name="scheckBox14" type="checkbox" value = "<%= skillslist[i].Skill_Name %>"/><%= skillslist[i].Skill_Name  %></li>
+								 <% } }%>
+							 </ul>
+		 </div>
+	 </div>
+ </div>
+	 <!-- </div> -->
+	 <!-- </div> -->
+
+
+	 <div class="col-sm-12">
+			<div class="panel panel-default">
+				 
+				<div class="panel-heading"> Discipleship/Spirituality </div>
+					<div class="panel-body">
+						 <ul class="ministryListBlk">
+							 <% for(let i=0; i<skillslist.length; i++) { %>
+									 <% if (skillslist[i].Skill_Category == 'Discipleship/Spirituality'){ %>
+							 <li><input name="scheckBox14" type="checkbox" value = "<%= skillslist[i].Skill_Name %>"/><%= skillslist[i].Skill_Name  %></li>
+								 <% } }%>
+							 </ul>
+						
+		 </div>
+	 </div>
+ </div>
+	 </div>
+	 </div>
+
+	 <button class="btn btn-info" type="submit">Submit</button>  
+
+	</form>
+	</div>
+
+</div>
+
+
+		 <!-- <form action="" method="post">
+			<div style="text-align:right">
+				<button type="submit" value="Submit" id ="btest1" class="btn btn-success">Submit</button>
+			</div>
+		</form> -->
+
+
+
+<script type="text/javascript">
+                        
+  function getSelectedChbox(frm) {
+    var selchbox = [];// array that will store the value of selected checkboxes
+    // gets all the input tags in frm, and their number
+    var inpfields = frm.getElementsByTagName('input');
+    var nr_inpfields = inpfields.length;
+    // traverse the inpfields elements, and adds the value of selected (checked) checkbox in selchbox
+    for(var i=0; i<nr_inpfields; i++) {
+      if(inpfields[i].type == 'checkbox' && inpfields[i].checked == true) selchbox.push(inpfields[i].value);
+    }
+    return selchbox;
+  }   
+                          
+  
+  document.getElementById('btest').onclick = function(){
+    var selchb = getSelectedChbox(this.form);     // gets the array returned by getSelectedChbox()
+    alert(selchb);
+  }
+                          
+ </Script>
+			<style>
+				/* #content {
+					margin-left: 0px;
+					margin-right: 0px;
+				} */
+				
+    #content {
+      margin-left: 100px;
+      margin-right: 100px;
+    }
+    ul.ministryListBlk {
+        height: 100px;
+        columns: 4;
+        overflow: auto;
+    }
+ 
+			</style>
+</body>
+
+</html>
