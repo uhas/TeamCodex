@@ -547,7 +547,7 @@ if (req.body.uname && req.body.psw) //if both email and pasword gields are prese
 
         req.session.userId = users._id;
       //  return res.redirect('/profile');
-
+      console.log("session details are" + req.session.userId)
         res.render("sessionParishioner", {parishioner: users});// sessions code here was ' return res.redirect('/profile');'
         console.log("details are"+users);
       }
@@ -577,6 +577,7 @@ router.get('/sessionParishioner',function(req,res){
           res.render('parishioner',{
             user:current
           });
+
         }
       }
     });
@@ -616,3 +617,36 @@ router.get('/req',requiresLogin, function(req, res, next) {
 });
 
 module.exports=router ;
+// end of session login test code
+// testing database integration
+router.post('/sessionParishioner', function (req, res, next) {// code needs to be modified to match the database update***********
+  if (req.body.uname && req.body.psw) //if both email and pasword gields are present
+   {
+      
+    Users.authenticate(req.body.uname, req.body.psw, function (error, users) {
+        if (error || !users) {
+  
+          res.render('SessionLogin',{
+            errorMessage: "Please Enter Valid Entries"
+          });
+          // var err = new Error('Wrong email or password.');
+          // err.status = 401;
+          // return next(err);
+        }
+        else {
+  
+          req.session.userId = users._id;
+        //  return res.redirect('/profile');
+        console.log("session details are" + req.session.userId)
+          res.render("sessionParishioner", {parishioner: users});// sessions code here was ' return res.redirect('/profile');'
+          console.log("details are"+users);
+        }
+      });
+    }
+    else {
+      var err = new Error('All fields required.');
+      err.status = 400;
+      return next(err);
+    }
+  })
+  // end of session databes code(note complete yet)
