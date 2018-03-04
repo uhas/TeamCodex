@@ -48,15 +48,15 @@ const insertDocuments = (db, callback) => {
    * data on mongodb database
    */
   csv()
-    // .fromFile(csvFilePath)
-    // .on('csv', (csvRow) => {
-    //   csvRow.forEach(function (element) {
-    //     // Save data on mongo database
-    //     collection.insertOne({ name: element }, (err, result) => {
-    //       if (err) {
-    //         console.log(err);
-    //       } else {
-    //         callback(result);
+    .fromFile(csvFilePath)
+    .on('csv', (csvRow) => {
+      csvRow.forEach(function (element) {
+        // Save data on mongo database
+        collection.insertOne({ name: element }, (err, result) => {
+          if (err) {
+            console.log(err);
+          } else {
+            callback(result);
           }
         });
       }, this);
