@@ -36,6 +36,6 @@
     "stylus": "0.52.4"
   },
   "engines": {
-    "node": "4.2.1"
+    "node": "latest"
   }
 }
