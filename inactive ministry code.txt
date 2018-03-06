@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ./partials/header.ejs %>
+</head>
+
+<body>
+  <% include ./partials/loggedtop.ejs %>
+  <% include ./partials/adminnav.ejs %>
+
+
+
+		<div class="container">
+			<div class="jumbotron">
+			<h1>Ministries</h1>
+			<p>Select Ministires to make them active or inactive</p>
+			</div>
+		</div>
+
+			<div id="content">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">Ministries</div>
+							<div class="panel-body">
+								<table style="width: 100%; height: 100%;">
+
+									<tr>
+										<th>
+                                            <div class="col-sm-8">
+                                        <p> Adult Faith Formation Programs</p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                        <label class="switch">
+                                          <input type="checkbox">
+                                          <span class="slider"></span>
+                                        </label>
+        
+                                        </div></th>
+                                        <th><div class="col-sm-8">
+                                            <p> Altar Servers</p>
+                                            </div>
+                                            <div class="col-sm-2">
+                                            <label class="switch">
+                                              <input type="checkbox">
+                                              <span class="slider"></span>
+                                            </label>
+            
+                                            </div></th>
+                                    </tr>
+                                    <tr>
+									    <th><div class="col-sm-8">
+                                            <p> Annulment Advocate</p>
+                                            </div>
+                                            <div class="col-sm-2">
+                                            <label class="switch">
+                                              <input type="checkbox">
+                                              <span class="slider"></span>
+                                            </label>
+            
+                                            </div> 
+                                        </th>
+                                        <th>
+                                                <div class="col-sm-8">
+                                                        <p> Art & Environment Committee</p>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                        <label class="switch">
+                                                          <input type="checkbox">
+                                                          <span class="slider"></span>
+                                                        </label>
+                        
+                                                </div> 
+                                        </th> 
+                                    </tr>
+                                    <tr>
+                                            <th><div class="col-sm-8">
+                                                    <p> Bereavement Ministry</p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                    <label class="switch">
+                                                      <input type="checkbox">
+                                                      <span class="slider"></span>
+                                                    </label>
+                    
+                                                    </div> 
+                                                </th>
+                                                <th>
+                                                        <div class="col-sm-8">
+                                                                <p> Cemetery Board</p>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                <label class="switch">
+                                                                  <input type="checkbox">
+                                                                  <span class="slider"></span>
+                                                                </label>
+                                
+                                                        </div> 
+                                                </th> 
+                                    
+                                    </tr>
+                                    <tr>
+                                            <th><div class="col-sm-8">
+                                                    <p> Childcare for Parish Events</p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                    <label class="switch">
+                                                      <input type="checkbox">
+                                                      <span class="slider"></span>
+                                                    </label>
+                    
+                                                    </div> 
+                                                </th>
+                                                <th>
+                                                        <div class="col-sm-8">
+                                                                <p> Children's Liturgy of Word</p>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                <label class="switch">
+                                                                  <input type="checkbox">
+                                                                  <span class="slider"></span>
+                                                                </label>
+                                
+                                                        </div> 
+                                                </th> 
+                                    </tr>
+                                    <tr>
+                                            <th><div class="col-sm-8">
+                                                    <p> Endowment Committee</p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                    <label class="switch">
+                                                      <input type="checkbox">
+                                                      <span class="slider"></span>
+                                                    </label>
+                    
+                                                    </div> 
+                                                </th>
+                                                <th>
+                                                        <div class="col-sm-8">
+                                                                <p> Extraordinary Ministries of Communion</p>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                <label class="switch">
+                                                                  <input type="checkbox">
+                                                                  <span class="slider"></span>
+                                                                </label>
+                                
+                                                        </div> 
+                                                </th> 
+                                    </tr>
+                                    <tr>
+                                            <th><div class="col-sm-8">
+                                                    <p> Finance Council</p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                    <label class="switch">
+                                                      <input type="checkbox">
+                                                      <span class="slider"></span>
+                                                    </label>
+                    
+                                                    </div> 
+                                                </th>
+                                                <th>
+                                                        <div class="col-sm-8">
+                                                                <p> Greeters</p>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                <label class="switch">
+                                                                  <input type="checkbox">
+                                                                  <span class="slider"></span>
+                                                                </label>
+                                
+                                                        </div> 
+                                                </th> 
+                                    </tr>
+                                    <tr>
+                                            <th><div class="col-sm-8">
+                                                    <p> Heavenly Dusters</p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                    <label class="switch">
+                                                      <input type="checkbox">
+                                                      <span class="slider"></span>
+                                                    </label>
+                    
+                                                    </div> 
+                                                </th>
+                                                <th>
+                                                        <div class="col-sm-8">
+                                                                <p>Knights of Columbus</p>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                <label class="switch">
+                                                                  <input type="checkbox">
+                                                                  <span class="slider"></span>
+                                                                </label>
+                                
+                                                        </div> 
+                                                </th> 
+                                    </tr>
+                                    <tr>
+                                            <th><div class="col-sm-8">
+                                                    <p> Knights of Columbus Ladies Auxiliary</p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                    <label class="switch">
+                                                      <input type="checkbox">
+                                                      <span class="slider"></span>
+                                                    </label>
+                    
+                                                    </div> 
+                                                </th>
+                                                <th>
+                                                        <div class="col-sm-8">
+                                                                <p>Lectors</p>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                <label class="switch">
+                                                                  <input type="checkbox">
+                                                                  <span class="slider"></span>
+                                                                </label>
+                                
+                                                        </div> 
+                                                </th> 
+                                    </tr>
+                                    <tr>
+                                            <th><div class="col-sm-8">
+                                                    <p> Liturgy Committee</p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                    <label class="switch">
+                                                      <input type="checkbox">
+                                                      <span class="slider"></span>
+                                                    </label>
+                    
+                                                    </div> 
+                                                </th>
+                                                <th>
+                                                        <div class="col-sm-8">
+                                                                <p>Maintenance Committee</p>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                <label class="switch">
+                                                                  <input type="checkbox">
+                                                                  <span class="slider"></span>
+                                                                </label>
+                                
+                                                        </div> 
+                                                </th> 
+                                    </tr>
+                                    <tr>
+                                            <th><div class="col-sm-8">
+                                                    <p> Manna Kitchen</p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                    <label class="switch">
+                                                      <input type="checkbox">
+                                                      <span class="slider"></span>
+                                                    </label>
+                    
+                                                    </div> 
+                                                </th>
+                                                <th>
+                                                        <div class="col-sm-8">
+                                                                <p>Ministry Center</p>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                <label class="switch">
+                                                                  <input type="checkbox">
+                                                                  <span class="slider"></span>
+                                                                </label>
+                                
+                                                        </div> 
+                                                </th> 
+                                    </tr>
+                                    <tr>
+                                            <th><div class="col-sm-8">
+                                                    <p> Music Ministry</p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                    <label class="switch">
+                                                      <input type="checkbox">
+                                                      <span class="slider"></span>
+                                                    </label>
+                    
+                                                    </div> 
+                                                </th>
+                                                <th>
+                                                        <div class="col-sm-8">
+                                                                <p>Nursing Home Ministry</p>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                <label class="switch">
+                                                                  <input type="checkbox">
+                                                                  <span class="slider"></span>
+                                                                </label>
+                                
+                                                        </div> 
+                                                </th> 
+                                    </tr>
+                                    <tr>
+                                            <th><div class="col-sm-8">
+                                                    <p> Pastoral Council</p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                    <label class="switch">
+                                                      <input type="checkbox">
+                                                      <span class="slider"></span>
+                                                    </label>
+                    
+                                                    </div> 
+                                                </th>
+                                                <th>
+                                                        <div class="col-sm-8">
+                                                                <p>Prison Ministry</p>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                <label class="switch">
+                                                                  <input type="checkbox">
+                                                                  <span class="slider"></span>
+                                                                </label>
+                                
+                                                        </div> 
+                                                </th> 
+                                    </tr>
+                                    <tr>
+                                            <th><div class="col-sm-8">
+                                                    <p> Right to Life</p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                    <label class="switch">
+                                                      <input type="checkbox">
+                                                      <span class="slider"></span>
+                                                    </label>
+                    
+                                                    </div> 
+                                                </th>
+                                                <th>
+                                                        <div class="col-sm-8">
+                                                                <p>Sacramental Prep</p>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                <label class="switch">
+                                                                  <input type="checkbox">
+                                                                  <span class="slider"></span>
+                                                                </label>
+                                
+                                                        </div> 
+                                                </th> 
+                                    </tr>
+                                    <tr>
+                                            <th><div class="col-sm-8">
+                                                    <p> School Ministries</p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                    <label class="switch">
+                                                      <input type="checkbox">
+                                                      <span class="slider"></span>
+                                                    </label>
+                    
+                                                    </div> 
+                                                </th>
+                                                <th>
+                                                        <div class="col-sm-8">
+                                                                <p>Scrip Volunteer</p>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                <label class="switch">
+                                                                  <input type="checkbox">
+                                                                  <span class="slider"></span>
+                                                                </label>
+                                
+                                                        </div> 
+                                                </th> 
+                                    </tr>
+                                    <tr>
+                                            <th><div class="col-sm-8">
+                                                    <p> Social Jusitce Ministry</p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                    <label class="switch">
+                                                      <input type="checkbox">
+                                                      <span class="slider"></span>
+                                                    </label>
+                    
+                                                    </div> 
+                                                </th>
+                                                <th>
+                                                        <div class="col-sm-8">
+                                                                <p>St Anne's Circle</p>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                <label class="switch">
+                                                                  <input type="checkbox">
+                                                                  <span class="slider"></span>
+                                                                </label>
+                                
+                                                        </div> 
+                                                </th> 
+                                    </tr>
+                                    <tr>
+                                            <th><div class="col-sm-8">
+                                                    <p> St Gerard's Circle</p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                    <label class="switch">
+                                                      <input type="checkbox">
+                                                      <span class="slider"></span>
+                                                    </label>
+                    
+                                                    </div> 
+                                                </th>
+                                                <th>
+                                                        <div class="col-sm-8">
+                                                                <p>Stewardship Committee</p>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                <label class="switch">
+                                                                  <input type="checkbox">
+                                                                  <span class="slider"></span>
+                                                                </label>
+                                
+                                                        </div> 
+                                                </th> 
+                                    </tr>
+                                    <tr>
+                                            <th><div class="col-sm-8">
+                                                    <p> Ushers</p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                    <label class="switch">
+                                                      <input type="checkbox" name="inacministry">
+                                                      <span class="slider"></span>
+                                                    </label>
+                    
+                                                    </div> 
+                                                </th>
+                                                <th>
+                                                        <div class="col-sm-8">
+                                                                <p>Wedding Coordinator</p>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                <label class="switch">
+                                                                  <input type="checkbox">
+                                                                  <span class="slider"></span>
+                                                                </label>
+                                
+                                                        </div> 
+                                                </th> 
+                                    </tr>
+                                    <tr>
+                                            <th><div class="col-sm-8">
+                                                    <p> Welcoming Committee</p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                    <label class="switch">
+                                                      <input type="checkbox">
+                                                      <span class="slider"></span>
+                                                    </label>
+                    
+                                                    </div> 
+                                                </th>
+                                                <th>
+                                                        <div class="col-sm-8">
+                                                                <p>Women's Guild</p>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                <label class="switch">
+                                                                  <input type="checkbox">
+                                                                  <span class="slider"></span>
+                                                                </label>
+                                
+                                                        </div> 
+                                                </th> 
+                                    </tr>      
+								
+									
+									
+                                    
+
+			<form action="/deleteministry" method="post">
+				<div style="text-align:right">
+					<button type="submit" value="Submit" id="btest">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+			<style>
+				#content {
+					margin-left: 100px;
+					margin-right: 100px;
+				}
+                        </style>
+                        
+
+
+                        <Script>
+                        
+function getSelectedChbox(frm) {
+  var selchbox = [];// array that will store the value of selected checkboxes
+  // gets all the input tags in frm, and their number
+  var inpfields = frm.getElementsByTagName('input');
+  var nr_inpfields = inpfields.length;
+  // traverse the inpfields elements, and adds the value of selected (checked) checkbox in selchbox
+  for(var i=0; i<nr_inpfields; i++) {
+    if(inpfields[i].type == 'checkbox' && inpfields[i].checked == true) selchbox.push(inpfields[i].value);
+  }
+  return selchbox;
+}   
+                        
+
+document.getElementById('btest').onclick = function(){
+  var selchb = getSelectedChbox(this.form);     // gets the array returned by getSelectedChbox()
+  alert(selchb);
+}
+                        
+                        </Script>
+</body>
+
+<style>
+    textarea{
+    margin-left: auto;
+    margin-right: auto;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 40px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+
+</html>

@@ -2,14 +2,53 @@
 <html>
 
 <head>
-    <% include ./partials/header.ejs %>
-    <script>
-        function newPopup(url) {
-	popupWindow = window.open(
-		url,'popUpWindow','height=300,width=400,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes')
-}
-    </script>
+        <% include ./partials/header.ejs %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    body {font-family: Arial, Helvetica, sans-serif;}
     
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+    
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    #successMessage{
+        color: blue;
+    }
+    </style>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
@@ -31,7 +70,8 @@
           is3D: true,
 
         };
-        
+        //backgroundColor: gray;
+       // color: gray;
 
     
         // <option name="charting.chart">column</option>
@@ -40,86 +80,201 @@
 
         chart.draw(data, options);
       }
+      function drawChart() {
+
+        var data2 = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Percent of inactive ministries',     4],
+          ['Percent of active ministries',      7],
+          
+        ]);
+
+        var options2 = {
+          title: 'Ministries data',
+        
+          pieSliceText: 'percentage',
+          is3D: true,
+
+        };
+        //backgroundColor: gray;
+       // color: gray;
+
+    
+        // <option name="charting.chart">column</option>
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+        chart.draw(data2, options2);
+      }
     </script>
-     
 </head>
-
 <body>
-    <% include ./partials/loggedtop.ejs %>
+        <% include ./partials/loggedtop.ejs %>
         <!-- <% include ./partials/nav.ejs %> -->
-
-    <% include ./partials/adminnav.ejs %>
-
+        <% include ./partials/adminnav.ejs %>
+   
     <div class="container">
-        <div class="row">
-            <div>
-                <div class="jumbotron">
-                    <div class="row">
+            <div class="row">
+                <div>
+                    <div class="jumbotron">
+                        <div class="row">
+    
+                            <div class="col-sm-9">
+                                <h4 id="successMessage" hidden> Name has been updated successfully!!</h4>
+    
+                                <h2 class="welcome">Welcome Admin!</h2>
 
-                        <div class="col-sm-9">
+                                <div class="align-top"><div align="right"><p>
+                                        <a href="#" class="btn btn-info btn-lg">
+                                          <span class="glyphicon glyphicon-bell"></span> Notifications
+                                        </a>
+                                      </p> </div></div>
 
+    
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">Edit Profile</button>
+    
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+    
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        
+            <div class="container">
+              <label><b>Name</b></label>
+              <input type="text" placeholder="Enter Username" id="uname" name="uname" required>
+                </br>
+              
 
-                            <h2>Welcome Admin!</h2>
-                            <div class="align-top"><div align="right"><p>
-                                <a href="#" class="btn btn-info btn-lg">
-                                  <span class="glyphicon glyphicon-bell"></span> Notifications
-                                </a>
-                              </p> </div></div>
-                            <div class="align-top"><a class= "edit" href="#"><div align="left"><button type="button" class="btn btn-default btn-sm">
-                            <div class="align-top"><div align="right"><a href="" class= "glyphicon glyphicon-bell">Notifications</div></a></div>
-                            <div class="align-top"><a class= "edit" href="#"><div align="left">
-                                    <a href="JavaScript:newPopup('/adminprofile');"><button type="button" class="btn btn-default btn-sm">
-                                     Manage Profile
-                                  </button></a>
-                                </br>
-                                  
-                                </div></a></div>
-                                <div id="piechart" style="width: 600px; height: 500px;"></div>
-
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp -->
-                            
-                            
-                            
-</div>
-</div>
-</div>
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-
-                               
-                            
-
-
-                                
-
-
-                        </div>
-                    </div>
-                </div>
-
-
-                
+      
+              <button type="submit" class="btn btn-info" role="button" id="nameSubmitted">Change</button>
+              <!-- <button type="button" class="cancelbtn">Cancel</button> -->
+              <!-- <p id="abc"></p> -->
+              <button type="submit" class="btn btn-danger" role="button" id="nameCancel">cancel</button>
+      
             </div>
-        </div>
-            <!-- page code -->
-            <style>
-                .btn-lg{
-                    background-color: blue
-                }
-                </style>
+      
+             
+          
+          <a href="#" class="changePswd">Change Password?</a>
+          <div class="pswdForm" hidden>
+                <div class="container">
+                  <label><b>Old Password</b></label>
+                  <input type="text" placeholder="Enter Username" id="oldPswd" name="uname" required>
+                    </br>
+                    <label><b>New Password</b></label>
+                    <input type="text" placeholder="Enter Username" id="newPswd" name="uname" required>
+                      </br>
+                      <label><b>Re-enter Password</b></label>
+                      <input type="text" placeholder="Enter Username" id="renewPswd" name="uname" required>
+                        </br>
+                  
+          
+                  <button type="submit" class="btn btn-info" role="button" id="pswdConfirm">Confirm</button>
+                 
+            <button  type="" class="btn btn-danger" id="pswdCancel" >Cancel</button> 
+          
+                </div>
+          
+                
+                </div>
+            </div>   
 
+      </div>
+      <div id="piechart" style="width: 600px; height: 500px; color: gray" >
+            <div id="piechart2" style="width: 600px; height: 500px; color: gray" ></div>
+
+      </div>
+      <!-- <div id="piechart" style="width: 600px; height: 500px; color: gray" ></div> -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+    
+    </div>
+    
+    <script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+    
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+
+
+    
+
+    var nameEntered = document.getElementById("nameSubmitted");
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    var s = document.getElementById("pswdCancel");
+    var n = document.getElementById("nameCancel");
+    
+var name;
+
+    nameEntered.onclick = function(){
+        name = document.getElementById("uname").value;
+        modal.style.display = "none";
+
+    }
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() 
+    {
+        modal.style.display = "block";
+    }
+
+    // var changedName;
+    // if(name==null){
+    //                     changedName = "Admin";
+    //                 }
+    //                 else{
+    //                     changedName = name;
+    //                 }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    s.onclick = function(){
+        modal.style.display = "none";
+    }
+
+    n.onclick = function(){
+        modal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+
+            modal.style.display = "none";
+        }
+    }
+    </script>
+    <script>
+            $(document).ready(function(){
+                $('.changePswd').click(function(){
+                  $('.pswdForm').show();
+                });
+                $('.pswdCancel').click(function(){
+                    modal.style.display = "none";
+                });
+                $('#nameSubmitted').click(function(){
+                    $('h4').show();
+                    $('.welcome').text("Welcome "+name+"!");
+                    
+                });
+            });
+          
+
+            </script>
+     
+     
 </body>
-<style>
-    .pswdLabel {
-        padding: 16px;
-
-    }
-    form {
-        border: 3px solid #f1f1f1;
-    }
-</style>
-
 </html>
