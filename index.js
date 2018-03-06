@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var errorHandler = require('errorhandler');
 var cookieParser = require('cookie-parser');
 const flash = require('express-flash');
-var MongoStore = require('connect-mongo')(session);
+// var MongoStore = require('connect-mongo')(session);
 
 var app = express();
 
@@ -26,14 +26,14 @@ app.set('views', path.join(__dirname, 'views/pages'));
 app.set('view engine', 'ejs');
 
 
-var dbURL = 'mongodb://sandeep:bunty@ds151528.mlab.com:51528/teamcodex';
+var dbURL = 'mongodb://sandeep:dara@ds151528.mlab.com:51528/teamcodex';
 
 mongoose.connect(dbURL, { useMongoClient: true });
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'dbURL connection error:'));
 
- mongoose.connect(dbURL);
+//  mongoose.connect(dbURL);
 // var db = mongoose.connection;
 // app.use(session({
 //     secret: 'work hard',
