@@ -80,32 +80,7 @@
 
         chart.draw(data, options);
       }
-      function drawChart() {
-
-        var data2 = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Percent of inactive ministries',     4],
-          ['Percent of active ministries',      7],
-          
-        ]);
-
-        var options2 = {
-          title: 'Ministries data',
-        
-          pieSliceText: 'percentage',
-          is3D: true,
-
-        };
-        //backgroundColor: gray;
-       // color: gray;
-
-    
-        // <option name="charting.chart">column</option>
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
-
-        chart.draw(data2, options2);
-      }
+      
     </script>
 </head>
 <body>
