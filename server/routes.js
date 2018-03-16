@@ -52,6 +52,9 @@ var Users = require('../model/ChurchParishionermodule');//For Sessions
   // router.get('/ministries',function(req,res){
   //   res.render('ministries');
   // });
+  router.get('/skillReport',function(req,res){
+    res.render('skillReport');
+  });
   router.get('/ministrySurvey',function(req,res){
     res.render('ministrySurvey');
   });
@@ -436,6 +439,12 @@ router.get("/skillsviewadmin", function(req,res){
   });
 });
 
+router.get("/skillsReportView",function(req,res){
+  skillsmodel.find({}, ["Skill_Name","Skill_Category"] , function(err, results){
+      console.log("skills", results);
+      res.render("skillReport", {skillslist: results});
+  });
+});
 
 //post method for updateskills
 router.post("/updateskills",function(req,res){
