@@ -473,189 +473,189 @@ console.log("still need to work//Skillsurvey");
 
 //For Sessions***********************************************************************
 //rout for creating a using sessionss
-router.get('/SessionAdminCreatUser', function(req,res){
-  res.render('SessionAdminCreatUser',{
-    errorMessage1: ""
-  });
-});
+// router.get('/SessionAdminCreatUser', function(req,res){
+//   res.render('SessionAdminCreatUser',{
+//     errorMessage1: ""
+//   });
+// });
 
 
-//post request for creating user using sessions
-router.post('/SessionAdminCreatUser', function (req, res, next) {
-  // confirm that user typed same password twice
-  if (req.body.password !== req.body.repassword) {
-    var err = new Error('Passwords do not match.');
-    err.status = 400;
-    res.send("passwords dont match");
-    return next(err);
-  }
+// //post request for creating user using sessions
+// router.post('/SessionAdminCreatUser', function (req, res, next) {
+//   // confirm that user typed same password twice
+//   if (req.body.password !== req.body.repassword) {
+//     var err = new Error('Passwords do not match.');
+//     err.status = 400;
+//     res.send("passwords dont match");
+//     return next(err);
+//   }
 
-  if (req.body.pid&&
-//    req.body.username&&
-    req.body.fname&&
-    req.body.lname&&
-    req.body.email&&
-    req.body.password&&
-    req.body.repassword ) {
+//   if (req.body.pid&&
+// //    req.body.username&&
+//     req.body.fname&&
+//     req.body.lname&&
+//     req.body.email&&
+//     req.body.password&&
+//     req.body.repassword ) {
 
-    var usersData = {
-      PID: req.body.pid,
-      username: req.body.username,
-      Firstname: req.body.fname,
-      Lastname: req.body.lname,
-      Email: req.body.email,
-      password: req.body.password,
-    }
+//     var usersData = {
+//       PID: req.body.pid,
+//       username: req.body.username,
+//       Firstname: req.body.fname,
+//       Lastname: req.body.lname,
+//       Email: req.body.email,
+//       password: req.body.password,
+//     }
 
-    Users.create(usersData, function (error, users) {
-      if (error) {
-        return next(error);
-      } else {
-        console.log("User created successfully");
-        res.render('SessionAdminCreatUser',{
-          errorMessage1: "User created successfully"
-        });
-      }
-    });
+//     Users.create(usersData, function (error, users) {
+//       if (error) {
+//         return next(error);
+//       } else {
+//         console.log("User created successfully");
+//         res.render('SessionAdminCreatUser',{
+//           errorMessage1: "User created successfully"
+//         });
+//       }
+//     });
 
-  }
-  else {
-    var err = new Error('All fields required.');
-    err.status = 400;
-    return next(err);
-  }
-})
-
-
-//rout for sessionLogin Page***********************************************
-router.get('/SessionLogin',function(req,res){
-
-  res.render('SessionLogin',{
-    errorMessage: ""
-  });
+//   }
+//   else {
+//     var err = new Error('All fields required.');
+//     err.status = 400;
+//     return next(err);
+//   }
+// })
 
 
-});
+// //rout for sessionLogin Page***********************************************
+// router.get('/SessionLogin',function(req,res){
 
-//POST route for checking user data before login
-router.post('/SessionLogin', function (req, res, next) {
-if (req.body.uname && req.body.psw) //if both email and pasword gields are present
- {
+//   res.render('SessionLogin',{
+//     errorMessage: ""
+//   });
+
+
+// });
+
+// //POST route for checking user data before login
+// router.post('/SessionLogin', function (req, res, next) {
+// if (req.body.uname && req.body.psw) //if both email and pasword gields are present
+//  {
     
-  Users.authenticate(req.body.uname, req.body.psw, function (error, users) {
-      if (error || !users) {
+//   Users.authenticate(req.body.uname, req.body.psw, function (error, users) {
+//       if (error || !users) {
 
-        res.render('SessionLogin',{
-          errorMessage: "Please Enter Valid Entries"
-        });
-        // var err = new Error('Wrong email or password.');
-        // err.status = 401;
-        // return next(err);
-      }
-      else {
+//         res.render('SessionLogin',{
+//           errorMessage: "Please Enter Valid Entries"
+//         });
+//         // var err = new Error('Wrong email or password.');
+//         // err.status = 401;
+//         // return next(err);
+//       }
+//       else {
 
-        req.session.userId = users._id;
-      //  return res.redirect('/profile');
-      console.log("session details are" + req.session.userId)
-        res.render("sessionParishioner", {parishioner: users});// sessions code here was ' return res.redirect('/profile');'
-        console.log("details are"+users);
-      }
-    });
-  }
-  else {
-    var err = new Error('All fields required.');
-    err.status = 400;
-    return next(err);
-  }
-})
-
-
-router.get('/sessionParishioner',function(req,res){
+//         req.session.userId = users._id;
+//       //  return res.redirect('/profile');
+//       console.log("session details are" + req.session.userId)
+//         res.render("sessionParishioner", {parishioner: users});// sessions code here was ' return res.redirect('/profile');'
+//         console.log("details are"+users);
+//       }
+//     });
+//   }
+//   else {
+//     var err = new Error('All fields required.');
+//     err.status = 400;
+//     return next(err);
+//   }
+// })
 
 
-  User.findById(req.session.userId)
-    .exec(function (error, users) {
-      if (error) {
-        return next(error);
-      } else {
-        if (users === null) {
-          var err = new Error('Not authorized! Go back!');
-          err.status = 400;
-          return next(err);
-        } else {
-          res.render('parishioner',{
-            user:current
-          });
-
-        }
-      }
-    });
-});
+// router.get('/sessionParishioner',function(req,res){
 
 
-router.get('/logout', function (req, res, next) {
-  if (req.session) {
-    // delete session object
-    req.session.destroy(function (err) {
-      if (err) {
-        return next(err);
-      } else {
-        return res.redirect('/SessionLogin');
-      }
-    });
-  }
-});
-// End for sessions
-//session internal test code
-function requiresLogin(req, res, next) {
-  if (req.session && req.session.userId) {
-    return next();
-  } else {
-    var err = new Error('You must be logged in to view this page.');
-    err.status = 401;
-    return next(res.render('SessionLogin',{
-      errorMessage: "You need to be logged in to access this page"
-    })
-  );
-  }
-}
+//   User.findById(req.session.userId)
+//     .exec(function (error, users) {
+//       if (error) {
+//         return next(error);
+//       } else {
+//         if (users === null) {
+//           var err = new Error('Not authorized! Go back!');
+//           err.status = 400;
+//           return next(err);
+//         } else {
+//           res.render('parishioner',{
+//             user:current
+//           });
 
-router.get('/req',requiresLogin, function(req, res, next) {
+//         }
+//       }
+//     });
+// });
 
-  res.render('requireslog');
-});
 
-module.exports=router ;
-// end of session login test code
-// testing database integration
-router.post('/sessionParishioner', function (req, res, next) {// code needs to be modified to match the database update***********
-  if (req.body.uname && req.body.psw) //if both email and pasword gields are present
-   {
+// router.get('/logout', function (req, res, next) {
+//   if (req.session) {
+//     // delete session object
+//     req.session.destroy(function (err) {
+//       if (err) {
+//         return next(err);
+//       } else {
+//         return res.redirect('/SessionLogin');
+//       }
+//     });
+//   }
+// });
+// // End for sessions
+// //session internal test code
+// function requiresLogin(req, res, next) {
+//   if (req.session && req.session.userId) {
+//     return next();
+//   } else {
+//     var err = new Error('You must be logged in to view this page.');
+//     err.status = 401;
+//     return next(res.render('SessionLogin',{
+//       errorMessage: "You need to be logged in to access this page"
+//     })
+//   );
+//   }
+// }
+
+// router.get('/req',requiresLogin, function(req, res, next) {
+
+//   res.render('requireslog');
+// });
+
+// module.exports=router ;
+// // end of session login test code
+// // testing database integration
+// router.post('/sessionParishioner', function (req, res, next) {// code needs to be modified to match the database update***********
+//   if (req.body.uname && req.body.psw) //if both email and pasword gields are present
+//    {
       
-    Users.authenticate(req.body.uname, req.body.psw, function (error, users) {
-        if (error || !users) {
+//     Users.authenticate(req.body.uname, req.body.psw, function (error, users) {
+//         if (error || !users) {
   
-          res.render('SessionLogin',{
-            errorMessage: "Please Enter Valid Entries"
-          });
-          // var err = new Error('Wrong email or password.');
-          // err.status = 401;
-          // return next(err);
-        }
-        else {
+//           res.render('SessionLogin',{
+//             errorMessage: "Please Enter Valid Entries"
+//           });
+//           // var err = new Error('Wrong email or password.');
+//           // err.status = 401;
+//           // return next(err);
+//         }
+//         else {
   
-          req.session.userId = users._id;
-        //  return res.redirect('/profile');
-        console.log("session details are" + req.session.userId)
-          res.render("sessionParishioner", {parishioner: users});// sessions code here was ' return res.redirect('/profile');'
-          console.log("details are"+users);
-        }
-      });
-    }
-    else {
-      var err = new Error('All fields required.');
-      err.status = 400;
-      return next(err);
-    }
-  })
-  // end of session databes code(note complete yet)
+//           req.session.userId = users._id;
+//         //  return res.redirect('/profile');
+//         console.log("session details are" + req.session.userId)
+//           res.render("sessionParishioner", {parishioner: users});// sessions code here was ' return res.redirect('/profile');'
+//           console.log("details are"+users);
+//         }
+//       });
+//     }
+//     else {
+//       var err = new Error('All fields required.');
+//       err.status = 400;
+//       return next(err);
+//     }
+//   })
+//   // end of session databes code(note complete yet)
