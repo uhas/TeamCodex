@@ -28,6 +28,9 @@ router.get('/', function (req, res) {
 router.get('/admin', function (req, res) {
   res.render('admin');
 });
+router.get('/pleaseLogIn', function (req, res) {
+  res.render('pleaseLogIn');
+});
 router.get('/adminViewMinistry', function (req, res) {
   res.render('adminViewMinistry');
 });
