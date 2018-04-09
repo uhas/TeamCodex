@@ -192,7 +192,7 @@ router.post("/newuser", function (req, res) {
 //post method for login 
 
 router.post('/login', function (req, res) {
-  //let id = req.params.id;
+  let id = req.params.id;
   var username = req.body.uname;
   current = username;
   var password = req.body.psw;
@@ -216,23 +216,12 @@ router.post('/login', function (req, res) {
   });
 });
 
-router.get('/parishioner', function (req, res) {
-  churchmodel.find({ _id:puserid }, [], function (err, results) {
-    if (!results.length) {
-      // $("#abc").html("incorrect password");
-      // req.session.user = user;
-      res.render('login', {
-        // errorMessage: "Please Enter Valid Entries"
-      });
+router.get('/parishioner/:id', function (req, res) {
+  // console.log('call for parishioner');
+  let id = req.params.id;
 
-
-    } else {
-       puserid = results[0]._id;
-       console.log(results);
-      res.render("parishioner", { parishioner: results });
-      console.log("details are" + puserid);
-      // return next();
-    }
+  res.render('parishioner', {
+    user: current
   });
 });
 
@@ -449,7 +438,7 @@ router.post("/minsurvey", function (req, res) {
   };
   churchmodel.update({_id: puserid}, mlist, function(err, result){
     if(!err){
-      res.redirect('back');
+        res.redirect('back');
     }
 });
 });
@@ -514,7 +503,6 @@ router.post("/updateministries", function (req, res) {
 
   console.log(req.body.inacministry);
   console.log("still need to work//Skillsurvey");
-  
 });
 
 
