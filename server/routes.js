@@ -171,6 +171,7 @@ router.post("/newuser", function (req, res) {
       user.Lastname = req.body.lname;
       user.Email = req.body.email;
       user.Password = req.body.password;
+      user.usertype="user";
 
       user.save(function (err, result) {
         if (!err) {
@@ -206,10 +207,19 @@ router.post('/login', function (req, res) {
       });
 
 
-    } else {
+    }
+    else if(results[0].usertype=="admin")
+    {
+        res.render('admin');
+    }
+    
+    
+    else {
       // let id = req.params.id;
       res.render("parishioner", { parishioner: results });
-      console.log("details are" + results);
+      console.log("parishioners"+results);
+      console.log("details are" + results[0].Email);
+      console.log("details are" + results[0].usertype);
       // return next();
     }
   });
