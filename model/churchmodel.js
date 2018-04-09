@@ -9,8 +9,8 @@ var churchloginschema=mongoose.Schema({
   Phone:{type:String},
   Password:{type:String, unique: true},
   usertype:{type:String},
-  skills:{type:String},
-  ministries:{type:String}
+  skills:[String],
+  ministries:[String]
 });
 
 // var churchdata= new churchloginschema({
