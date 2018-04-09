@@ -29,6 +29,7 @@
     var input = $('<input id="attributeadd" type="text" value="' + text + '" />')
     $('.pAddress').text('').append(input);
     input.select();
+    $('.save').show();
     })
     $('a.edit').click(function () {
     var text = $('.numb').text();
@@ -39,12 +40,15 @@
     })
     $('a.save').click(function () {
         $('.name').html ( $('#attributename').val() );
+        $('.save').hide();
     });
     $('a.save').click(function () {
         $('.mail').html ( $('#attributemail').val() );
+        $('.save').hide();
     });
     $('a.save').click(function () {
-        $('.pAddress').html ( $('#attributadd').val() );
+        $('.pAddress').html ( $('#attributeadd').val() );
+        $('.save').hide();
     })
     $('a.save').click(function () {
         $('.numb').html ( $('#attributenumb').val() );
