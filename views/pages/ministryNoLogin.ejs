@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ./partials/header.ejs %>
+</head>
+
+<body>
+    <% include ./partials/top.ejs %>
+        <% include ./partials/ministrynav.ejs %>
+            <!-- Main code -->
+            <div class="col-sm-9" id="con">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <center>
+                            <img src="/slide1.jpg" alt="team 1" align="left" >
+                            <div class="carousel-caption">
+                                <h1>
+                                    <font color="white">
+                                        <%= ministry.minisrtyname%>
+                                    </font>
+                                </h1>
+                            </div>
+                        </center>
+                        <!-- <center>
+                            <a href="#contentpara">
+                                <h4>Scroll Down</h4>
+                            </a>
+                        </center> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3" id="co">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" class="col-sm-3">Activities</div>
+                        <div class="panel-body">
+                            <ul>
+                                <li>Activity one has started </br>
+                                </li>
+                                <li>Activity has ended</br>
+                                </li>
+                                <li>Activity 3 is on 2-23-2017, You are welcome to it </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" class="col-sm-3">Skills Needed</div>
+                        <div class="panel-body">
+                            <ul>
+                                <li>Budgeting</br>
+                                </li>
+                                <li>Teaching</br>
+                                </li>
+                                <li>Planning</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-9" class="container">
+                <center>
+                    <a href="#contentpara">
+                        <h4>Scroll Down</h4>
+                    </a>
+                </center>
+            </div>
+            <div class="col-sm-9" class="container">
+                <div class="jumbotron">
+                    <h1>Welcome to
+                        <%= ministry.minisrtyname%>
+                    </h1>
+                    <p>
+                        <%= ministry.mission%>
+                    </p>
+                </div>
+                <p align="justify" id="contentpara">
+                    <%= ministry.description%>
+                </p>
+            </div>
+
+
+
+            <style>
+                #co {
+                    position: relative;
+                    top: 10px;
+
+                }
+
+                #con {
+                    position: relative;
+                    top: 10px;
+
+                }
+
+                #content {
+                    position: relative;
+                    top: -110px;
+                    margin-left: 60px;
+                    margin-right: 60px;
+                }
+
+                .title {
+                    margin-left: 90px;
+                    margin-right: 90px;
+                }
+
+                #myCarousel {
+                    margin-left: 80px;
+                    margin-right: 80px;
+                }
+
+                img {
+                    max-width: 100%;
+                    height: auto;
+                    width: auto\9;
+                    /* ie8 */
+                }
+            </style>
+            </div>
+
+</body>
+
+</html>

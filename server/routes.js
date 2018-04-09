@@ -67,8 +67,12 @@ router.get('/manageUser', function (req, res) {
 router.get('/events', function (req, res) {
   res.render('events');
 });
+
 router.get('/ministry', function (req, res) {
   res.render('ministry');
+});
+router.get('/ministryNoLogin', function (req, res) {
+  res.render('ministryNoLogin');
 });
 // router.get('/skillSurvey',function(req,res){
 //   res.render('skillSurvey');
@@ -276,12 +280,26 @@ router.get("/allministries", function (req, res) {
   });
 });
 
+router.get("/ministriess", function (req, res) {
+  ministrymodel.find({}, ["minisrtyname"], function (err, results) {
+    console.log("minsitries", results);
+    res.render("ministriesWithLogin", { ministrylist: results });
+  });
+});
 
 
 router.get("/ministry/:id", function (req, res) {
   ministrymodel.findOne({ _id: req.params.id }, function (err, result) {
     if (!err) {
       res.render("ministry", { ministry: result });
+    }
+  });
+});
+
+router.get("/ministryNoLogin/:id", function (req, res) {
+  ministrymodel.findOne({ _id: req.params.id }, function (err, result) {
+    if (!err) {
+      res.render("ministryNoLogin", { ministry: result });
     }
   });
 });

@@ -5,8 +5,8 @@
 </head>
 
 <body>
-  <% include ./partials/top.ejs %>
-  <% include ./partials/nav.ejs %>
+  <% include ./partials/loggedtop.ejs %>
+  <% include ./partials/parshionerNav.ejs %>
 
 
 	
@@ -20,7 +20,7 @@
       
         <ul class="ministryListBlk">
         <% for(let i=0; i<ministrylist.length; i++) { %>
-                  <ol><a href="/ministryNoLogin/<%= ministrylist[i]._id %>"> <%= ministrylist[i].minisrtyname  %></a></ol>
+                  <ol><a href="/ministry/<%= ministrylist[i]._id %>"> <%= ministrylist[i].minisrtyname  %></a></ol>
         <% } %>
         </ul>
     </div>
