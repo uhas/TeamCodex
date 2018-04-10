@@ -464,9 +464,6 @@ router.post("/updateskills", function (req, res) {
         res.redirect('back');
     }
 });
-
- 
- 
   // var skillslist = req.body.scheckBox14;
   // for (var i = 0; i < skillslist.length; i++) {
   //   console.log(skillslist[i]);
