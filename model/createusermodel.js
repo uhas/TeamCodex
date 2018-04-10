@@ -2,7 +2,6 @@ var mongoose=require('mongoose');
 
 var churchloginschema=mongoose.Schema({
     PID:{type: String, unique: true },
-    username:{type: String, unique: true},
     Firstname:{type: String},
     Lastname:{type: String},
     Address:{type: String},

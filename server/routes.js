@@ -166,7 +166,6 @@ router.post("/newuser", function (req, res) {
 
     else {
       user.PID = req.body.pid;
-      user.username = req.body.username;
       user.Firstname = req.body.fname;
       user.Lastname = req.body.lname;
       user.Email = req.body.email;
@@ -387,8 +386,7 @@ router.post("/updateuser", function (req, res) {
        res.redirect('back');
    }
 });
- console.log(req.body.scheckBox14);
- console.log(skills);
+
 });
 
 
@@ -462,7 +460,7 @@ router.get("/deleteskills", function (req, res) {
 router.post("/deleteskillsAdmin", function (req, res) {
   var skillslist = req.body.scheckBox14;
   console.log(req.body.scheckBox14);
-  // for(var i =0; i<skillslist.length;i++){  console.log(skillslist[i]);}
+  for(var i =0; i<skillslist.length;i++){  console.log(skillslist[i]);}
   for (var i = 0; i < skillslist.length; i++) {
     var myquery = { Skill_Name: skillslist[i] };
     skillsmodel.remove(myquery, function (err, obj) {
@@ -507,6 +505,46 @@ router.get("/skillsReportView", function (req, res) {
     res.render("skillReport", { skillslist: results });
   });
 });
+
+
+
+// router.get("/nextministry", function (req, res) {
+  
+//   ministrymodel.find({}, ["minisrtyname"], function (err, results) {
+//     console.log("minsitries", results);
+//     res.render("ministriesWithLogin", { ministrylist: results });
+//   });
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //post method for updateskills
 // router.post("/updateskills", function (req, res) {

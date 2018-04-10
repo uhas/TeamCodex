@@ -20,6 +20,7 @@ var ministryschema=mongoose.Schema({
     type:String
   }
 
+
 });
 
 // var churchdata= new churchloginschema({
