@@ -2,6 +2,11 @@
 <html>
 <head>
   <% include ./partials/header.ejs %>
+  <style>
+  h3{
+	color:green
+}
+</style>
 </head>
 
 <body>
@@ -16,24 +21,18 @@
   <div class="row">
     <div class="col-sm-1"></div>
     <div class="col-sm-13">
-		<div class="jumbotron">
+		 <div class="jumbotron">
 		<h1>Welcome to Skill Survey!</h1>
-		<p>“Select the skills that you have”
-
-			</p>
-    </div>
+		<p>“Select the skills that you have”</p>
+     </div>
     <!-- <div class="col-sm-1"></div> -->
     </div>
-		</div>
-
-
-
-
-
 		<div class="container">
+				
 		<div class="row">
 			<!-- <div class="col-sm-4"></div> -->
 		<!-- <div class="col-sm-12"> -->
+			</div><h3 id="p2" align="center"><b></b></h3>
 	
 		<form action="/updateskills" method="post">
 			<div class="col-sm-12">
@@ -98,7 +97,14 @@
 							 </ul>
 		 </div>
 	 </div>
-	 <button class="btn btn-info" type="submit">Submit</button>  
+	 <button class="btn btn-info" type="submit" onclick="feedback1();"/>Submit</button>
+
+	 <script>
+		 function feedback1() {
+		   /*<!--document.getElementById("p2").innerHTML = "Updated succesfully!";-->*/
+		   alert("skills updates succesfully");
+		}
+	   </script> 
 	</div>
 	
 		 

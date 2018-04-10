@@ -3,8 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+   
   <% include ./partials/header.ejs %>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <style>
+      h3{
+        color:green
+    }
+  </style>
 </head>
 
 <body>
@@ -16,6 +22,7 @@
 	
 <!-- page code -->
 <!-- <div class="container"> -->
+    <h3 id="p1" align="center"><b></b></h3>
 <h2>Here is the list of all our ministries. Click on the ministry name to know more about them.</h2>
  
 <!-- <h4><b>Active Ministries:</b><h4> <h5> Click on the ministry name to view descriptions and activities of the ministry.  Use the navigation tools in the menu bar to easily move from ministry to ministry.</h5> -->
@@ -29,7 +36,13 @@
         <% } %>
         </ul>
     </div></div>
-    <button class="btn btn-info" type="submit">Submit</button>  
+    <button class="btn btn-info" type="submit" onclick="feedback();"/>Submit</button>
+
+    <script>
+        function feedback() {
+          alert("Ministries updated succesfully");
+       }
+      </script>
 </div>
          
 
