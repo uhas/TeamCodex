@@ -373,6 +373,28 @@ router.post("/newskill", function (req, res) {
 
 });
 
+router.post("/updateuser", function (req, res) {
+  let user = {
+    "name": req.body.uname,
+    "address":req.body.pAddress,
+    "Email": req.body.mail
+
+    
+  };
+
+ churchmodel.update({_id: puserid}, user, function(err, result){
+   if(!err){
+       res.redirect('back');
+   }
+});
+ console.log(req.body.scheckBox14);
+ console.log(skills);
+});
+
+
+
+
+//method to display skills in skill survey page
 router.get("/allskills", function (req, res) {
   skillsmodel.find({}, ["Skill_Name", "Skill_Category"], function (err, results) {
     console.log("skills", results);
@@ -380,6 +402,20 @@ router.get("/allskills", function (req, res) {
   });
 });
 
+//skill survey updating by the user
+router.post("/updateskills", function (req, res) {
+  let skills = {
+    "skills":req.body.scheckBox14
+  };
+
+ churchmodel.update({_id: puserid}, skills, function(err, result){
+   if(!err){
+       res.redirect('/parishioner');
+   }
+});
+ console.log(req.body.scheckBox14);
+ console.log(skills);
+});
 
 
 
@@ -439,42 +475,22 @@ router.post("/deleteskillsAdmin", function (req, res) {
   }
 
   console.log(req.body.scheckBox14);
-  console.log("still need to work/delete skills");
   res.redirect('back');
 });
 
+//Ministry survey updated by the parishioner
 router.post("/minsurvey", function (req, res) {
   var mlist = {
     "ministries":req.body.ministry
   };
   churchmodel.update({_id: puserid}, mlist, function(err, result){
     if(!err){
-      res.redirect('back');
+      res.redirect('/parishioner');
     }
 });
 });
 
-router.post("/updateskills", function (req, res) {
-   let skills = {
-     "skills":req.body.scheckBox14
-   };
 
-  churchmodel.update({_id: puserid}, skills, function(err, result){
-    if(!err){
-        res.redirect('back');
-    }
-});
-
- 
- 
-  // var skillslist = req.body.scheckBox14;
-  // for (var i = 0; i < skillslist.length; i++) {
-  //   console.log(skillslist[i]);
-  // }
-
-  console.log(req.body.scheckBox14);
-  console.log(skills);
-});
 
 
 //get method for skillsviewadmin
@@ -493,29 +509,29 @@ router.get("/skillsReportView", function (req, res) {
 });
 
 //post method for updateskills
-router.post("/updateskills", function (req, res) {
-  var skillslist = req.body.scheckBox14;
-  for (var i = 0; i < skillslist.length; i++) {
-    console.log(skillslist[i]);
-  }
+// router.post("/updateskills", function (req, res) {
+//   var skillslist = req.body.scheckBox14;
+//   for (var i = 0; i < skillslist.length; i++) {
+//     console.log(skillslist[i]);
+//   }
 
-  console.log(req.body.scheckBox14);
-  console.log("still need to work//Skillsurvey");
-});
+//   console.log(req.body.scheckBox14);
+//   console.log("still need to work//Skillsurvey");
+// });
 
 
 //post method for updateministries
 
-router.post("/updateministries", function (req, res) {
-  var mlist = req.body.inacministry;
-  for (var i = 0; i < mlist.length; i++) {
-    console.log(mlist[i]);
-  }
+// router.post("/updateministries", function (req, res) {
+//   var mlist = req.body.inacministry;
+//   for (var i = 0; i < mlist.length; i++) {
+//     console.log(mlist[i].value);
+//   }
 
-  console.log(req.body.inacministry);
-  console.log("still need to work//Skillsurvey");
+//   console.log(req.body.inacministry);
+//   console.log("still need to work//Skillsurvey");
   
-});
+// });
 
 
 //For Sessions***********************************************************************

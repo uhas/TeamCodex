@@ -138,16 +138,16 @@
 
                                     <p class="text-info">
 
-                                           <b>Name:</b><label class="name"><%= parishioner[0].Lastname %> <%=parishioner[0].Firstname%> </label>
+                                           <b>Name:</b><label name="name"><%= parishioner[0].Lastname %> <%=parishioner[0].Firstname%> </label>
                                             <br />
-                                            <b>Address:</b><label class="pAddress"></label>
+                                            <b>Address:</b><label name="pAddress"></label>
                                             <br/>
-                                            </i><b>Phone:</b><label class="numb"><%= parishioner[0].Phone %> </label>
+                                            </i><b>Phone:</b><label name="numb"><%= parishioner[0].Phone %> </label>
                                         <br />
 
-                                        <b>Email:</b><label class="mail"> <%= parishioner[0].Email%> </label>
+                                        <b>Email:</b><label name="mail"> <%= parishioner[0].Email%> </label>
                                     </p>
-                                        <div class="align-top"><a class= "save" href="#" hidden><div align="right"><button type="button" class="btn btn-default btn-sm">save</button></div></a></div>
+                                        <div class="align-top"><a class= "save" href="/updateuser" hidden><div align="right"><button type="button" class="btn btn-default btn-sm">save</button></div></a></div>
                                     <!-- Split button -->
 
 
@@ -168,7 +168,9 @@
       <span class="glyphicon glyphicon-pencil"></span> Edit
     </button></div></a></div>
                             <div class="panel-body">
-                                <%= parishioner[0].ministries %>
+                                    <% for(let i=0; i<parishioner[0].ministries.length; i++) { %>
+                                            <li><%= parishioner[0].ministries[i] %></li>
+                                            <% } %>
                                 <!-- <ul><a href="/ministry2">Altar Servers</a></ul>
                                 <ul><a href="/ministry">Adult Faith Formation Programs</a></ul>
                                 
@@ -185,8 +187,9 @@
       <span class="glyphicon glyphicon-pencil"></span> Edit
     </button></div></a></div>
                             <div class="panel-body">
-                                <%= parishioner[0].skills %>
-                                
+                                    <% for(let i=0; i<parishioner[0].skills.length; i++) { %>
+                                <li><%= parishioner[0].skills[i] %></li>
+                                <% } %>
                             </div>
 
                         </div>
