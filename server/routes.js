@@ -122,6 +122,9 @@ router.get('/newskill', function (req, res) {
 router.get('/adminprofile', function (req, res) {
   res.render('adminprofile');
 });
+router.get('/ministryEdit', function (req, res) {
+  res.render('ministryEdit');
+});
 
 
 
@@ -303,6 +306,14 @@ router.get("/ministry/:id", function (req, res) {
   ministrymodel.findOne({ _id: req.params.id }, function (err, result) {
     if (!err) {
       res.render("ministry", { ministry: result });
+    }
+  });
+});
+
+router.get("/ministryEdit/:id", function (req, res) {
+  ministrymodel.findOne({ _id: req.params.id }, function (err, result) {
+    if (!err) {
+      res.render("ministryEdit", { ministry: result });
     }
   });
 });

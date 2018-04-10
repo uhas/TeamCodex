@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ./partials/header.ejs %>
+</head>
+
+<body>
+  <% include ./partials/loggedtop.ejs %>
+  <% include ./partials/loggedminnav.ejs %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+  <script>
+  $(document).ready(function(){
+    $('a.edit').click(function () {
+    var text = $('.u1').text();
+    var input = $('<input id="attributename" type="text" value="' + text + '" />')
+    $('.u1').text('').append(input);
+    input.select();
+    $('.save').show();
+    })
+    $('a.edit').click(function () {
+    var text = $('.u2').text();
+    var input = $('<input id="attributename2" type="text" value="' + text + '" />')
+    $('.u2').text('').append(input);
+    input.select();
+    })
+    
+    $('a.save').click(function () {
+        $('.u1').html ( $('#attributename').val() );
+        $('.save').hide();
+    });
+    $('a.save').click(function () {
+        $('.u2').html ( $('#attributename2').val());
+        $('.save').hide();
+    });
+    $('a.edit2').click(function () {
+    var text = $('.up1').text();
+    var input = $('<input id="update1" type="text" value="' + text + '" />')
+    $('.up1').text('').append(input);
+    input.select();
+    $('.save').show();
+    })
+    $('a.edit2').click(function () {
+    var text = $('.up2').text();
+    var input = $('<input id="update2" type="text" value="' + text + '" />')
+    $('.up2').text('').append(input);
+    input.select();
+    })
+    
+    $('a.save').click(function () {
+        $('.up1').html ( $('#update1').val() );
+        $('.save').hide();
+    });
+    $('a.save').click(function () {
+        $('.up2').html ( $('#update2').val() );
+        $('.save').hide();
+    });
+    $('a.edit3').click(function () {
+    var text = $('.c1').text();
+    var input = $('<input id="contact1" type="text" value="' + text + '" />')
+    $('.c1').text('').append(input);
+    input.select();
+    $('.save').show();
+    })
+    $('a.edit3').click(function () {
+    var text = $('.c2').text();
+    var input = $('<input id="contact2" type="text" value="' + text + '" />')
+    $('.c2').text('').append(input);
+    input.select();
+    })
+    $('a.save').click(function () {
+        $('.c1').html ( $('#contact1').val() );
+        $('.save').hide();
+    });
+    $('a.save').click(function () {
+        $('.c2').html ( $('#contact2').val() );
+        $('.save').hide();
+    });
+});
+    </script>
+    </head>
+
+          
+            <div >
+                <div class="col-sm-9" id="con">
+
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        
+                        <div class="item active">
+                            <center> <img src="/slide1.jpg" alt="team 1" align="left" height="350" width="1000"> 
+                            <div class="carousel-caption">
+
+                                <h1><font color="white"><%= ministry.minisrtyname%></font></h1>
+                                </div>
+                                <center>
+                                <a href="#contentpara">
+                                    <h4>Scroll Down</h4>
+                                </a>
+                            </center>
+                              </div>
+                        </div>
+
+                    </div>
+                   
+                    <!-- <a href="/Ministry3">
+                        
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a href="/Ministry3">
+                             
+                        <span class="sr-only">Next</span> -->
+                      </a>
+                          </div>
+                          
+                      </div>
+                      </div>
+            <div class="col-sm-3" id="co">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" class="col-sm-3">Activities<a class= "edit" href="#"><div align="right"><button type="button" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span> Edit</div></a></div>
+                        <div class="panel-body">
+                            
+                            <ul>
+                                    <label class="u1">
+                                <li>Activity one has started </br>
+                                </li>
+                            </label>
+                            <label class="u2">
+                                <li>Activity has ended</br>
+                                </li>
+                            </label>
+                        
+                            </ul>
+                        
+                        </div>
+                        <div class="align-top"><a class= "save" href="#" hidden><div align="center"><button type="button" class="btn btn-default btn-sm">save</button></div></a></div>
+                    </div>
+                    <div class="panel panel-default">
+                    <div class="panel-heading" class="col-sm-3">Updates<a class= "edit2" href="#"><div align="right"><button type="button" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-pencil"></span> Edit</div></a></div>
+                    <div class="panel-body">
+                            <ol>
+                                <label class="up1">
+                                    <li>Event one has started </br>
+                                    </li>
+                                </label>
+                                <label class="up2">
+                                    <li>event 2 has ended</br>
+                                    </li>
+                                </label>
+                                    
+                            </ol>
+                                </div>
+                                <div class="align-top"><a class= "save" href="#" hidden><div align="center"><button type="button" class="btn btn-default btn-sm">save</button></div></a></div>
+                            </div>
+                        </div>  
+                    <div class="panel panel-default">
+                        <div class="panel-heading" class="col-sm-3">Contact<a class= "edit3" href="#"><div align="right"><button type="button" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span> Edit</div></a></div>
+                        <div class="panel-body">
+                            <ul>
+                                
+                                <label class="c1">
+                                <li>Jolaine </br>
+                                    </li>
+                                </label>
+                                <label class="c2">
+                                 <li>
+
+
+                                +1-660-7777-222</br> 
+                                </li>                         
+                            </label>
+                            </ul>
+                        </div>
+                        <div class="align-top"><a class= "save" href="#" hidden><div align="center"><button type="button" class="btn btn-default btn-sm">save</button></div></a></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+            <div id="content">
+                <div class="col-sm-9" class="container">
+                    <div class="jumbotron">
+                        <h1>Welcome to <%= ministry.minisrtyname%></h1>
+                        <p><%= ministry.mission%>
+                        </p>
+                    </div>
+                    <p align="justify" id="contentpara">
+                        <%= ministry.description%>
+                    </p>
+                </div>
+
+
+               
+                <style>
+                #co {
+                    position: relative;
+                    top: 10px;
+                    
+                }
+                 #con {
+                    position: relative;
+                    top: 10px;
+                    
+                }
+                #content {
+                    position: relative;
+                    top: -110px;
+                    margin-left: 60px;
+                    margin-right: 60px;
+                }
+                .title{
+                    margin-left: 90px;
+                    margin-right: 90px;
+                }
+                #myCarousel {
+                    margin-left: 80px;
+                    margin-right: 80px;
+                }
+            </style>
+</body>
+
+</html>

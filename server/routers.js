@@ -123,6 +123,9 @@ router.get('/adminprofile', function (req, res) {
   res.render('adminprofile');
 });
 
+router.get('/ministryEdit', function (req, res) {
+  res.render('ministryEdit');
+});
 
 
 router.get('/login', function (req, res) {
