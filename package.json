@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "alert-node": "^1.0.2",
-    "bcrypt": "^1.0.3",
+    "bcrypt": "^5.0.0",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "client-sessions": "^0.8.0",
